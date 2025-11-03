@@ -1,12 +1,12 @@
-# to-do-service
+# PawFinder Service
 
-REST API Sample for shared documentation practice
-
-For the REST API docs, see [The To-Do Service docs](https://uwc2-apidoc.github.io/to-do-service-sp25/).
+Connect animal shelters with potential adopters through a simple, flexible API that 
+enables developers to build pet adoption platforms with real-time availability data.
 
 **NOTE**:
 
-This code is experimental and is intended for instructional use only.
+REST API portfolio project for shared documentation practice.
+This code is experimental and is intended for educational purposes only.
 Use at your own risk. No warranty of serviceability is expressed or implied.
 
 ## Contributing documentation
