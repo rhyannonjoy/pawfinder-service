@@ -1,0 +1,136 @@
+{
+  "pets": [
+    {
+      "name": "Luna",
+      "species": "cat",
+      "breed": "Domestic Shorthair",
+      "age_months": 18,
+      "gender": "female",
+      "size": "small",
+      "temperament": "playful, affectionate",
+      "medical": {
+        "spayed_neutered": true,
+        "vaccinations": ["fvrcp", "rabies"]
+      },
+      "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
+      "shelter_id": 1,
+      "status": "available",
+      "intake_date": "2025-09-01",
+      "id": 1
+    },
+    {
+      "name": "Max",
+      "species": "dog",
+      "breed": "Golden Retriever Mix",
+      "age_months": 36,
+      "gender": "male",
+      "size": "large",
+      "temperament": "energetic, loyal",
+      "medical": {
+        "spayed_neutered": true,
+        "vaccinations": ["rabies", "dhpp", "leptospirosis"]
+      },
+      "description": "Max is an active dog who needs regular exercise and responds well to commands.",
+      "shelter_id": 2,
+      "status": "available",
+      "intake_date": "2025-07-20",
+      "id": 2
+    },
+    {
+      "name": "Whiskers",
+      "species": "cat",
+      "breed": "Siamese",
+      "age_months": 60,
+      "gender": "male",
+      "size": "medium",
+      "temperament": "vocal, intelligent",
+      "medical": {
+        "spayed_neutered": true,
+        "vaccinations": ["fvrcp", "rabies", "felv"]
+      },
+      "description": "Whiskers is a talkative senior Siamese who enjoys gentle attention.",
+      "shelter_id": 3,
+      "status": "available",
+      "intake_date": "2025-06-10",
+      "id": 3
+    },
+    {
+      "name": "Bella",
+      "species": "dog",
+      "breed": "Labrador Retriever",
+      "age_months": 12,
+      "gender": "female",
+      "size": "large",
+      "temperament": "friendly, energetic",
+      "medical": {
+        "spayed_neutered": false,
+        "vaccinations": ["rabies", "dhpp"]
+      },
+      "description": "Bella is a young lab who loves to play fetch and swim.",
+      "shelter_id": 4,
+      "status": "pending",
+      "intake_date": "2025-10-01",
+      "id": 4
+    },
+    {
+      "name": "Oliver",
+      "species": "cat",
+      "breed": "Maine Coon",
+      "age_months": 24,
+      "gender": "male",
+      "size": "large",
+      "temperament": "gentle, calm",
+      "medical": {
+        "spayed_neutered": true,
+        "vaccinations": ["fvrcp", "rabies"]
+      },
+      "description": "Oliver is a gentle giant who loves to be brushed and cuddled.",
+      "shelter_id": 1,
+      "status": "available",
+      "intake_date": "2025-08-15",
+      "id": 5
+    }
+  ],
+  "shelters": [
+    {
+      "name": "Dallas Animal Services",
+      "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
+      "phone": "+1-214-671-0249",
+      "email": "info@dallasanimalservices.org",
+      "hours": "Mon-Sat 11:00-18:00",
+      "available_pet_count": 22,
+      "adoption_fee_range": "75-200",
+      "id": 1
+    },
+    {
+      "name": "Fort Worth Animal Care & Control",
+      "address": "4900 Martin St, Fort Worth, TX 76119",
+      "phone": "+1-817-392-1234",
+      "email": "adopt@fortworthanimalcare.org",
+      "hours": "Mon-Fri 11:00-18:00, Sat-Sun 12:00-17:00",
+      "available_pet_count": 18,
+      "adoption_fee_range": "50-175",
+      "id": 2
+    },
+    {
+      "name": "Operation Kindness",
+      "address": "3201 Earhart Dr, Carrollton, TX 75006",
+      "phone": "+1-972-418-7297",
+      "email": "contact@operationkindness.org",
+      "hours": "Tue-Fri 12:00-19:00, Sat-Sun 11:00-18:00",
+      "available_pet_count": 15,
+      "adoption_fee_range": "100-250",
+      "id": 3
+    },
+    {
+      "name": "Arlington Animal Services",
+      "address": "1000 SE Green Oaks Blvd, Arlington, TX 76018",
+      "phone": "+1-817-459-5898",
+      "email": "hello@arlingtonanimalservices.org",
+      "hours": "Mon-Sat 10:00-17:00",
+      "available_pet_count": 20,
+      "adoption_fee_range": "60-180",
+      "id": 4
+    }
+  ]
+}
