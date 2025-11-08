@@ -1,13 +1,12 @@
 # PawFinder Service
 
-Connect animal shelters with potential adopters through a simple, flexible API that 
-enables developers to build pet adoption platforms with real-time availability data.
+Connect animal shelters with potential adopters through an API
+that enables developers to build pet adoption platforms with real-time
+availability data. Visit [PawFinder API documentation](/docs/overview.md) for more information.
 
 **NOTE**:
 
-REST API portfolio project for shared documentation practice.
-This code is experimental and is intended for educational purposes only.
-Use at your own risk. No warranty of serviceability is expressed or implied.
+PawFinder is a portfolio project for shared documentation practice and educational purposes only.
 
 ## Contributing documentation
 
