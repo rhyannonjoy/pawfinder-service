@@ -1,143 +1,83 @@
-# PawFinder API Overview
+# PawFinder API Documentation
 
-## Introduction
+Welcome to the API for animal adoption. Learn how to connect
+adoptable pets with potential families by integrating pet
+adoption data into apps, websites, and services.
 
-PawFinder is a REST API that connects potential pet adopters with animal shelters in the greater
-Dallas-Fort Worth area. This platform aggregates real-time data from hundreds of shelters,
-making it easier for people to find their perfect companion
-and for shelters to reach qualified adopters.
-This API enables developers to:
+## Overview
 
-- Search available pets by species, breed, age, location and temperament
-- Access detailed shelter profiles and contact information
-- Track adoption status updates in real time
-- Build custom adoption workflows and notification systems
+Get familiar with the fundamentals and core concepts
+in the [PawFinder API Overview](overview.md). Learn more about
+pets, shelters, adoption status, and search filters. Discover
+how different development audiences use the API.
 
-## Key concepts
+## Authentication guide
 
-### Pets
+Pick-up API keys, receive credentials, and keep up with rate limits
+in the [Authentication guide](authentication-guide.md).
 
-Each pet in the PawFinder system has a unique identifier and includes standardized information
-such as species, breed, age, size, temperament traits, medical history, and current location.
-Pets transition through adoption statuses tracked by the API.
+## Quick Start
 
-### Shelters
+Get up and running in the [Quick Start](quick-start.md).
+View a real JSON example with field-by-field annotations.
+Make a `GET` request to `/pets`.
 
-Organizations register as shelters to list pets for adoption. Each shelter maintains a profile with
-contact information, operating hours, adoption requirements, and geographic service areas.
-Shelters can update pet listings and adoption statuses through the API.
+## Tutorials
 
-### Adoption status
+Tour task-based guides for common workflows and use cases.
 
-Pets progress through defined status states:
+- [Search for Adoptable Pets](tutorials/search-adoptable-pets.md)  
+  Filter pets by species, breed, location, age, and other criteria.
 
-- `available`: Ready for adoption inquiries
-- `pending`: Adoption under review
-- `adopted`: Successfully placed with a family
-- `hold`: Temporarily unavailable
-- `transferred`: Moved to another shelter
+- [Get Shelter Information](tutorials/get-shelter-information.md)  
+  Retrieve shelter directory listings and availability data.
 
-### Search filters
+- [Track Adoption Status](tutorials/track-adoption-status.md)  
+  Follow pet availability and adoption status in real-time.
 
-PawFinder API supports multi-criteria searches including:
+- [Build a Location-Based Search](tutorials/location-based-search.md)  
+  Apply proximity filtering and distance calculations.
 
-- **Location-based**: Postal code, city, radius in miles
-- **Species and breed**: Birds, cats, dogs, rabbits, and other small animals
-- **Characteristics**: Age range, size, gender, special needs status
-- **Behavioral Traits**: activity level, "good with kids," "good with other pets"
-- **Shelter-specific**: Filter by specific shelter or shelter network
+- [Handle Pagination](tutorials/handle-pagination.md)  
+  Work efficiently with large result sets and pagination controls.
 
-## Use cases
+## API Reference
 
-### Develop for adopters
+Survey [the complete technical](api-reference.md) reference for
+all endpoint operations, parameters, and responses.
 
-- Build mobile apps that send push notifications when pets matching user preferences
-become available
-- Create location-aware web apps that display nearby adoptable pets
-- Develop pet comparison tools that help users understand different characteristics
+### `/pets`
 
-### Develop for shelters
+- [GET /pets/](api-reference/pets/get-pets.md)  
+  Search and filter available pets with different criteria.
 
-- Integrate PawFinder search into existing shelter websites to increase visibility
-- Automate adoption status updates across many listing platforms
-- Generate analytics reports on inquiry rates and adtoption trends
+- [GET /pets/{id}](api-reference/pets/get-pet-by-id.md)  
+  Retrieve detailed information for a specific pet.
 
-### Develop for communities
+- [GET /pets/{id}/status](api-reference/pets/get-pet-status.md)  
+  Check current adoption status and availability.
 
-- Build aggregator sites that compare pets across many shelters
-- Create matching algorithms that pair adopters with compatible pets
-- Develop volunteer coordination tools that connect shelter needs with community support
+### `/shelters`
 
-## Authentication
+- [GET /shelters](api-reference/shelters/get-shelters.md)  
+  List all participating shelters with filtering options.
 
-All API requests require authentication using API keys passed in the request header:
+- [GET /shelters/{id}](api-reference/shelters/get-shelter-by-id.md)  
+  Get detailed shelter information and contact details.
 
-```shell
-Authorization: Bearer YOUR_API_KEY
-```
+- [GET /shelters/{id}/pets](api-reference/shelters/get-shelter-pets.md)  
+  Retrieve all pets currently available at a specific shelter.
 
-**Get an API key**:
+## Integration
 
-1. Create a free account at developers.pawfinder.com
-2. Generate an API key from your dashboard
-3. Store your key securely, it grants access to your account
+Review supportive documentation for effective API integration.
+Examine complete schemas for Pet and Shelter objects in
+[Data Models](resources/data-models.md). Check out
+API updates, new features, and deprecation notices in the
+[Changelog](resources/changelog.md).
 
-**Security best practices**:
+## Get help
 
-- Never commit API keys to version control
-- Rotate keys every 90 days
-- Use environment variables to store keys in production
-- Use key-specific permissions for team access
-
-**Rate Limits**:
-
-API usage is subject to rate limits based on your account tier:
-
-| Tier | Requests per minute | Daily limit |
-|------|---------------------|-------------|
-| Free | 60 | 1,000 |
-| Standard | 300 | 10,000 |
-| Premium | 1,000 | 100,000 |
-| Enterprise | Custom | Custom |
-
-Every response includes rate limit headers:
-
-```shell
-X-RateLimit-Limit: 60
-X-RateLimit-Remaining: 45
-X-RateLimit-Reset: 1638360000
-```
-
-When you exceed your rate limit, the API returns the `429 Too Many Requests` HTTP status code.
-Try exponential backoff in your retry logic to handle rate limiting gracefully.
-
-## Base URL and versioning
-
-Make all API requests to:
-
-```shell
-https://api.pawfinder.com
-```
-
-**Versioning**
-
-The PawFinder API uses URI versioning.
-The current stable version is `v1`:
-
-```shell
-https://api.pawfinder.com/v1/pets
-https://api.pawfinder.com/v1/shelters
-```
-
-**Version support policy**:
-
-- PawFinder supports all major versions for 24 months after a new version releases
-- Deprecated endpoints include a `Sunset` header indicating end-of-life date
-- Breaking changes are only introduced in major version increments
-- Minor updates and bug fixes don't require version changes
-
-## Next steps
-
-- API Reference _*coming soon*_
-- Authentication Guide _*coming soon*_
-- Quickstart _*coming soon*_
+- API Status: Check real-time API status at [status.pawfinder.com](status.pawfinder.com)
+- Documentation Issues: Found an error or have a suggestion? [Report it here](https://github.com/rhyannonjoy/pawfinder-service/issues).
+- Technical Support: Need help integrating? [Contact support@pawfinder.com](support@pawfinder.com).
