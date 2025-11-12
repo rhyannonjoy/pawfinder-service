@@ -4,7 +4,7 @@ Connect animal shelters with potential adopters through a REST API
 that enables developers to build pet adoption platforms with real-time
 availability data. 
 
-🐶 Explore [PawFinder API documentation](/docs/overview.md) for more information.
+🐶 Explore [PawFinder API documentation](/docs/index.md) for more information.
 
 😺 Visit the [Contribution Guide](/docs/contribution-guide.md) to suggest improvements.
 
