@@ -73,3 +73,4 @@ become available.
 - [API Reference](api-reference.md)
 - [Authentication Guide](authentication-guide.md)
 - [Quick Start](quick-start.md)
+- [Tutorial Requirements](./tutorials/tutorial-requirements.md)
