@@ -22,7 +22,7 @@ Available resources include:
 
 **Future version support policy**:
 
-- PawFinder will support all major versions for 24 months after a new version releases.
-- Deprecated endpoints will include a `Sunset` header indicating end-of-life date.
-- Breaking changes will only be introduced in major version increments.
+- PawFinder supports all major versions for 24 months after a new version releases.
+- Deprecated endpoints include a `Sunset` header indicating end-of-life date.
+- PawFinder introduces breaking changes in major version increments.
 - Minor updates and bug fixes won't require version changes.
