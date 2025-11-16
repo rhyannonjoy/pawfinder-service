@@ -6,6 +6,6 @@ availability data.
 
 🐶 Explore [PawFinder API Documentation](https://rhyannonjoy.github.io/pawfinder-service/) for more information.
 
-😺 Visit the [Contribution Guide](/docs/contribution-guide.md) to suggest improvements.
+😺 Visit the [Contribution Guide](/docs/overview/contribution-guide.md) to suggest improvements.
 
 _PawFinder is a project for shared documentation practice and educational purposes only._
