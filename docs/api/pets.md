@@ -7,14 +7,13 @@ Visit the [shelters resource](shelters.md).
 Base endpoint:
 
 ```shell
-https://api.pawfinder.com/v1/pets
+{base_url}/pets
 ```
 
 ## Example `pet` resource
 
 ```json
 {
-  "id": 1,
   "name": "Luna",
   "species": "cat",
   "breed": "Domestic Shorthair",
@@ -26,43 +25,51 @@ https://api.pawfinder.com/v1/pets
     "spayed_neutered": true,
     "vaccinations": ["fvrcp", "rabies"]
   },
-  "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
+  "description": "Luna is a playful tabby who loves
+                 interactive toys and sunny windows.",
   "shelter_id": 1,
   "status": "available",
-  "intake_date": "2025-09-01"
+  "intake_date": "2025-09-01",
+  "id": 1,
 }
 ```
 
 | Property name | Type | Description |
 | ------------- | ----------- | ----------- |
 | `name` | string | Pet's name |
-| `species` | string | Animal type |
-| `breed` | string | Pet breed or breed mix |
-| `age_months` | number | Pet's age in months |
+| `species` | string | Pet's animal type |
+| `breed` | string | Pet's breed or breed mix |
+| `age_months` | integer | Pet's age in months |
 | `gender` | string | Pet's gender |
-| `size` | string | Pet size category |
-| `temperament` | string | Pet personality traits and behavioral characteristics |
-| `medical` | object | Pet medical information |
-| `medical.spayed_neutered` | boolean | Pet spay/neuter status |
+| `size` | string | Pet's size category |
+| `temperament` | string | Pet's personality traits, behavioral characteristics |
+| `medical` | object | Pet's medical information |
+| `medical.spayed_neutered` | boolean | Pet's spay/neuter status |
 | `medical.vaccinations` | array | List of pet's current vaccinations |
 | `description` | string | Pet's personality, needs, background |
-| `shelter_id` | number | ID of pet's current shelter|
+| `shelter_id` | integer | ID of pet's current shelter|
 | `status` | string | Pet's current adoption status |
 | `intake_date` | string | When the pet entered the shelter |
-| `id` | number | Pet's unique record ID |
+| `id` | integer | Pet's unique record ID |
 
-## Property specifications
+## Field requirements
 
-- `species` : `cat`, `dog`, `bird`, `rabbit`, `other`
-- `gender`: `male`, `female`, `unknown`
-- `size`: `small`, `medium`, `large`, `extra_large`
-- `status`: `available`, `pending`, `adopted`, `hold`, `transferred`
-- `intake_date`: International Standard 8601 format, such as "2025-09-01"
+- `species` : Must be `cat`, `dog`
+- `gender` : Must be `male`, `female`
+- `size` : Must be `small`, `medium`, `large`
+- `medical.spayed_neutered` : Must be a boolean
+- `medical.vaccinations` : Must be an array of strings
+- `status` : Must be `available`, `pending`, or `adopted`
+- `intake_date` : Must be in ISO 8601 format, such as "2025-09-01"
+- `shelter_id` : PawFinder auto-generates this field and users can't change it directly.
+- `id` : PawFinder auto-generates this field and users can't change it directly.
 
 ## Operations
 
-- [Get all pets](pets-get-all-pets.md) _coming soon_
-- [Get pet by ID](pets-get-pet-by-id.md) _coming soon_
-- [Create new pet](pets-create-pet.md) _coming soon_
-- [Update pet](pets-post-patch-pets.md) _coming soon_
-- [Delete pet](pets-delete-pets.md) _coming soon_
+- Get all pet profiles, _coming soon_
+- Get pet profiles by ID, _coming soon_
+- Get pet profiles by filters, _coming soon_
+- Create new pet profiles, _coming soon_
+- Delete pet profiles, _coming soon_
+- Partially update pet profiles, _coming soon_
+- Replace pet profiles, _coming soon_

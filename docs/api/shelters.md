@@ -1,13 +1,13 @@
 # `shelters` resource
 
-The `shelters` resource provides information about animal shelters and rescue
-organizations in the PawFinder network. Shelters must register in the service
+Provides information about animal shelters and rescue organizations
+in the PawFinder network. Shelters must register in the service
 before listing pets for adoption. Visit the [pets resource](pets.md).
 
 Base endpoint:
 
 ```shell
-https://api.pawfinder.com/v1/shelters
+{base_url}/shelters
 ```
 
 ## Example shelter resource
@@ -27,26 +27,28 @@ https://api.pawfinder.com/v1/shelters
 
 | Property name | Type | Description |
 | ------------- | ----------- | ----------- |
-| `name` | string | Shelter or rescue organization official name |
-| `address` | string | Shelter full street address |
-| `phone` | string | Shelter phone number |
-| `email` | string | Shelter email address |
-| `hours` | string | Shelter operating hours |
-| `available_pet_count` | number | Number of shelter's available pets |
-| `adoption_fee_range` | string | Typical adoption fee range |
+| `name` | string | Shelter's official name |
+| `address` | string | Shelter's address information |
+| `phone` | string | Shelter's phone number |
+| `email` | string | Shelter's email address |
+| `hours` | string | Shelter's operating hours |
+| `available_pet_count` | integer | Number of shelter's available pets |
+| `adoption_fee_range` | string | Shelter's typical adoption fee range |
 | `id` | number | Shelter's unique record ID |
 
-## Property specifications
+## Field requirements
 
-- `available_pet_count`: PawFinder automatically calculates this field and
-users can't change it directly.
-- `adoption_fee_range`: In United States Dollar, format "min - max"
-- `id`: PawFinder auto-generates this field and users can't change it directly.
+- `phone` : Must be in  E.164 format, such as +1-XXX-XXX-XXXX
+- `adoption_fee_range` : Must be in USD, format "min - max"
+- `id` : PawFinder auto-generates this field and users can't change it directly.
 
 ## Operations
 
-- [Get all shelters](shelters-get-all-shelters.md) _coming soon_
-- [Get shelter by ID](shelters-get-shelter-by-id.md) _coming soon_
-- [Create new shelter](shelters-create-shelter.md) _coming soon_
-- [Update shelter](shelters-update-shelter.md) _coming soon_
-- [Delete shelter](shelters-delete-shelter.md) _coming soon_
+- Get all shelter profiles, _coming soon_
+- Get shelter profiles by ID, _coming soon_
+- Get shelter profiles by filters, _coming soon_
+- Get pets from a specific shelter, _coming soon_
+- Create new shelter profiles, _coming soon_
+- Delete shelter profiles, _coming soon_
+- Partially update shelter profiles, _coming soon_
+- Replace shelter profiles, _coming soon_
