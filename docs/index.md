@@ -7,18 +7,18 @@ adoption data into apps, websites, and services.
 ## Overview
 
 Get familiar with the fundamentals and core concepts
-in the [PawFinder API Overview](overview.md). Learn more about
-pets, shelters, adoption status, and search filters. Discover
+in the [PawFinder API Overview](./overview/overview.md). Learn more
+about pets, shelters, adoption status, and search filters. Discover
 how different development audiences use the API.
 
-## Authentication guide
+## Developer environment setup
 
-Pick-up API keys, receive credentials, and keep up with rate limits
-in the [Authentication guide](authentication-guide.md).
+Install all [tutorial requirements](./overview/tutorial-requirements.md)
+before proceeding to the tutorials.
 
-## Quick Start
+## Quick start
 
-Get up and running in the [Quick Start](quick-start.md).
+Get up and running in the [Quick Start](./tutorials/quick-start.md), _coming soon_. \
 View a real JSON example with field-by-field annotations.
 Make a `GET` request to `/pets`.
 
@@ -26,58 +26,56 @@ Make a `GET` request to `/pets`.
 
 Tour task-based guides for common workflows and use cases.
 
-- [Search for Adoptable Pets](tutorials/search-adoptable-pets.md)  
+- [Search for Adoptable Pets](tutorials/search-adoptable-pets.md), _coming soon_ \
   Filter pets by species, breed, location, age, and other criteria.
 
-- [Get Shelter Information](tutorials/get-shelter-information.md)  
+- [Get Shelter Information](tutorials/get-shelter-information.md,), _coming soon_ \
   Retrieve shelter directory listings and availability data.
 
-- [Track Adoption Status](tutorials/track-adoption-status.md)  
+- [Track Adoption Status](tutorials/track-adoption-status.md), _coming soon_ \
   Follow pet availability and adoption status in real-time.
 
-- [Build a Location-Based Search](tutorials/location-based-search.md)  
+- [Build a Location-Based Search](tutorials/location-based-search.md), _coming soon_ \
   Apply proximity filtering and distance calculations.
 
-- [Handle Pagination](tutorials/handle-pagination.md)  
+- [Handle Pagination](tutorials/handle-pagination.md), _coming soon_ \
   Work efficiently with large result sets and pagination controls.
 
 ## API Reference
 
-Survey [the complete technical](api-reference.md) reference for
+Survey [the complete technical](./api-references/api-reference.md) reference for
 all endpoint operations, parameters, and responses.
 
 ### `/pets`
 
-- [GET /pets/](api-reference/pets/get-pets.md)  
+- [GET /pets/](./api-references/get-all-pets.md) \
   Search and filter available pets with different criteria.
 
-- [GET /pets/{id}](api-reference/pets/get-pet-by-id.md)  
+- [GET /pets/{id}](./api-references/get-pets-by-id.md) \
   Retrieve detailed information for a specific pet.
 
-- [GET /pets/{id}/status](api-reference/pets/get-pet-status.md)  
+- [GET /pets/{id}/status](./api-references/get-pets-with-filters.md) \
   Check current adoption status and availability.
 
 ### `/shelters`
 
-- [GET /shelters](api-reference/shelters/get-shelters.md)  
+- [GET /shelters](./api-references/get-all-shelters.md) \
   List all participating shelters with filtering options.
 
-- [GET /shelters/{id}](api-reference/shelters/get-shelter-by-id.md)  
+- [GET /shelters/{id}](./api-references/get-shelters-by-id.md) \
   Get detailed shelter information and contact details.
 
-- [GET /shelters/{id}/pets](api-reference/shelters/get-shelter-pets.md)  
+- [GET /shelters/{id}/pets](./api-references/get-pets-from-shelter.md) \
   Retrieve all pets currently available at a specific shelter.
 
-## Integration
+## Authentication guide
 
-Review supportive documentation for effective API integration.
-Examine complete schemas for Pet and Shelter objects in
-[Data Models](resources/data-models.md). Check out
-API updates, new features, and deprecation notices in the
-[Changelog](resources/changelog.md).
+Pick-up API keys, receive credentials, and keep up with rate limits
+in the [Authentication guide](./overview/authentication-guide.md).
 
 ## Get help
 
-- API Status: Check real-time API status at [status.pawfinder.com](status.pawfinder.com)
-- Documentation Issues: Found an error or have a suggestion? [Report it here](https://github.com/rhyannonjoy/pawfinder-service/issues).
-- Technical Support: Need help integrating? [Contact support@pawfinder.com](support@pawfinder.com).
+- Check real-time API status at [status.pawfinder.com](status.pawfinder.com)
+- Found an error or have a suggestion?
+[Report it here](https://github.com/rhyannonjoy/pawfinder-service/issues).
+- Need help integrating? [Contact support@pawfinder.com](support@pawfinder.com)

@@ -70,7 +70,7 @@ become available.
 
 ## Next steps
 
-- [API Reference](api-reference.md)
+- [API Reference](../api-references/api-reference.md)
 - [Authentication Guide](authentication-guide.md)
-- [Quick Start](quick-start.md)
-- [Tutorial Requirements](./tutorials/tutorial-requirements.md)
+- [Quick Start](../tutorials/quick-start.md)
+- [Tutorial Requirements](tutorial-requirements.md)
