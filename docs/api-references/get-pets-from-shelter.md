@@ -4,7 +4,7 @@ This operation retrieves all pets associated with a specific shelter.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /shelters/{id}/pets
 ```
 
@@ -30,7 +30,7 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
+```bash
 curl -X GET http://localhost:3000/shelters/1/pets
 ```
 
