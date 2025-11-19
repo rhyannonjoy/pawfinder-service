@@ -39,7 +39,7 @@ This operation doesn't require a request body.
 ## cURL request
 
 ```bash
-curl -X GET http://localhost:3000/pets?species=cat&status=available
+curl -X GET {base_url}/pets?species=cat&status=available
 ```
 
 ## Example responses

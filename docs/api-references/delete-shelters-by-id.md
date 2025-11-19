@@ -27,7 +27,7 @@ This operation doesn't require a request body.
 ## cURL request
 
 ```bash
-curl -X DELETE http://localhost:3000/shelters/5 \
+curl -X DELETE {base_url}/shelters/5 \
   -H "Authorization: Bearer pawfinder-secret-2025"
 ```
 

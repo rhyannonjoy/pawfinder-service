@@ -62,7 +62,7 @@ ignores `id` fields in `PUT` request bodies or returns a `400` error.
 ## cURL request
 
 ```bash
-curl -X PUT http://localhost:3000/pets/4 \
+curl -X PUT {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 

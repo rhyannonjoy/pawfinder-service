@@ -1,7 +1,8 @@
 # Contribution guide
 
 Documentation improvements are always welcome.
-Create [an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) or make a [pull request](https://github.com/rhyannonjoy/pawfinder-service/pulls).
+Create [an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) and or
+make a [pull request](https://github.com/rhyannonjoy/pawfinder-service/pulls).
 
 ## Pull request tips
 
