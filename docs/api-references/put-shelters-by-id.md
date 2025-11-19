@@ -49,7 +49,7 @@ ignores `id` fields in `PUT` request bodies or returns a `400` error.
 ## cURL request
 
 ```bash
-curl -X PUT http://localhost:3000/shelters/1 \
+curl -X PUT {base_url}/shelters/1 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 

@@ -31,7 +31,7 @@ This operation doesn't require a request body.
 ## cURL request
 
 ```bash
-curl -X GET http://localhost:3000/shelters/1/pets
+curl -X GET {base_url}/shelters/1/pets
 ```
 
 ## Example responses

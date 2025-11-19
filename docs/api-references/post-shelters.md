@@ -42,7 +42,7 @@ ignores `id` fields in `POST` request bodies or returns a `400` error.
 ## cURL request
 
 ```bash
-curl -X POST http://localhost:3000/shelters \
+curl -X POST {base_url}/shelters \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 

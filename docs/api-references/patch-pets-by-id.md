@@ -58,7 +58,7 @@ All fields required.
 ## cURL request
 
 ```bash
-curl -X PATCH http://localhost:3000/pets/4 \
+curl -X PATCH {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 

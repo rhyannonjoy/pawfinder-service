@@ -27,7 +27,7 @@ This operation doesn't require a request body.
 ## cURL request
 
 ```bash
-curl -X GET http://localhost:3000/pets/1
+curl -X GET {base_url}/pets/1
 ```
 
 ## Example responses
