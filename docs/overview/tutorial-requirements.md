@@ -11,7 +11,8 @@ separate browser tabs before installing any software.
 <!-- vale Google.Acronyms = NO -->
 
 - A [GitHub account](https://github.com)
-- A development system running a current version or a long-term support, also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
+- A development system running a current version or a long-term support,
+also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
 - The following software:
     - [Git, command line](https://docs.github.com/en/get-started/quickstart/set-up-git)
     - [GitHub Desktop](https://desktop.github.com) _optional, but recommended_
@@ -33,9 +34,11 @@ separate browser tabs before installing any software.
 
 ## Verify the development setup
 
-1. Create and checkout a test branch of the fork of the PawFinder Service repository. `GitHub repository workspace` is the directory that contains the fork of the `pawfinder-service` repository.
+1. Create and checkout a test branch of the fork of the PawFinder Service repository.
+`GitHub repository workspace` is the directory that contains the fork of
+the `pawfinder-service` repository.
 
-    ```shell
+    ```bash
     cd <GitHub repository workspace>
     ls
     # (see the pawfinder-service directory in the list)
@@ -50,7 +53,7 @@ separate browser tabs before installing any software.
 
 2. Make a test call to the service:
 
-    ```shell
+    ```bash
     curl http://localhost:3000/pets
     ```
 
@@ -100,7 +103,7 @@ separate browser tabs before installing any software.
     ```
 
 When encountering errors in any procedure steps, investigate,
-and correct the error before proceeding. Common situations
+and correct the error before moving forward. Common situations
 that cause errors:
 
 - Mistyped commands

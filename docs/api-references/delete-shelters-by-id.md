@@ -4,7 +4,7 @@ This operation removes a shelter record from the PawFinder database.
 
 ## Endpoint structure
 
-```shell
+```bash
 DELETE /shelters/{id}
 ```
 
@@ -26,7 +26,7 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
+```bash
 curl -X DELETE http://localhost:3000/shelters/5 \
   -H "Authorization: Bearer pawfinder-secret-2025"
 ```

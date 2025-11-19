@@ -11,7 +11,7 @@ request, fields not present in the request remain unchanged.
 
 ## Endpoint structure
 
-```shell
+```bash
 PATCH /pets/{id}
 ```
 
@@ -57,7 +57,7 @@ All fields required.
 
 ## cURL request
 
-```shell
+```bash
 curl -X PATCH http://localhost:3000/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \

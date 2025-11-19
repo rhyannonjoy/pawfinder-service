@@ -4,7 +4,7 @@ This operation retrieves all shelter profiles in the PawFinder system.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /shelters
 ```
 
@@ -24,7 +24,7 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
+```bash
 curl -X GET http://localhost:3000/shelters
 ```
 

@@ -4,7 +4,7 @@ This operation retrieves pets profiles that match the specified filter criteria.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /pets?{query_parameters}
 ```
 
@@ -38,7 +38,7 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
+```bash
 curl -X GET http://localhost:3000/pets?species=cat&status=available
 ```
 

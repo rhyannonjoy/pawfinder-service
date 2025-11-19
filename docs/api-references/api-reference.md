@@ -4,7 +4,7 @@
 - All requests and responses are in the JSON data format.
 - Recommended base URL:
 
-```shell
+```bash
 http://localhost:3000
 ```
 

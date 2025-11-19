@@ -4,7 +4,7 @@ This operation retrieves a pet's profile by their ID.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /pets/{id}
 ```
 
@@ -26,7 +26,7 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
+```bash
 curl -X GET http://localhost:3000/pets/1
 ```
 

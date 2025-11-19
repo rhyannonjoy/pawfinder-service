@@ -4,7 +4,7 @@ This operation creates a new pet profile in the PawFinder system.
 
 ## Endpoint structure
 
-```shell
+```bash
 POST /pets
 ```
 
@@ -54,7 +54,7 @@ PawFinder auto-generates pet unique identifiers, `id`. The system ignores
 
 ## cURL request
 
-```shell
+```bash
 curl -X POST http://localhost:3000/pets \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
