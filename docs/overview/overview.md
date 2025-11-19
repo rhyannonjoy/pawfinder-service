@@ -23,29 +23,25 @@ and current location. Pets transition through adoption statuses tracked by the A
 ### Shelters
 
 Organizations register as shelters to list pets for adoption. Each shelter maintains
-a profile with contact information, operating hours, adoption requirements, and
-geographic service areas. Shelters can update pet listings and
-adoption statuses through the API.
+a profile with contact information, operating hours, and adoption details. Shelters
+can update pet listings and adoption statuses through the API.
 
 ### Adoption status
 
 Pets progress through defined status states:
 
-- `available`: Ready for adoption inquiries
-- `pending`: Adoption under review
-- `adopted`: Successfully placed with a family
-- `hold`: Temporarily unavailable
-- `transferred`: Moved to another shelter
+- `available`: ready for adoption inquiries
+- `pending`: adoption applications under review
+- `adopted`: successfully placed with a family
 
 ### Search filters
 
 PawFinder API supports multi-criteria searches including:
 
-- **Location-based**: Postal code, city, radius in miles
-- **Species and breed**: Birds, cats, dogs, rabbits, and other small animals
-- **Characteristics**: Age range, size, gender, special needs status
+- **Species and breed**: cats and dogs only
+- **Characteristics**: age range, gender, size, medical information
 - **Behavioral Traits**: activity level, "good with kids," "good with other pets"
-- **Shelter-specific**: Filter by specific shelter or shelter network
+- **Shelter-specific**: filter by specific shelter
 
 ## Development use cases
 
@@ -66,7 +62,8 @@ become available.
 
 - Build aggregator sites that compare pets across many shelters.
 - Create matching algorithms that pair adopters with compatible pets.
-- Develop volunteer coordination tools that connect shelter needs with community support.
+- Develop volunteer coordination tools that connect shelter needs with
+community support.
 
 ## Next steps
 
