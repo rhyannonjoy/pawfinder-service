@@ -1,16 +1,30 @@
-# Get all pet profiles
+# Get pet profiles with filters
 
-This operation retrieves all pets in the PawFinder system.
+This operation retrieves pets profiles that match the specified filter criteria.
 
 ## Endpoint structure
 
 ```bash
-GET /pets
+GET /pets?{query_parameters}
 ```
 
 ## Path parameters
 
-This operation doesn't require parameters.
+This operation doesn't require path parameters.
+
+## Query parameters
+
+This operation accepts the following optional query parameters
+to filter results:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `species` | string | Filter pets by species, `cat`|
+| `status` | string | Filter pets by adoption status, `available`|
+| `breed` | string | Filter pets by breed |
+| `size` | string | Filter pets by size category, `small`|
+| `gender` | string | Filter pets by gender |
+| `shelter_id` | integer | Filter pets by shelter ID |
 
 ## Request headers
 
@@ -25,12 +39,12 @@ This operation doesn't require a request body.
 ## cURL request
 
 ```bash
-curl -X GET {base_url}/pets
+curl -X GET {base_url}/pets?species=cat&status=available
 ```
 
 ## Example responses
 
-**Response**: `200 OK`
+**Response**: `200 OK` - with a match
 
 ```json
 [
@@ -46,43 +60,31 @@ curl -X GET {base_url}/pets
       "spayed_neutered": true,
       "vaccinations": ["fvrcp", "rabies"]
     },
-    "description": "Luna is a playful tabby who loves interactive 
+    "description": "Luna is a playful tabby who loves interactive
                    toys and sunny windows.",
     "shelter_id": 1,
     "status": "available",
     "intake_date": "2025-09-01",
     "id": 1
-  },
-  {
-    "name": "Max",
-    "species": "dog",
-    "breed": "Golden Retriever Mix",
-    "age_months": 36,
-    "gender": "male",
-    "size": "large",
-    "temperament": "energetic, loyal",
-    "medical": {
-      "spayed_neutered": true,
-      "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-    },
-    "description": "Max is an active dog who needs regular exercise 
-                   and responds well to commands.",
-    "shelter_id": 2,
-    "status": "available",
-    "intake_date": "2025-07-20",
-    "id": 2
   }
 ]
 ```
 
-**Response**: `429 Too Many Requests` - reaching rate limit
+**Response** : `200 OK` - without any matches
 
 ```json
 {
-  "error": "Too Many Requests",
-  "message": "Rate limit exceeded. Try again in 60 seconds",
-  "status": 429,
-  "retry_after": 60
+  []
+}
+```
+
+**Response** : `400 Bad Request` - malformed query parameters
+
+```json
+{
+  "error": "Bad Request",
+  "message": "Invalid query parameter format",
+  "status": 400
 }
 ```
 
@@ -104,7 +106,8 @@ curl -X GET {base_url}/pets
 
 ## Related topics
 
-- `/pets` resource _coming soon_
+- [`/pets` resource](pets.md)
+- [Get all pet profiles](get-all-pets.md)
 - [Add a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)
 - [Replace an existing pet profile](put-pets-by-id.md)

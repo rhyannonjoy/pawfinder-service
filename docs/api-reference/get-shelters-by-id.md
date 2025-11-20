@@ -80,7 +80,7 @@ curl -X GET {base_url}/shelters/1
 
 ## Related topics
 
-- `/shelters` resource _coming soon_
+- [`/shelters` resource](shelters.md)
 - [Add a new shelter profile](post-shelters.md)
 - [Delete a shelter profile](delete-shelters-by-id.md)
 - [Replace an existing shelter profile](put-shelters-by-id.md)

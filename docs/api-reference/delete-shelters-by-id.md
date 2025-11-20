@@ -60,7 +60,7 @@ curl -X DELETE {base_url}/shelters/5 \
 
 ## Related topics
 
-- `/shelters` resource _coming soon_
+- [`/shelters` resource](shelters.md)
 - [Get all shelter profiles](get-all-shelters.md)
 - [Add a new shelter profile](post-shelters.md)
 - [Replace an existing shelter profile](put-shelters-by-id.md)

@@ -369,6 +369,6 @@ more specific filters to reduce the dataset size.
 
 ## Next steps
 
-- Explore the [Shelter Endpoint](../api-references/shelters.md) to get information about specific shelters.
-- Check the [Pet Details Endpoint](../api-references/pets.md) to fetch comprehensive information about individual pets.
+- Explore the [Shelter Endpoint](../api-reference/shelters.md) to get information about specific shelters.
+- Check the [Pet Details Endpoint](../api-reference/pets.md) to fetch comprehensive information about individual pets.
 - Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest improvements or report issues.

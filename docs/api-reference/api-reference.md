@@ -1,7 +1,7 @@
 ---
 layout: page
 title: API Reference
-permalink: /docs/api-references/
+permalink: /docs/api-reference/
 ---
 
 # API reference

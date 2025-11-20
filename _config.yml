@@ -34,7 +34,7 @@ aux_links_new_tab: true
 nav_items:
   - { title: "Home", url: "/" }
   - { title: "Overview", url: "/docs/overview/"}
-  - { title: "API Reference", url: "/docs/api-references/"}
+  - { title: "API Reference", url: "/docs/api-reference/"}
   - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements"}
   - { title: "Quick Start", url: "/docs/tutorials/quick-start/"}
   - { title: "GitHub", url: "https://github.com/rhyannonjoy/pawfinder-service", external: true }

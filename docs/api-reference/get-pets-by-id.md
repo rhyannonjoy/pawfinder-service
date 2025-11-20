@@ -94,7 +94,7 @@ curl -X GET {base_url}/pets/1
 
 ## Related topics
 
-- `/pets` resource _coming soon_
+- [`/pets` resource](pets.md)
 - [Add a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)
 - [Partially update a pet profile](patch-pets-by-id.md)
