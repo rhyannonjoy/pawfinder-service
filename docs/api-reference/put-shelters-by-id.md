@@ -1,11 +1,18 @@
-# Add a new shelter profile
+# Replace a shelter profile
 
-This operation creates a new shelter profile in the PawFinder system.
+This operation edits all fields of an existing shelter record in the PawFinder System.
+
+## PUT vs PATCH
+
+`PUT` replaces an entire profile and `PATCH` only updates
+the fields provided in the request body. In a `PUT` request,
+missing fields set to `null` or default values. In a `PATCH`
+request, fields not present in the request remain unchanged.
 
 ## Endpoint structure
 
 ```bash
-POST /shelters
+PUT /shelters/{id}
 ```
 
 ## Request headers
@@ -37,39 +44,38 @@ All fields required.
 ## ID generation
 
 PawFinder auto-generates shelter unique identifiers, `id`. The system
-ignores `id` fields in `POST` request bodies or returns a `400` error.
+ignores `id` fields in `PUT` request bodies or returns a `400` error.
 
 ## cURL request
 
 ```bash
-curl -X POST {base_url}/shelters \
+curl -X PUT {base_url}/shelters/1 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
-        "name": "Plano Animal Services", 
-        "address": "4028 W Plano Pkwy, Plano, TX 75093", 
-        "phone": "+1-972-769-4360", 
-        "email": "contact@planoanimalservices.org", 
-        "hours": "Mon-Fri 10:00-17:00, Sat 10:00-16:00", 
-        "available_pet_count": 12, 
-        "adoption_fee_range": "80-150" 
-} 
+         "name": "Dallas Animal Services", 
+         "address": "1818 N Westmoreland Rd, Dallas, TX 75212", 
+         "phone": "+1-214-671-0249", 
+         "email": "info@dallasanimalservices.org", 
+         "hours": "Mon-Sat 11:00-19:00", 
+         "available_pet_count": 25, 
+         "adoption_fee_range": "75-200" 
+}   
 ```
 
 ## Example responses
 
-**Response**: `201 Created`
+**Response**: `200 OK`
 
 ```json
 {
-   "name": "Plano Animal Services",
-   "address": "4028 W Plano Pkwy, Plano, TX 75093",
-   "phone": "+1-972-769-4360",
-   "email": "contact@planoanimalservices.org",
-   "hours": "Mon-Fri 10:00-17:00, Sat 10:00-16:00",
-   "available_pet_count": 12,
-   "adoption_fee_range": "80-150",
-   "id": 5
+  "name": "Dallas Animal Services",
+  "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
+  "phone": "+1-214-671-0249",
+  "email": "info@dallasanimalservices.org",
+  "hours": "Mon-Sat 11:00-19:00",
+  "available_pet_count": 25,
+  "adoption_fee_range": "75-200"
 }
 ```
 
@@ -95,10 +101,20 @@ curl -X POST {base_url}/shelters \
 }
 ```
 
+**Response**: `404 Not Found` - no matching `id`
+
+```json
+{
+  "error": "Not Found",
+  "message": "Shelter with ID 999 not found",
+  "status": 404 
+}
+```
+
 ## Related topics
 
-- `/shelters` resource _coming soon_
+- [`/shelters` resource](shelters.md)
 - [Get all shelter profiles](get-all-shelters.md)
+- [Add a new shelter profile](post-shelters.md)
 - [Delete a shelter profile](delete-shelters-by-id.md)
-- [Replace an existing shelter profile](put-shelters-by-id.md)
 - [Partially update a shelter profile](patch-shelters-by-id.md)

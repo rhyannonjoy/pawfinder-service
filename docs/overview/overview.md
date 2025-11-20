@@ -73,7 +73,7 @@ community support.
 
 ## Next steps
 
-- [API Reference](../api-references/api-reference.md)
+- [API Reference](../api-reference/api-reference.md)
 - [Authentication Guide](authentication-guide.md)
 - [Quick Start](../tutorials/quick-start.md)
 - [Tutorial Requirements](tutorial-requirements.md)

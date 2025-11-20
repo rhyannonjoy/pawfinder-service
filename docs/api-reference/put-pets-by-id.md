@@ -1,6 +1,6 @@
-# Partially update a pet profile
+# Replace a pet profile
 
-This operation edits specific fields of an existing pet record in the PawFinder System.
+This operation edits all fields of an existing pet record in the PawFinder System.
 
 ## PUT vs PATCH
 
@@ -12,7 +12,7 @@ request, fields not present in the request remain unchanged.
 ## Endpoint structure
 
 ```bash
-PATCH /pets/{id}
+PUT /pets/{id}
 ```
 
 ## Request headers
@@ -41,7 +41,6 @@ All fields required.
 | `shelter_id` | number | ID of the pet's current shelter |
 | `status` | string | Pet's adoption status |
 | `intake_date` | string | Date the pet entered the shelter in Year-Month-Day format |
-| `id` | integer | Pet's unique record ID |
 
 ## Field requirements
 
@@ -55,10 +54,15 @@ All fields required.
 | `status` | Must be `available`, `pending`, or `adopted` |
 | `intake_date` | Must be valid ISO 8601 date in YYYY-MM-DD format |
 
+## ID generation
+
+PawFinder auto-generates pet unique identifiers, `id`. The system
+ignores `id` fields in `PUT` request bodies or returns a `400` error.
+
 ## cURL request
 
 ```bash
-curl -X PATCH {base_url}/pets/4 \
+curl -X PUT {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -77,8 +81,7 @@ curl -X PATCH {base_url}/pets/4 \
                       to play fetch and swim.", 
        "shelter_id": 4, 
        "status": "adopted", 
-       "intake_date": "2025-10-01",
-       "id" : 4 
+       "intake_date": "2025-10-01" 
 } 
 ```
 
@@ -87,7 +90,7 @@ curl -X PATCH {base_url}/pets/4 \
 **Response**: `200 OK`
 
 ```json
-{
+{ 
   "name": "Bella",
   "species": "dog",
   "breed": "Labrador Retriever",
@@ -98,17 +101,37 @@ curl -X PATCH {base_url}/pets/4 \
   "medical": {
     "spayed_neutered": true,
     "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-  },
+  }, 
   "description": "Bella is a young lab who loves
                  to play fetch and swim.",
   "shelter_id": 4,
   "status": "adopted",
-  "intake_date": "2025-10-01",
-  "id" : 4
+  "intake_date": "2025-10-01"
 }
 ```
 
-**Response**: `404 Not Found`- no matching `id`
+**Response**: `400 Bad Request` - missing required field values
+
+```json
+{ 
+  "error": "Bad Request",
+  "message": "Missing required field: name",
+  "status": 400
+} 
+```
+
+**Response**: `400 Bad Request` - invalid values for fields
+`species`, `gender`, `size`, or `status`
+
+```json
+{
+  "error": "Bad Request",
+  "message": "Invalid value for 'species'. Must be one of: cat, dog",
+  "status": 400
+}
+```
+
+**Response**: `404 Not Found`  - no matching `id`
 
 ```json
 {
@@ -120,8 +143,8 @@ curl -X PATCH {base_url}/pets/4 \
 
 ## Related topics
 
-- `/pets` resource _coming soon_
+- [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)
 - [Add a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)
-- [Replace an existing pet profile](put-pets-by-id.md)
+- [Partially update a pet profile](patch-pets-by-id.md)

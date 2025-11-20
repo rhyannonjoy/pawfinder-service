@@ -48,29 +48,29 @@ Tour task-based guides for common workflows and use cases.
 
 ## API Reference
 
-Survey [the complete technical](./docs/api-references/api-reference.md) reference
+Survey [the complete technical](./docs/api-reference/api-reference.md) reference
 for all endpoint operations, parameters, and responses.
 
 ### `/pets`
 
-- [GET /pets/](./docs/api-references/get-all-pets.md) \
+- [GET /pets/](./docs/api-reference/get-all-pets.md) \
   Search and filter available pets with different criteria.
 
-- [GET /pets/{id}](./docs/api-references/get-pets-by-id.md) \
+- [GET /pets/{id}](./docs/api-reference/get-pets-by-id.md) \
   Retrieve detailed information for a specific pet.
 
-- [GET /pets/{id}/status](./docs/api-references/get-pets-with-filters.md) \
+- [GET /pets/{id}/status](./docs/api-reference/get-pets-with-filters.md) \
   Check current adoption status and availability.
 
 ### `/shelters`
 
-- [GET /shelters](./docs/api-references/get-all-shelters.md) \
+- [GET /shelters](./docs/api-reference/get-all-shelters.md) \
   List all participating shelters with filtering options.
 
-- [GET /shelters/{id}](./docs/api-references/get-shelters-by-id.md) \
+- [GET /shelters/{id}](./docs/api-reference/get-shelters-by-id.md) \
   Get detailed shelter information and contact details.
 
-- [GET /shelters/{id}/pets](./docs/api-references/get-pets-from-shelter.md) \
+- [GET /shelters/{id}/pets](./docs/api-reference/get-pets-from-shelter.md) \
   Retrieve all pets currently available at a specific shelter.
 
 ## Authentication guide

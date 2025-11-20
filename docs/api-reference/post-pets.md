@@ -1,18 +1,11 @@
-# Replace a pet profile
+# Add a new pet profile
 
-This operation edits all fields of an existing pet record in the PawFinder System.
-
-## PUT vs PATCH
-
-`PUT` replaces an entire profile and `PATCH` only updates
-the fields provided in the request body. In a `PUT` request,
-missing fields set to `null` or default values. In a `PATCH`
-request, fields not present in the request remain unchanged.
+This operation creates a new pet profile in the PawFinder system.
 
 ## Endpoint structure
 
 ```bash
-PUT /pets/{id}
+POST /pets
 ```
 
 ## Request headers
@@ -56,68 +49,68 @@ All fields required.
 
 ## ID generation
 
-PawFinder auto-generates pet unique identifiers, `id`. The system
-ignores `id` fields in `PUT` request bodies or returns a `400` error.
+PawFinder auto-generates pet unique identifiers, `id`. The system ignores
+`id` fields in `POST` request bodies or returns a `400` error.
 
 ## cURL request
 
 ```bash
-curl -X PUT {base_url}/pets/4 \
+curl -X POST {base_url}/pets \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
-        "name": "Bella", 
-        "species": "dog", 
-        "breed": "Labrador Retriever", 
-        "age_months": 12, 
-        "gender": "female", 
-        "size": "large", 
-        "temperament": "friendly, energetic", 
-        "medical": { 
-          "spayed_neutered": true, 
-          "vaccinations": ["rabies", "dhpp", "leptospirosis"] 
-        }, 
-       "description": "Bella is a young lab who loves
-                      to play fetch and swim.", 
-       "shelter_id": 4, 
-       "status": "adopted", 
-       "intake_date": "2025-10-01" 
+          "name": "Charlie", 
+          "species": "dog", 
+          "breed": "Beagle", 
+          "age_months": 24, 
+          "gender": "male", 
+          "size": "medium", 
+          "temperament": "curious, friendly", 
+          "medical": { 
+            "spayed_neutered": true, 
+            "vaccinations": ["rabies", "dhpp"] 
+          }, 
+         "description": "Charlie is a friendly beagle
+                        who loves exploring.", 
+         "shelter_id": 1, 
+         "status": "available", 
+         "intake_date": "2025-11-12" 
 } 
 ```
 
 ## Example responses
 
-**Response**: `200 OK`
+**Response**: `201 Created`
 
 ```json
-{ 
-  "name": "Bella",
+{
+  "name": "Charlie",
   "species": "dog",
-  "breed": "Labrador Retriever",
-  "age_months": 12,
-  "gender": "female",
-  "size": "large",
-  "temperament": "friendly, energetic",
+  "breed": "Beagle",
+  "age_months": 24,
+  "gender": "male",
+  "size": "medium",
+  "temperament": "curious, friendly",
   "medical": {
     "spayed_neutered": true,
-    "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-  }, 
-  "description": "Bella is a young lab who loves
-                 to play fetch and swim.",
-  "shelter_id": 4,
-  "status": "adopted",
-  "intake_date": "2025-10-01"
+    "vaccinations": ["rabies", "dhpp"]
+  },
+  "description": "Charlie is a friendly beagle who loves exploring.",
+  "shelter_id": 1,
+  "status": "available",
+  "intake_date": "2025-11-12",
+  "id": 6
 }
 ```
 
 **Response**: `400 Bad Request` - missing required field values
 
 ```json
-{ 
+{
   "error": "Bad Request",
   "message": "Missing required field: name",
   "status": 400
-} 
+}
 ```
 
 **Response**: `400 Bad Request` - invalid values for fields
@@ -126,25 +119,16 @@ curl -X PUT {base_url}/pets/4 \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'species'. Must be one of: cat, dog",
+  "message": "Invalid value for 'species'.
+             Must be one of 'cat', 'dog'.",
   "status": 400
-}
-```
-
-**Response**: `404 Not Found`  - no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Pet with ID 999 not found",
-  "status": 404
 }
 ```
 
 ## Related topics
 
-- `/pets` resource _coming soon_
+- [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)
-- [Add a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)
 - [Partially update a pet profile](patch-pets-by-id.md)
+- [Replace an existing pet profile](put-pets-by-id.md)

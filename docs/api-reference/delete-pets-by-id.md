@@ -60,7 +60,7 @@ curl -X DELETE {base_url}/pets/6 \
 
 ## Related topics
 
-- `/pets` resource _coming soon_
+- [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)
 - [Add a new pet profile](post-pets.md)
 - [Replace an existing pet profile](put-pets-by-id.md)
