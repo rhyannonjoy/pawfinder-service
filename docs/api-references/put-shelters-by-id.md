@@ -59,7 +59,7 @@ curl -X PUT {base_url}/shelters/1 \
          "email": "info@dallasanimalservices.org", 
          "hours": "Mon-Sat 11:00-19:00", 
          "available_pet_count": 25, 
-        "adoption_fee_range": "75-200" 
+         "adoption_fee_range": "75-200" 
 }   
 ```
 
@@ -95,7 +95,8 @@ curl -X PUT {base_url}/shelters/1 \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'. Must be in USD.",
+  "message": "Invalid value for 'adoption_fee_range'.
+             Must be in USD.",
   "status": 400
 }
 ```
