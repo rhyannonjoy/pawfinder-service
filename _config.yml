@@ -1,0 +1,40 @@
+# Site settings
+title: PawFinder Service API
+description: Connecting paws with people
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+# Pagination
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+#GitHub Pages settings
+url: "https://rhyannonjoy.github.io"
+baseurl: "/pawfinder-service"
+
+# Author info (used in sidebar)
+author:
+  name: Rhyannon Rodriguez
+  email: rhyannon.joy@gmail.com
+
+# Add "View on GitHub" button
+aux_links:
+  "View on GitHub":
+    - "https://github.com/rhyannonjoy/pawfinder-service"
+
+# Open aux links in new tab
+aux_links_new_tab: true
+
+# Navigation
+nav_items:
+  - { title: "Home", url: "/" }
+  - { title: "Overview", url: "/docs/overview/"}
+  - { title: "API Reference", url: "/docs/api-references/"}
+  - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements"}
+  - { title: "Quick Start", url: "/docs/tutorials/quick-start/"}
+  - { title: "GitHub", url: "https://github.com/rhyannonjoy/pawfinder-service", external: true }

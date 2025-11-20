@@ -89,7 +89,8 @@ curl -X POST {base_url}/shelters \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'. Must be in USD.",
+  "message": "Invalid value for 'adoption_fee_range'.
+             Must be in USD.",
   "status": 400
 }
 ```

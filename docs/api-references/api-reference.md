@@ -1,3 +1,9 @@
+---
+layout: page
+title: API Reference
+permalink: /docs/api-references/
+---
+
 # API reference
 
 - Run PawFinder locally or in a compatible server environment.

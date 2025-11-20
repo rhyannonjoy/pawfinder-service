@@ -77,7 +77,8 @@ curl -X PUT {base_url}/pets/4 \
           "spayed_neutered": true, 
           "vaccinations": ["rabies", "dhpp", "leptospirosis"] 
         }, 
-       "description": "Bella is a young lab who loves to play fetch and swim.", 
+       "description": "Bella is a young lab who loves
+                      to play fetch and swim.", 
        "shelter_id": 4, 
        "status": "adopted", 
        "intake_date": "2025-10-01" 
@@ -101,7 +102,8 @@ curl -X PUT {base_url}/pets/4 \
     "spayed_neutered": true,
     "vaccinations": ["rabies", "dhpp", "leptospirosis"]
   }, 
-  "description": "Bella is a young lab who loves to play fetch and swim.",
+  "description": "Bella is a young lab who loves
+                 to play fetch and swim.",
   "shelter_id": 4,
   "status": "adopted",
   "intake_date": "2025-10-01"

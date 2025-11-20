@@ -1,3 +1,9 @@
+---
+layout: page
+title: Overview
+permalink: /docs/overview/
+---
+
 # PawFinder API Overview
 
 ## Introduction

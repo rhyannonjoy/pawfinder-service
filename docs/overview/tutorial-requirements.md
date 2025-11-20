@@ -1,3 +1,9 @@
+---
+layout: page
+title: Tutorial Requirements
+permalink: /docs/overview/tutorial-requirements
+---
+
 # Tutorial requirements
 
 Complete these steps to prepare for the PawFinder API tutorials.
@@ -73,8 +79,8 @@ the `pawfinder-service` repository.
             "spayed_neutered": true,
             "vaccinations": ["fvrcp", "rabies"]
             },
-          "description": "Luna is a playful tabby who loves interactive
-                         toys and sunny windows.",
+          "description": "Luna is a playful tabby who loves
+                         interactive toys and sunny windows.",
           "shelter_id": 1,
           "status": "available",
           "intake_date": "2025-09-01",
@@ -92,8 +98,8 @@ the `pawfinder-service` repository.
             "spayed_neutered": true,
             "vaccinations": ["rabies", "dhpp", "leptospirosis"]
             },
-          "description": "Max is an active dog who needs regular exercise
-                         and responds well to commands.",
+          "description": "Max is an active dog who needs regular
+                         exercise and responds well to commands.",
           "shelter_id": 2,
           "status": "available",
           "intake_date": "2025-07-20",
@@ -111,4 +117,5 @@ that cause errors:
 - Required software component didn't install correctly
 - Required software component isn't up to date
 
-If the service correctly retrieves a list of pets, proceed to the [tutorials](/docs/tutorials/).
+If the service correctly retrieves a list of pets, move on
+to the [Quick Start](../tutorials/quick-start.md).

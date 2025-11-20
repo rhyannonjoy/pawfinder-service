@@ -52,7 +52,7 @@ curl -X GET {base_url}/shelters/1
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid shelter ID. Must be a positive integer",
+  "message": "Invalid shelter ID. Must be a positive integer.",
   "status": 400
 }
 ```

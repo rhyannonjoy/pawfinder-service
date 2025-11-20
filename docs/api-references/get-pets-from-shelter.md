@@ -52,7 +52,8 @@ curl -X GET {base_url}/shelters/1/pets
       "spayed_neutered": true,
       "vaccinations": ["fvrcp", "rabies"]
     },
-    "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
+    "description": "Luna is a playful tabby who loves
+                   interactive toys and sunny windows.",
     "shelter_id": 1,
     "status": "available",
     "intake_date": "2025-09-01",
@@ -70,7 +71,8 @@ curl -X GET {base_url}/shelters/1/pets
       "spayed_neutered": true,
       "vaccinations": ["fvrcp", "rabies"]
     },
-    "description": "Oliver is a gentle giant who loves to be brushed and cuddled.",
+    "description": "Oliver is a gentle giant who loves
+                   to be brushed and cuddled.",
     "shelter_id": 1,
     "status": "available",
     "intake_date": "2025-08-15",
