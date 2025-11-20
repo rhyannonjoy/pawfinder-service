@@ -31,8 +31,8 @@ Make a `GET` request to `/pets`.
 
 Tour task-based guides for common workflows and use cases.
 
-- [Search for Adoptable Pets](tutorials/search-adoptable-pets.md), _coming soon_ \
-  Filter pets by species, breed, location, age, and other criteria.
+- [Find the perfect pet](./docs/tutorials/find-perfect-pet.md)\
+  Filter pets by species, breed, shelter, and other criteria.
 
 - [Get Shelter Information](tutorials/get-shelter-information.md,), _coming soon_ \
   Retrieve shelter directory listings and availability data.
