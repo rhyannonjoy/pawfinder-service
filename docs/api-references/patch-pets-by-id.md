@@ -11,7 +11,7 @@ request, fields not present in the request remain unchanged.
 
 ## Endpoint structure
 
-```shell
+```bash
 PATCH /pets/{id}
 ```
 
@@ -57,8 +57,8 @@ All fields required.
 
 ## cURL request
 
-```shell
-curl -X PATCH http://localhost:3000/pets/4 \
+```bash
+curl -X PATCH {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -73,7 +73,8 @@ curl -X PATCH http://localhost:3000/pets/4 \
           "spayed_neutered": true, 
           "vaccinations": ["rabies", "dhpp", "leptospirosis"] 
         }, 
-       "description": "Bella is a young lab who loves to play fetch and swim.", 
+       "description": "Bella is a young lab who loves
+                      to play fetch and swim.", 
        "shelter_id": 4, 
        "status": "adopted", 
        "intake_date": "2025-10-01",
@@ -98,7 +99,8 @@ curl -X PATCH http://localhost:3000/pets/4 \
     "spayed_neutered": true,
     "vaccinations": ["rabies", "dhpp", "leptospirosis"]
   },
-  "description": "Bella is a young lab who loves to play fetch and swim.",
+  "description": "Bella is a young lab who loves
+                 to play fetch and swim.",
   "shelter_id": 4,
   "status": "adopted",
   "intake_date": "2025-10-01",

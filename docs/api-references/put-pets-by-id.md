@@ -11,7 +11,7 @@ request, fields not present in the request remain unchanged.
 
 ## Endpoint structure
 
-```shell
+```bash
 PUT /pets/{id}
 ```
 
@@ -61,8 +61,8 @@ ignores `id` fields in `PUT` request bodies or returns a `400` error.
 
 ## cURL request
 
-```shell
-curl -X PUT http://localhost:3000/pets/4 \
+```bash
+curl -X PUT {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -77,7 +77,8 @@ curl -X PUT http://localhost:3000/pets/4 \
           "spayed_neutered": true, 
           "vaccinations": ["rabies", "dhpp", "leptospirosis"] 
         }, 
-       "description": "Bella is a young lab who loves to play fetch and swim.", 
+       "description": "Bella is a young lab who loves
+                      to play fetch and swim.", 
        "shelter_id": 4, 
        "status": "adopted", 
        "intake_date": "2025-10-01" 
@@ -101,7 +102,8 @@ curl -X PUT http://localhost:3000/pets/4 \
     "spayed_neutered": true,
     "vaccinations": ["rabies", "dhpp", "leptospirosis"]
   }, 
-  "description": "Bella is a young lab who loves to play fetch and swim.",
+  "description": "Bella is a young lab who loves
+                 to play fetch and swim.",
   "shelter_id": 4,
   "status": "adopted",
   "intake_date": "2025-10-01"

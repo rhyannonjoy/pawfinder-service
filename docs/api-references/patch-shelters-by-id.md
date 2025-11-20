@@ -12,7 +12,7 @@ request, fields not present in the request remain unchanged.
 
 ## Endpoint structure
 
-```shell
+```bash
 PATCH /shelters/{id}
 ```
 
@@ -49,8 +49,8 @@ ignores `id` fields in `PATCH` request bodies or returns a `400` error.
 
 ## cURL request
 
-```shell
-curl -X PATCH http://localhost:3000/shelters/1 \
+```bash
+curl -X PATCH {base_url}/shelters/1 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -91,7 +91,8 @@ curl -X PATCH http://localhost:3000/shelters/1 \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'. Must be in USD.",
+  "message": "Invalid value for 'adoption_fee_range'.
+             Must be in USD.",
   "status": 400
 }
 ```

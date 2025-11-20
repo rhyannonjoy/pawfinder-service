@@ -1,3 +1,9 @@
+---
+layout: page
+title: Tutorial Requirements
+permalink: /docs/overview/tutorial-requirements
+---
+
 # Tutorial requirements
 
 Complete these steps to prepare for the PawFinder API tutorials.
@@ -11,7 +17,8 @@ separate browser tabs before installing any software.
 <!-- vale Google.Acronyms = NO -->
 
 - A [GitHub account](https://github.com)
-- A development system running a current version or a long-term support, also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
+- A development system running a current version or a long-term support,
+also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
 - The following software:
     - [Git, command line](https://docs.github.com/en/get-started/quickstart/set-up-git)
     - [GitHub Desktop](https://desktop.github.com) _optional, but recommended_
@@ -33,9 +40,11 @@ separate browser tabs before installing any software.
 
 ## Verify the development setup
 
-1. Create and checkout a test branch of the fork of the PawFinder Service repository. `GitHub repository workspace` is the directory that contains the fork of the `pawfinder-service` repository.
+1. Create and checkout a test branch of the fork of the PawFinder Service repository.
+`GitHub repository workspace` is the directory that contains the fork of
+the `pawfinder-service` repository.
 
-    ```shell
+    ```bash
     cd <GitHub repository workspace>
     ls
     # (see the pawfinder-service directory in the list)
@@ -50,7 +59,7 @@ separate browser tabs before installing any software.
 
 2. Make a test call to the service:
 
-    ```shell
+    ```bash
     curl http://localhost:3000/pets
     ```
 
@@ -70,8 +79,8 @@ separate browser tabs before installing any software.
             "spayed_neutered": true,
             "vaccinations": ["fvrcp", "rabies"]
             },
-          "description": "Luna is a playful tabby who loves interactive
-                         toys and sunny windows.",
+          "description": "Luna is a playful tabby who loves
+                         interactive toys and sunny windows.",
           "shelter_id": 1,
           "status": "available",
           "intake_date": "2025-09-01",
@@ -89,8 +98,8 @@ separate browser tabs before installing any software.
             "spayed_neutered": true,
             "vaccinations": ["rabies", "dhpp", "leptospirosis"]
             },
-          "description": "Max is an active dog who needs regular exercise
-                         and responds well to commands.",
+          "description": "Max is an active dog who needs regular
+                         exercise and responds well to commands.",
           "shelter_id": 2,
           "status": "available",
           "intake_date": "2025-07-20",
@@ -100,7 +109,7 @@ separate browser tabs before installing any software.
     ```
 
 When encountering errors in any procedure steps, investigate,
-and correct the error before proceeding. Common situations
+and correct the error before moving forward. Common situations
 that cause errors:
 
 - Mistyped commands
@@ -108,4 +117,5 @@ that cause errors:
 - Required software component didn't install correctly
 - Required software component isn't up to date
 
-If the service correctly retrieves a list of pets, proceed to the [tutorials](/docs/tutorials/).
+If the service correctly retrieves a list of pets, move on
+to the [Quick Start](../tutorials/quick-start.md).

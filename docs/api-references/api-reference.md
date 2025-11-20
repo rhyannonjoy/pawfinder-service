@@ -1,10 +1,16 @@
+---
+layout: page
+title: API Reference
+permalink: /docs/api-references/
+---
+
 # API reference
 
 - Run PawFinder locally or in a compatible server environment.
 - All requests and responses are in the JSON data format.
-- Recommended base URL:
+- _Recommended_ base URL:
 
-```shell
+```bash
 http://localhost:3000
 ```
 

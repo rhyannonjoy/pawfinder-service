@@ -4,7 +4,7 @@ This operation retrieves a shelter's profile by their ID.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /shelter/{id}
 ```
 
@@ -26,8 +26,8 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
-curl -X GET http://localhost:3000/shelters/1
+```bash
+curl -X GET {base_url}/shelters/1
 ```
 
 ## Example responses
@@ -52,7 +52,7 @@ curl -X GET http://localhost:3000/shelters/1
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid shelter ID. Must be a positive integer",
+  "message": "Invalid shelter ID. Must be a positive integer.",
   "status": 400
 }
 ```

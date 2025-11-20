@@ -4,7 +4,7 @@ This operation creates a new shelter profile in the PawFinder system.
 
 ## Endpoint structure
 
-```shell
+```bash
 POST /shelters
 ```
 
@@ -41,8 +41,8 @@ ignores `id` fields in `POST` request bodies or returns a `400` error.
 
 ## cURL request
 
-```shell
-curl -X POST http://localhost:3000/shelters \
+```bash
+curl -X POST {base_url}/shelters \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -89,7 +89,8 @@ curl -X POST http://localhost:3000/shelters \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'. Must be in USD.",
+  "message": "Invalid value for 'adoption_fee_range'.
+             Must be in USD.",
   "status": 400
 }
 ```

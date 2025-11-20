@@ -4,7 +4,7 @@ This operation retrieves all pets in the PawFinder system.
 
 ## Endpoint structure
 
-```shell
+```bash
 GET /pets
 ```
 
@@ -24,8 +24,8 @@ This operation doesn't require a request body.
 
 ## cURL request
 
-```shell
-curl -X GET http://localhost:3000/pets
+```bash
+curl -X GET {base_url}/pets
 ```
 
 ## Example responses

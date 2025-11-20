@@ -4,7 +4,7 @@ This operation creates a new pet profile in the PawFinder system.
 
 ## Endpoint structure
 
-```shell
+```bash
 POST /pets
 ```
 
@@ -54,8 +54,8 @@ PawFinder auto-generates pet unique identifiers, `id`. The system ignores
 
 ## cURL request
 
-```shell
-curl -X POST http://localhost:3000/pets \
+```bash
+curl -X POST {base_url}/pets \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \
   -d '{ 
@@ -70,7 +70,8 @@ curl -X POST http://localhost:3000/pets \
             "spayed_neutered": true, 
             "vaccinations": ["rabies", "dhpp"] 
           }, 
-         "description": "Charlie is a friendly beagle who loves exploring.", 
+         "description": "Charlie is a friendly beagle
+                        who loves exploring.", 
          "shelter_id": 1, 
          "status": "available", 
          "intake_date": "2025-11-12" 
@@ -118,7 +119,8 @@ curl -X POST http://localhost:3000/pets \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'species'. Must be one of 'cat', 'dog'.",
+  "message": "Invalid value for 'species'.
+             Must be one of 'cat', 'dog'.",
   "status": 400
 }
 ```
