@@ -16,6 +16,11 @@ http://localhost:3000
 
 ## Reference topics
 
+### Resources
+
+- [`/pets` resource](pets.md)
+- [`/shelters` resource](shelters.md)
+
 ### `/pets` operations
 
 - [GET all pet profiles](get-all-pets.md)

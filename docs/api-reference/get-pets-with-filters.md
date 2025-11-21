@@ -1,4 +1,4 @@
-# Get pet profiles with filters
+# Get pet profiles using filters
 
 This operation retrieves pets profiles that match the specified filter criteria.
 
