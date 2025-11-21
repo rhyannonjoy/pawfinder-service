@@ -1,7 +1,7 @@
 ---
 layout: page
 title: API Index
-permalink: /docs/api-index/
+permalink: /docs/api-reference/api-index/
 ---
 
 # API Index
