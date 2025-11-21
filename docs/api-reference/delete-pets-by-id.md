@@ -1,3 +1,9 @@
+---
+layout: page
+title: Delete a pet profile
+permalink: /docs/api-reference/delete-pets-by-id/
+---
+
 # Delete a pet profile
 
 This operation removes a pet record from the PawFinder database.

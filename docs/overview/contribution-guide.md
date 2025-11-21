@@ -1,3 +1,9 @@
+---
+layout: page
+title: Contribution Guide
+permalink: /docs/overview/contribution-guide/
+---
+
 # Contribution guide
 
 Documentation improvements are always welcome.

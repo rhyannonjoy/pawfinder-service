@@ -1,3 +1,9 @@
+---
+layout: page
+title: /pets
+permalink: /docs/api-reference/pets/
+---
+
 # `pets` resource
 
 Contains information about adoptable pets stored in the PawFinder system.

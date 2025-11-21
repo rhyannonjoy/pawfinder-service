@@ -1,3 +1,9 @@
+---
+layout: page
+title: Get all pet profiles
+permalink: /docs/api-reference/get-all-pets/
+---
+
 # Get all pet profiles
 
 This operation retrieves all pets in the PawFinder system.

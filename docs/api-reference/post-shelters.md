@@ -1,3 +1,9 @@
+---
+layout: page
+title: Add a new shelter profile
+permalink: /docs/api-reference/post-shelters/
+---
+
 # Add a new shelter profile
 
 This operation creates a new shelter profile in the PawFinder system.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Tutorial Requirements
-permalink: /docs/overview/tutorial-requirements
+permalink: /docs/overview/tutorial-requirements/
 ---
 
 # Tutorial requirements

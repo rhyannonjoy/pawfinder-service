@@ -1,3 +1,9 @@
+---
+layout: page
+title: Partially update a pet profile
+permalink: /docs/api-reference/patch-pets-by-id/
+---
+
 # Partially update a pet profile
 
 This operation edits specific fields of an existing pet record in the PawFinder System.

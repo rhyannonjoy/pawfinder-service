@@ -1,3 +1,9 @@
+---
+layout: page
+title: Find the perfect pet
+permalink: /docs/tutorials/find-perfect-pet/
+---
+
 # Find the perfect pet
 
 Use PawFinder to discover the perfect furry friend.
