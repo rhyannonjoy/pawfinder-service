@@ -23,9 +23,8 @@ before proceeding to the tutorials.
 
 ## Quickstart
 
-Get up and running in the [Quickstart](./docs/tutorials/quickstart.md), _coming soon_. \
-View a real JSON example with field-by-field annotations.
-Make a `GET` request to `/pets`.
+Get up and running in the [Quickstart](./docs/tutorials/quickstart.md).
+Make a `GET` request to `/pets`. View a real JSON example with field-by-field annotations.
 
 ## Tutorials
 
