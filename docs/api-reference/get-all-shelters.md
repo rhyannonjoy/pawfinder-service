@@ -1,3 +1,9 @@
+---
+layout: page
+title: Get all shelter profiles
+permalink: /docs/api-reference/get-all-shelters/
+---
+
 # Get all shelter profiles
 
 This operation retrieves all shelter profiles in the PawFinder system.

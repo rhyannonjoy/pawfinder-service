@@ -1,3 +1,9 @@
+---
+layout: page
+title: Get pet profiles from a specific shelter
+permalink: /docs/api-reference/get-pets-from-shelter/
+---
+
 # Get pet profiles from a specific shelter
 
 This operation retrieves all pets associated with a specific shelter.

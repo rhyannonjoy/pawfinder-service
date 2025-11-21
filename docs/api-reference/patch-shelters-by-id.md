@@ -1,3 +1,9 @@
+---
+layout: page
+title: Partially update a shelter profile
+permalink: /docs/api-reference/patch-shelters-by-id/
+---
+
 # Partially update a shelter profile
 
 This operation edits specific fields of an existing shelter record

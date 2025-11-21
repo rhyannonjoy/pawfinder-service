@@ -1,3 +1,9 @@
+---
+layout: page
+title: Replace a pet profile
+permalink: /docs/api-reference/put-pets-by-id/
+---
+
 # Replace a pet profile
 
 This operation edits all fields of an existing pet record in the PawFinder System.

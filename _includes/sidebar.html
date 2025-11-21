@@ -8,21 +8,46 @@
       </h1>
       <p class="lead">{{ site.description }}</p>
     </div>
-
     <nav class="sidebar-nav">
       {% for item in site.nav_items %}
-        {% if item.external %}
-          <a class="sidebar-nav-item" href="{{ item.url }}" target="_blank">
-            {{ item.title }}
-          </a>
+        {% if item.children %}
+          <details class="sidebar-nav-group" {% if page.url contains item.url %}open{% endif %}>
+            <summary class="sidebar-nav-toggle">
+              {{ item.title }}
+            </summary>
+            <nav class="sidebar-nav-children">
+              {% for child in item.children %}
+                {% if page.url == child.url %}
+                  <a class="sidebar-nav-item sidebar-nav-child active" href="{% if child.external %}{{ child.url }}{% else %}{{ site.baseurl }}{{ child.url }}{% endif %}"{% if child.external %} target="_blank"{% endif %}>
+                    {{ child.title }}
+                  </a>
+                {% else %}
+                  <a class="sidebar-nav-item sidebar-nav-child" href="{% if child.external %}{{ child.url }}{% else %}{{ site.baseurl }}{{ child.url }}{% endif %}"{% if child.external %} target="_blank"{% endif %}>
+                    {{ child.title }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </nav>
+          </details>
         {% else %}
-          <a class="sidebar-nav-item" href="{{ site.baseurl }}{{ item.url }}">
-            {{ item.title }}
-          </a>
+          {% if page.url == item.url %}
+            <a class="sidebar-nav-item active" href="{% if item.external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"{% if item.external %} target="_blank"{% endif %}>
+              {{ item.title }}
+            </a>
+          {% else %}
+            {% if item.external %}
+              <a class="sidebar-nav-item" href="{{ item.url }}" target="_blank">
+                {{ item.title }}
+              </a>
+            {% else %}
+              <a class="sidebar-nav-item" href="{{ site.baseurl }}{{ item.url }}">
+                {{ item.title }}
+              </a>
+            {% endif %}
+          {% endif %}
         {% endif %}
       {% endfor %}
     </nav>
-
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>

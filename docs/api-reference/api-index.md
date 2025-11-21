@@ -1,10 +1,10 @@
 ---
 layout: page
-title: API Reference
-permalink: /docs/api-reference/
+title: API Index
+permalink: /docs/api-index/
 ---
 
-# API reference
+# API Index
 
 - Run PawFinder locally or in a compatible server environment.
 - All requests and responses are in the JSON data format.

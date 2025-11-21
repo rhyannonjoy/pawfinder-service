@@ -1,3 +1,9 @@
+---
+layout: page
+title: Authentication Guide
+permalink: /docs/overview/authentication-guide/
+---
+
 # Authentication guide
 
 All API requests require authentication using API keys passed in the request header:

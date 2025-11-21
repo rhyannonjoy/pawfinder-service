@@ -30,11 +30,42 @@ aux_links:
 # Open aux links in new tab
 aux_links_new_tab: true
 
-# Navigation
+# Navigation with nested items
 nav_items:
-  - { title: "Home", url: "/" }
-  - { title: "Overview", url: "/docs/overview/"}
-  - { title: "API Reference", url: "/docs/api-reference/"}
-  - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements"}
-  - { title: "Quick Start", url: "/docs/tutorials/quick-start/"}
-  - { title: "GitHub", url: "https://github.com/rhyannonjoy/pawfinder-service", external: true }
+  - title: "Home"
+    url: "/"
+  - title: "Start Here"
+    url: "/docs/overview/"
+    children:
+      - { title: "Overview", url: "/docs/overview/" }
+      - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements/" }
+      - { title: "Authentication Guide", url: "/docs/overview/authentication-guide/" }
+      - { title: "Contribution Guide", url: "/docs/overview/contribution-guide/" }
+  - title: "API Reference"
+    url: "/docs/api-reference/"
+    children:
+      - { title: "API Index", url: "/docs/api-index/" }
+      - { title: "/pets", url: "/docs/api-reference/pets/" }
+      - { title: "/shelters", url: "/docs/api-reference/shelters/" }
+      - { title: "Add a new pet profile", url: "/docs/api-reference/post-pets/" }
+      - { title: "Add a new shelter profile", url: "/docs/api-reference/post-shelters/" }
+      - { title: "Delete a pet profile", url: "/docs/api-reference/delete-pets-by-id/" }
+      - { title: "Delete a shelter profile", url: "/docs/api-reference/delete-shelters-by-id/" }
+      - { title: "Get a pet profile by ID", url: "/docs/api-reference/get-pets-by-id/" }
+      - { title: "Get a shelter profile by ID", url: "/docs/api-reference/get-shelters-by-id/" }
+      - { title: "Get all pet profiles", url: "/docs/api-reference/get-all-pets/" }
+      - { title: "Get all shelter profiles", url: "/docs/api-reference/get-all-shelters/" }
+      - { title: "Get pet profiles from a specific shelter", url: "/docs/api-reference/get-pets-from-shelter/" }
+      - { title: "Get pet profiles using filters", url: "/docs/api-reference/get-pets-with-filters/" }
+      - { title: "Partially update a pet profile", url: "/docs/api-reference/patch-pets-by-id/" }
+      - { title: "Partially update a shelter profile", url: "/docs/api-reference/patch-shelters-by-id/" }
+      - { title: "Replace a pet profile", url: "/docs/api-reference/put-pets-by-id/" }
+      - { title: "Replace a shelter profile", url: "/docs/api-reference/put-shelters-by-id/" }
+  - title: "Tutorials"
+    url: "/docs/tutorials/"
+    children:
+      - { title: "Find the perfect pet", url: "/docs/tutorials/find-perfect-pet/" }
+      - { title: "Quick Start", url: "/docs/tutorials/quick-start/" }
+  - title: "GitHub"
+    url: "https://github.com/rhyannonjoy/pawfinder-service"
+    external: true

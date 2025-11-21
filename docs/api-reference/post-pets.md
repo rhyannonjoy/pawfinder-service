@@ -1,3 +1,9 @@
+---
+layout: page
+title: Add a new pet profile
+permalink: /docs/api-reference/post-pets/
+---
+
 # Add a new pet profile
 
 This operation creates a new pet profile in the PawFinder system.

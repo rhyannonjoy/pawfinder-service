@@ -1,3 +1,9 @@
+---
+layout: page
+title: /shelters
+permalink: /docs/api-reference/shelters/
+---
+
 # `shelters` resource
 
 Provides information about animal shelters and rescue organizations

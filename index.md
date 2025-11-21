@@ -48,7 +48,7 @@ Tour task-based guides for common workflows and use cases.
 
 ## API Reference
 
-Survey [the complete technical](./docs/api-reference/api-reference.md) reference
+Survey [the complete technical](./docs/api-reference/api-index.md) reference
 for all endpoint operations, parameters, and responses.
 
 ### `/pets`
