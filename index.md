@@ -21,9 +21,9 @@ how different development audiences use the API.
 Install all [tutorial requirements](./docs/overview/tutorial-requirements.md)
 before proceeding to the tutorials.
 
-## Quick start
+## Quickstart
 
-Get up and running in the [Quick Start](./docs/tutorials/quick-start.md), _coming soon_. \
+Get up and running in the [Quickstart](./docs/tutorials/quickstart.md), _coming soon_. \
 View a real JSON example with field-by-field annotations.
 Make a `GET` request to `/pets`.
 
