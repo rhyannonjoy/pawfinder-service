@@ -44,11 +44,10 @@ Base endpoint:
 
 ## Operations
 
-- Get all shelter profiles, _coming soon_
-- Get shelter profiles by ID, _coming soon_
-- Get shelter profiles by filters, _coming soon_
-- Get pets from a specific shelter, _coming soon_
-- Create new shelter profiles, _coming soon_
-- Delete shelter profiles, _coming soon_
-- Partially update shelter profiles, _coming soon_
-- Replace shelter profiles, _coming soon_
+- [Get all shelter profiles](get-all-shelters.md)
+- [Get a shelter profile by ID](get-shelters-by-id.md)
+- [Get pet profiles from a specific shelter](get-pets-from-shelter.md)
+- [Create a new shelter profile](post-shelters.md)
+- [Delete a shelter profile](delete-shelters-by-id.md)
+- [Partially update a shelter profile](patch-shelters-by-id.md)
+- [Replace a shelter profile](put-shelters-by-id.md)

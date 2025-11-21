@@ -66,10 +66,10 @@ Base endpoint:
 
 ## Operations
 
-- Get all pet profiles, _coming soon_
-- Get pet profiles by ID, _coming soon_
-- Get pet profiles by filters, _coming soon_
-- Create new pet profiles, _coming soon_
-- Delete pet profiles, _coming soon_
-- Partially update pet profiles, _coming soon_
-- Replace pet profiles, _coming soon_
+- [Get all pet profiles](get-all-pets.md)
+- [Get a pet profile by ID](get-pets-by-id.md)
+- [Get pet profiles using filters](get-pets-with-filters.md)
+- [Create a new pet profile](post-pets.md)
+- [Delete a pet profile](delete-pets-by-id.md)
+- [Partially update a pet profile](patch-pets-by-id.md)
+- [Replace a pet profile](put-pets-by-id.md)
