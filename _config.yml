@@ -44,7 +44,7 @@ nav_items:
   - title: "API Reference"
     url: "/docs/api-reference/"
     children:
-      - { title: "API Index", url: "/docs/api-index/" }
+      - { title: "API Index", url: "/docs/api-reference/api-index/" }
       - { title: "/pets", url: "/docs/api-reference/pets/" }
       - { title: "/shelters", url: "/docs/api-reference/shelters/" }
       - { title: "Add a new pet profile", url: "/docs/api-reference/post-pets/" }
