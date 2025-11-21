@@ -75,5 +75,5 @@ community support.
 
 - [API Index](../api-reference/api-index.md)
 - [Authentication Guide](authentication-guide.md)
-- [Quick Start](../tutorials/quick-start.md)
+- [Quickstart](../tutorials/quickstart.md)
 - [Tutorial Requirements](tutorial-requirements.md)

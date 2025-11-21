@@ -117,5 +117,5 @@ that cause errors:
 - Required software component didn't install correctly
 - Required software component isn't up to date
 
-If the service correctly retrieves a list of pets, move on
-to the [Quick Start](../tutorials/quick-start.md).
+If the service correctly retrieves a list of pet profiles, move on
+to the [Quickstart](../tutorials/quickstart.md).
