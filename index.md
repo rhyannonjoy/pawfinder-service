@@ -75,8 +75,7 @@ for all endpoint operations, parameters, and responses.
 
 ## Authentication guide
 
-Pick-up API keys, receive credentials, and keep up with rate limits
-in the [Authentication guide](./docs/overview/authentication-guide.md).
+Learn how to create API keys for write operations in the [Authentication guide](./docs/overview/authentication-guide.md).
 
 ## Get help
 
