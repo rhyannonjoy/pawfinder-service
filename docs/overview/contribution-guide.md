@@ -8,7 +8,7 @@ permalink: /docs/overview/contribution-guide/
 
 Documentation improvements are always welcome.
 Create [an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) and or
-make a [pull request](https://github.com/rhyannonjoy/pawfinder-service/pulls).
+make [a pull request](https://github.com/rhyannonjoy/pawfinder-service/pulls).
 
 ## Pull request tips
 
