@@ -64,8 +64,11 @@ nav_items:
   - title: "Tutorials"
     url: "/docs/tutorials/"
     children:
+      - { title: "Build a location-aware search", url: "/docs/tutorials/build-location-aware-search/" }
       - { title: "Find the perfect pet", url: "/docs/tutorials/find-perfect-pet/" }
+      - { title: "Mark a pet as adopted", url: "/docs/tutorials/mark-pet-adopted/" }
       - { title: "Quickstart", url: "/docs/tutorials/quickstart/" }
+      - { title: "Track adoption status", url: "/docs/tutorials/track-adoption-status/" }
   - title: "GitHub"
     url: "https://github.com/rhyannonjoy/pawfinder-service"
     external: true
