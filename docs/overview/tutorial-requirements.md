@@ -6,8 +6,8 @@ permalink: /docs/overview/tutorial-requirements/
 
 ## Tutorial requirements
 
-Complete these steps to prepare for the PawFinder API tutorials.
-Estimated preparation ~20 minutes.
+Complete these steps to prepare for the PawFinder API tutorials.\
+_Estimated preparation ~20 minutes._
 
 ### Development environment setup
 
