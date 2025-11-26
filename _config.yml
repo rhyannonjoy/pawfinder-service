@@ -65,7 +65,7 @@ nav_items:
     url: "/docs/tutorials/"
     children:
       - { title: "Find the perfect pet", url: "/docs/tutorials/find-perfect-pet/" }
-      - { title: "Quickstart", url: "/docs/tutorials/quickstart/" }
+      - { title: "Quickstart Guide", url: "/docs/tutorials/quickstart-guide/" }
   - title: "GitHub"
     url: "https://github.com/rhyannonjoy/pawfinder-service"
     external: true
