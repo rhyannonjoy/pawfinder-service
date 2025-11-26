@@ -4,17 +4,17 @@ title: Quickstart Guide
 permalink: /docs/tutorials/quickstart-guide/
 ---
 
-# Quickstart guide
+## Quickstart guide
 
 Quickly integrate the PawFinder Service API. This guide covers
 making a `GET` request to the `/pets` endpoint to retrieve
 a list of available pets.
 
-## Prerequisites
+### Prerequisites
 
 Read-only operations don't require authentication, but install the
-recommended tools in the [Tutorial Requirements](../overview/tutorial-requirements.md) before continuing
-this tutorial.
+recommended tools in the [Tutorial Requirements](../overview/tutorial-requirements.md)
+before continuing this tutorial.
 
 ### Use cURL
 
@@ -32,7 +32,7 @@ curl -X GET "{base_url}/pets" \
 5. Click **Send**
 6. Observe the response
 
-## Response details
+### Response details
 
 A successful request returns a `200 OK` status code with a JSON
 array of pet profiles, for example:
@@ -61,7 +61,7 @@ array of pet profiles, for example:
 ]
 ```
 
-### Pet profile field descriptions
+#### Pet profile field descriptions
 
 | Property name | Type | Description |
 | ------------- | ----------- | ----------- |
@@ -81,60 +81,60 @@ array of pet profiles, for example:
 | `intake_date` | string | When the pet entered the shelter, ISO 8601 format |
 | `id` | integer | Pet's unique identifer |
 
-## Filter pet profile results
+### Filter pet profile results
 
 Filter results by adding query parameters to the request.
 
-### Find all available dogs
-
 ```bash
+# Find all available dogs
 curl -X GET "{base_url}/pets?species=dog"
 ```
 
-### Find all cats at a specific shelter
-
 ```bash
+# Find all cats at a specific shelter
 curl -X GET "{base_url}/pets?species=cat&shelter_id=1"
 ```
 
-### Sort pet profiles by name
-
 ```bash
+# Sort pet profiles by name, in ascending order
 curl -X GET "{base_url}/pets?_sort=name&_order=asc"
 ```
 
-For more filtering options, visit [Get pet profiles using filters](../api-reference/get-pets-with-filters.md).
+For more filtering options, visit
+[Get pet profiles using filters](../api-reference/get-pets-with-filters.md).
 
-## Paginate large result sets
+### Paginate large result sets
 
 Use `_limit` and `_start` to paginate through results.
 
 ```bash
-# Get first 10 results
+# Get the first 10 results
 curl -X GET "{base_url}/pets?_limit=10&_start=0"
 
-# Get next 10 results
+# Get the next 10 results
 curl -X GET "{base_url}/pets?_limit=10&_start=10"
 ```
 
-## Common errors
+### Common errors
 
 | Code | Description  |
 |------|--------------|
 | `400` | Bad Request, verify query parameters |
 | `404` | Not Found, verify `base_url` |
-| `429` | Too Many requests, reaching rate limit |
+| `429` | Too Many requests, exceeding rate limit |
 | `500` | Something is wrong with the server, try again later |
 
-## Next steps
+### Next steps
 
-- Explore the [API Index](../api-reference/api-index.md) for complete endpoint documentation.
+- Explore the [API Index](../api-reference/api-index.md)
+for complete endpoint documentation.
 - Check out the [Find the Perfect Pet](find-perfect-pet.md)
 tutorial for advanced filtering.
 - View the [PawFinder source code on GitHub](https://github.com/rhyannonjoy/pawfinder-service).
 
-## Get help
+### Get help
 
-- Review the [`/pets` resource](../api-reference/pets.md) for field requirements.
+- Review the [`/pets` resource](../api-reference/pets.md)
+for field requirements.
 - Review [common errors](../api-reference/api-index.md).
 - Open an issue on [GitHub](https://github.com/rhyannonjoy/pawfinder-service/issues).

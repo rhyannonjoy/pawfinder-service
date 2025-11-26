@@ -4,40 +4,41 @@ title: Mark a pet as adopted
 permalink: /docs/tutorials/mark-pet-adopted/
 ---
 
-# Mark a pet as `adopted`
+## Mark a pet as `adopted`
 
 Update a pet profile `status` when finalizing adoptions.
 Learn how to update pet records using the `PATCH` method
 and manage adoption workflows from the shelter perspective.
 
-## Overview
+### Overview
 
 The PawFinder Service API provides an endpoint for updating pet
 profiles as adoptions progress. Shelter staff use the `PATCH`
 method to mark pets as `adopted` after finalizing paperwork,
 ensuring the system reflects current availability, and prevents
-duplicate adoption inquiries. Install all [tutorial requirements](../overview/tutorial-requirements.md) before continuing this tutorial.
+duplicate adoption inquiries. Install all [tutorial requirements](../overview/tutorial-requirements.md)
+before continuing this tutorial.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 PATCH {base_url}/pets/{id}
 ```
 
-## Path parameters
+### Path parameters
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `id` | integer | Pet's unique identifier | 1, 2, 3, 4 |
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 | `X-API-Key` | Admin API key | Yes |
 
-## Request body
+### Request body
 
 Provide a JSON object with the fields to update. Only include
 fields that are changing, as `PATCH` only updates the specified fields
@@ -49,13 +50,13 @@ and leaves the others unchanged.
 | `medical` | object | Pet's medical information | `{"spayed_neutered": true, "vaccinations": [...]}` |
 | `intake_date` | string | Date pet entered shelter | `2025-09-01` |
 
-## Understanding state transitions
+### Understanding state transitions
 
 Pet `status` moves through a defined workflow:
 `available` → `pending` → `adopted`. Once a pet reaches `adopted`,
 their profile shouldn't change unless there's an error that needs correction.
 
-## cURL request examples
+### cURL request examples
 
 **Example 1**: mark a pet as `adopted`
 
@@ -179,7 +180,7 @@ reviews a potential adopter's form.
 }
 ```
 
-## Verifying updates
+### Verifying updates
 
 After updating a pet record, use the `GET` method to retrieve the
 full profile. Confirm that the fields requiring updates reflect
@@ -254,7 +255,7 @@ require authentication.
 }
 ```
 
-## Best practices
+### Best practices
 
 - **Authenticate every update**\
 Always include a valid API key in the `X-API-Key` header.
@@ -281,7 +282,7 @@ If an update fails, check the error response to determine
 whether it's an authentication issue, invalid `id`, or
 malformed request body.
 
-## Troubleshooting
+### Troubleshooting
 
 - **401 Unauthorized response**\
 Verify the API key is valid and included in the `X-API-Key`
@@ -297,10 +298,13 @@ Ensure the request body only includes intended fields.
 If updating nested objects like `medical`, include the full
 object structure.
 
-## Next steps
+### Next steps
 
-- Learn how to [Track adoption status](track-adoption-status.md) to observe
-pet availability from the adopter perspective.
-- Return to [Find the perfect pet](find-perfect-pet.md) to understand search workflows.
-- For shelter management features, explore the [/shelters endpoint](../api-reference/shelters.md).
-- Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest improvements or report issues.
+- Learn how to [Track adoption status](track-adoption-status.md)
+to observe pet availability from the adopter perspective.
+- Return to [Find the perfect pet](find-perfect-pet.md) to
+understand search workflows.
+- For shelter management features, explore the
+[/shelters endpoint](../api-reference/shelters.md).
+- Visit the [Contribution Guide](../overview/contribution-guide.md)
+to suggest improvements or report issues.

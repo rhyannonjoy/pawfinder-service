@@ -4,13 +4,13 @@ title: Find the perfect pet
 permalink: /docs/tutorials/find-perfect-pet/
 ---
 
-# Find the perfect pet
+## Find the perfect pet
 
 Use PawFinder to discover the perfect furry friend.
 Learn how to search for adoptable pets using filtering
 options including species, breed, shelter, and more.
 
-## Overview
+### Overview
 
 The PawFinder Service API provides an endpoint for searching
 adoptable pets from shelters in the Dallas-Fort Worth area.
@@ -18,18 +18,18 @@ Filter results with query parameters to find a perfect match.
 Install all [tutorial requirements](../overview/tutorial-requirements.md)
 before continuing this tutorial.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 GET {base_url}/pets
 ```
 
-## Query parameters
+### Query parameters
 
 `/pets` currently only supports exact-match filtering
 for the following parameters:
 
-### Core filters
+#### Core filters
 
 | Parameters  | Type | Description | Examples |
 |-----------|------|-------------|----------|
@@ -38,14 +38,14 @@ for the following parameters:
 | `gender` | string | Pet's gender | `male`, `female`|
 | `shelter_id` | integer | Shelter's unique identifier | 1, 2, 3, 4 |
 
-### Size and status filters
+#### Size and status filters
 
 | Parameters  | Type | Description | Examples |
 |-----------|------|-------------|----------|
 | `size` | string | Pet's size category | `small`,  `medium`, `large` |
 | `status` | string | Pet's availability | `available`,  `pending` |
 
-### Pagination
+#### Pagination
 
 _Recommended software json-server uses underscores as a naming convention
 for its special query parameters - this is different from standard
@@ -58,7 +58,7 @@ REST API naming._
 | `_sort` | string | Field to sort by | `name`, `age`, `intake_date` |
 | `_order` | string | Sort direction | default `desc` |
 
-### Exact-match filtering only
+#### Exact-match filtering only
 
 _PawFinder currently supports exact-match filtering only._
 Partial matching isn't currently supported. Query parameters
@@ -70,7 +70,7 @@ must match field values exactly:
 | `breed` |`breed=maine coon`| Doesn't work ❌ |
 | `breed` |`breed=Maine`| Partial match doesn't work ❌ |
 
-## cURL request examples
+### cURL request examples
 
 **Example 1**: find all available dogs
 
@@ -311,7 +311,7 @@ curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=d
 ]                                                            
 ```
 
-## Common responses
+### Common responses
 
 **Empty response** `200 OK`
 
@@ -332,7 +332,7 @@ of query parameters, verify the cURL syntax.
 }
 ```
 
-## Best practices
+### Best practices
 
 - **Start broad, then refine**\
 Begin with filters like  `species` and `shelter_id`, then
@@ -357,7 +357,7 @@ Use `AND` logic when combining many filters. For example,
 `species=dog&temperament=calm` returns dogs that are
 calm, not all dogs plus all calm pets.
 
-## Common use cases
+### Common use cases
 
 - **Family looking for friendly dogs**\
 Search with `species=dog` and `temperament=friendly`.
@@ -366,7 +366,7 @@ Use `size=small` to find the right pet.
 - **First-time cat owner**\
 Filter with `species=cat`, `temperament=calm`.
 
-## Troubleshooting
+### Troubleshooting
 
 - **No results returned**\
 Filters are too restrictive. Try removing filters
@@ -378,9 +378,11 @@ in the documentation. For example, use `dog` not `dogs`.
 While using pagination with a high total count, consider adding
 more specific filters to reduce the dataset size.
 
-## Next steps
+### Next steps
 
 - Explore the [shelter profiles endpoint](../api-reference/shelters.md)
 to get information about specific shelters.
-- Check the [pet profiles endpoint](../api-reference/pets.md) to fetch comprehensive information about individual pets.
-- Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest improvements or report issues.
+- Check the [pet profiles endpoint](../api-reference/pets.md)
+to fetch comprehensive information about individual pets.
+- Visit the [Contribution Guide](../overview/contribution-guide.md)
+to suggest improvements or report issues.

@@ -4,11 +4,11 @@ title: /pets
 permalink: /docs/api-reference/pets/
 ---
 
-# `pets` resource
+## `pets` resource
 
-Contains information about adoptable pets stored in the PawFinder system.
-Shelters must register in the service before listing a new pet.
-Visit the [shelters resource](shelters.md).
+This reference contains information about pet profiles stored
+in the PawFinder system. Shelters must register in the service
+before listing a new pet. Visit the [shelters resource](shelters.md).
 
 Base endpoint:
 
@@ -16,7 +16,7 @@ Base endpoint:
 {base_url}/pets
 ```
 
-## Example `pet` resource
+### Example pet profile
 
 ```json
 {
@@ -58,7 +58,7 @@ Base endpoint:
 | `intake_date` | string | When the pet entered the shelter |
 | `id` | integer | Pet's unique record ID |
 
-## Field requirements
+### Field requirements
 
 - `species` : Must be `cat`, `dog`
 - `gender` : Must be `male`, `female`
@@ -70,10 +70,10 @@ Base endpoint:
 - `shelter_id` : PawFinder auto-generates this field and users can't change it directly.
 - `id` : PawFinder auto-generates this field and users can't change it directly.
 
-## Operations
+### Operations
 
 - [Get all pet profiles](get-all-pets.md)
-- [Get a pet profile by ID](get-pets-by-id.md)
+- [Get a pet profile by `id`](get-pets-by-id.md)
 - [Get pet profiles using filters](get-pets-with-filters.md)
 - [Create a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)

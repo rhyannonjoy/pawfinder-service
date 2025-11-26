@@ -4,33 +4,34 @@ title: Track Adoption Status
 permalink: /docs/tutorials/track-adoption-status/
 ---
 
-# Track adoption status
+## Track adoption status
 
 Observe pet availability and adoption progress in real time.
 Learn how to query individual pet profiles and understand
 adoption status transitions throughout the adoption workflow.
 
-## Overview
+### Overview
 
 The PawFinder Service API provides an endpoint for retrieving
 individual pet profiles and tracking adoption status changes.
 Use this to track whether the perfect pet is still available,
 has adoption applications pending review, or has settled
-with a new family. Install all [tutorial requirements](../overview/tutorial-requirements.md) before continuing this tutorial.
+with a new family. Install all [tutorial requirements](../overview/tutorial-requirements.md)
+before continuing this tutorial.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 GET {base_url}/pets/{id}
 ```
 
-## Path parameters
+### Path parameters
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
 | `id` | integer | Pet's unique identifier | 1, 2, 3, 4 |
 
-## Understanding adoption status
+### Understanding adoption status
 
 Pets transition through defined `status` states as they move
 through the adoption process:
@@ -41,16 +42,16 @@ through the adoption process:
 | `pending` | Adoption form under review | Wait for shelter response |
 | `adopted` | Successfully placed with a family | Pet is no longer available |
 
-## cURL request examples
-
-**Example 1**: check if a specific pet is still `available`
+### cURL request examples
 
 ```bash
+# Check if a specific pet is still available
 curl -X GET "{base_url}/pets/1" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - `"status": "available"` indicates Luna is ready for adoption inquiries.
+**Response** `200 OK` - `"status": "available"` indicates Luna
+is ready for adoption inquiries.
 
 ```json
 {
@@ -76,14 +77,14 @@ curl -X GET "{base_url}/pets/1" \
 
 ---
 
-**Example 2**: check the status of a pet with a `pending` adoption form
-
 ```bash
+# Check the status of a pet with pending adoption inquiries
 curl -X GET "{base_url}/pets/4" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - `"status": "pending"` means someone's adoption form is under review. Check back later for updates.
+**Response** `200 OK` - `"status": "pending"` means someone's adoption
+form is under review. Check back later for updates.
 
 ```json
 {
@@ -109,15 +110,14 @@ curl -X GET "{base_url}/pets/4" \
 
 ---
 
-**Example 3**: check a pet's profile to understand their medical history
-
 ```bash
+# Check a pet's profile to understand their medical history
 curl -X GET "{base_url}/pets/3" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - Individual pet profiles include essential medical information, making a pet's health status accessible
-before committing to adoption.
+**Response** `200 OK` - Individual pet profiles include essential medical information,
+making a pet's health status accessible before committing to adoption.
 
 ```json
 {
@@ -143,8 +143,8 @@ before committing to adoption.
 
 ### Common error responses
 
-**Response** `400 Bad Request` indicates an invalid pet profile `id`. An
-`id` can't be non-numeric or a negative integer.
+**Response** `400 Bad Request` indicates an invalid pet profile `id`.
+An `id` can't be non-numeric or a negative integer.
 
 ```json
 {
@@ -165,7 +165,7 @@ doesn't exist in the PawFinder system.
 }
 ```
 
-## Common use cases
+### Common use cases
 
 - **Confirm availability before applying**\
 Always retrieve the full pet profile before submitting an adoption form.
@@ -186,7 +186,7 @@ and periodically to track `status` changes and test app workflows.
 Production implementations might integrate webhooks for
 updates instead.
 
-## Troubleshooting
+### Troubleshooting
 
 - **`404 Not Found` response**\
 The pet profile `id` doesn't exist. Double-check the `id` matches
@@ -199,7 +199,7 @@ the shelter approved another applicant. Search for
 All pet profiles should have medical data. If a pet profile seems
 incomplete, contact the shelter directly for details.
 
-## Next steps
+### Next steps
 
 - Return to [Find the perfect pet](find-perfect-pet.md) to search for
 pets matching that match specific criteria.
@@ -207,4 +207,5 @@ pets matching that match specific criteria.
 when finalizing adoption.
 - Explore [Build location-aware search](build-location-aware-search.md)
 for a development use case that enables nearby shelter discovery.
-- Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest improvements or report issues.
+- Visit the [Contribution Guide](../overview/contribution-guide.md)
+to suggest improvements or report issues.

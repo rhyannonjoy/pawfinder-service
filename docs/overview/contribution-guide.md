@@ -4,7 +4,7 @@ title: Contribution Guide
 permalink: /docs/overview/contribution-guide/
 ---
 
-# Contribution guide
+## Contribution guide
 
 Documentation improvements are always welcome.
 Create [an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) and or

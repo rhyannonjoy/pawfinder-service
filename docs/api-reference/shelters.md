@@ -4,11 +4,12 @@ title: /shelters
 permalink: /docs/api-reference/shelters/
 ---
 
-# `shelters` resource
+## `shelters` resource
 
-Provides information about animal shelters and rescue organizations
-in the PawFinder network. Shelters must register in the service
-before listing pets for adoption. Visit the [pets resource](pets.md).
+This reference provides information about animal shelters
+and rescue organizations in the PawFinder network. Shelters
+must register in the service before listing pets for adoption.
+Visit the [pets resource](pets.md).
 
 Base endpoint:
 
@@ -16,7 +17,7 @@ Base endpoint:
 {base_url}/shelters
 ```
 
-## Example shelter resource
+### Example shelter profile
 
 ```json
 {
@@ -42,16 +43,16 @@ Base endpoint:
 | `adoption_fee_range` | string | Shelter's typical adoption fee range |
 | `id` | number | Shelter's unique record ID |
 
-## Field requirements
+### Field requirements
 
 - `phone` : Must be in  E.164 format, such as +1-XXX-XXX-XXXX
 - `adoption_fee_range` : Must be in USD, format "min - max"
 - `id` : PawFinder auto-generates this field and users can't change it directly.
 
-## Operations
+### Operations
 
 - [Get all shelter profiles](get-all-shelters.md)
-- [Get a shelter profile by ID](get-shelters-by-id.md)
+- [Get a shelter profile by `id`](get-shelters-by-id.md)
 - [Get pet profiles from a specific shelter](get-pets-from-shelter.md)
 - [Create a new shelter profile](post-shelters.md)
 - [Delete a shelter profile](delete-shelters-by-id.md)

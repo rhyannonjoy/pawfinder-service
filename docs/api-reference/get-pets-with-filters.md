@@ -4,21 +4,21 @@ title: Get pet profiles using filters
 permalink: /docs/api-reference/get-pets-with-filters/
 ---
 
-# Get pet profiles using filters
+## Get pet profiles using filters
 
 This operation retrieves pets profiles that match the specified filter criteria.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 GET /pets?{query_parameters}
 ```
 
-## Path parameters
+### Path parameters
 
 This operation doesn't require path parameters.
 
-## Query parameters
+### Query parameters
 
 This operation accepts the following optional query parameters
 to filter results:
@@ -32,23 +32,23 @@ to filter results:
 | `gender` | string | Filter pets by gender |
 | `shelter_id` | integer | Filter pets by shelter ID |
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X GET {base_url}/pets?species=cat&status=available
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK` - with a match
 
@@ -76,7 +76,7 @@ curl -X GET {base_url}/pets?species=cat&status=available
 ]
 ```
 
-**Response** : `200 OK` - without any matches
+**Response**: `200 OK` - without any matches
 
 ```json
 {
@@ -84,7 +84,7 @@ curl -X GET {base_url}/pets?species=cat&status=available
 }
 ```
 
-**Response** : `400 Bad Request` - malformed query parameters
+**Response**: `400 Bad Request` - malformed query parameters
 
 ```json
 {
@@ -110,7 +110,7 @@ curl -X GET {base_url}/pets?species=cat&status=available
 - `intake_date` : When the pet entered the shelter
 - `id` : Pet's unique record ID
 
-## Related topics
+### Related topics
 
 - [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)

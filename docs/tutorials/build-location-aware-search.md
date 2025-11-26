@@ -4,14 +4,14 @@ title: Build a location-aware search
 permalink: /docs/tutorials/build-location-aware-search/
 ---
 
-# Build a location-aware search
+## Build a location-aware search
 
 Use client-side location-based filtering to help potential adopters
 discover shelters near their current location. Learn how to integrate
 geolocation data with the PawFinder Service API and calculate
 distances to filter results dynamically.
 
-## Overview
+### Overview
 
 The PawFinder Service is a REST API that provides shelter data with
 address information, but location-aware filtering happens on the client
@@ -24,7 +24,7 @@ while client-side logic handles geolocation, geocoding, and distance
 calculations. This approach keeps the API stateless and allows adopters
 to perform location-based searches without more server processing.
 
-## Tutorial prerequisites
+### Tutorial prerequisites
 
 Install all [tutorial requirements](../overview/tutorial-requirements.md)
 before continuing this tutorial. This content also
@@ -44,7 +44,7 @@ Mobile applications integrate native geolocation libraries,
 such as [Core Location on iOS](https://developer.apple.com/documentation/corelocation)
 or [Google Play Services on Android](https://www.androidauthority.com/google-play-services-1094356/) to provide location data.
 
-## Architecture: API and client-side logic
+### Architecture: API and client-side logic
 
 Location-aware search follows this workflow:
 
@@ -56,7 +56,7 @@ Location-aware search follows this workflow:
 6. **Filter and sort** shelters by distance
 7. **Display results** on a map or in a list
 
-## Step 1: retrieve shelter data from the API
+### Step 1: retrieve shelter data from the API
 
 PawFinder shelter profiles include address information.
 Make a `GET` request to retrieve all shelters:
@@ -93,7 +93,7 @@ A successful response includes shelter objects with location data:
 }
 ```
 
-## Step 2: request geolocation permission
+### Step 2: request geolocation permission
 
 The browser Geolocation API allows adopters to share their location.
 Request geolocation asynchronously and handle permission responses:
@@ -121,7 +121,7 @@ Users should expect a browser permission prompt. If they deny access,
 the promise rejects and an error message displays. If they grant access,
 the coordinates resolve with latitude and longitude values.
 
-## Step 3: geocode shelter addresses
+### Step 3: geocode shelter addresses
 
 Converting addresses to coordinates requires a geocoding service.
 [Google Maps Platform](https://mapsplatform.google.com/) and
@@ -169,7 +169,7 @@ async function enrichSheltersWithCoordinates(shelters, apiKey) {
 }
 ```
 
-## Step 4: calculate distances
+### Step 4: calculate distances
 
 [The Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula)
 calculates great-circle distances between two points on a sphere given
@@ -206,7 +206,7 @@ function addDistancesToShelters(shelters, userLat, userLon) {
 }
 ```
 
-## Step 5: filter shelters by distance radius
+### Step 5: filter shelters by distance radius
 
 Filter shelter locations within a specified distance threshold.
 Allow potential adopters to choose their preferred search radius:
@@ -217,7 +217,7 @@ function filterSheltersByDistance(shelters, maxDistanceMiles) {
 }
 ```
 
-## Putting it together: complete workflow
+### Putting it together: complete workflow
 
 Combine the steps into a single function that orchestrates the entire flow:
 
@@ -259,7 +259,7 @@ async function searchNearestShelters(maxDistanceMiles = 10, mapsApiKey) {
 }
 ```
 
-## Display results in HTML example
+### Display results in HTML example
 
 Display filtered shelter profiles in a list with distance information:
 
@@ -320,7 +320,7 @@ document.getElementById("search-button").addEventListener("click", () => {
 });
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 **"Geolocation isn't supported"**\
 Some browsers or environments don't support the Geolocation API.
@@ -344,7 +344,7 @@ Use `Promise.all()` to geocode addresses in parallel.
 Consider caching geocoded coordinates to avoid
 re-geocoding the same addresses on future searches.
 
-## Best practices
+### Best practices
 
 - **Cache geocoded coordinates**\
 Store geocoded coordinates in local storage or a database to avoid
@@ -378,10 +378,11 @@ Show feedback while fetching shelter data, geocoding addresses, and
 calculating distances. Long-running operations should communicate
 progress to the adopter.
 
-## Next steps
+### Next steps
 
 - For advanced mapping features, integrate a mapping library like
-[Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview) or [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
+[Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+or [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
 to display shelters on an interactive map.
 - Explore [Track adoption status](track-adoption-status.md) to observe pet
 availability changes in real time.

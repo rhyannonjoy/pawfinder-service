@@ -4,40 +4,40 @@ title: Delete a pet profile
 permalink: /docs/api-reference/delete-pets-by-id/
 ---
 
-# Delete a pet profile
+## Delete a pet profile
 
 This operation removes a pet record from the PawFinder database.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 DELETE /pets/{id}
 ```
 
-## Path parameters
+### Path parameters
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `id` | integer | Yes | Pet's unique identifier |
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X DELETE {base_url}/pets/6 \
   -H "Authorization: Bearer pawfinder-secret-2025"
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `204 NO CONTENT`
 
@@ -49,7 +49,7 @@ curl -X DELETE {base_url}/pets/6 \
 
 ```json
 {
-  "message": "Pet with ID 6 successfully deleted",
+  "message": "Pet with ID 6 successfully deleted.",
   "deleted_id": 6
 }
 ```
@@ -59,12 +59,12 @@ curl -X DELETE {base_url}/pets/6 \
 ```json
 {
   "error": "Not Found",
-  "message": "Pet with ID 6 not found",
+  "message": "Pet with ID 6 not found.",
   "status": 404
 }
 ```
 
-## Related topics
+### Related topics
 
 - [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)

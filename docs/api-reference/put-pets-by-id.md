@@ -4,30 +4,30 @@ title: Replace a pet profile
 permalink: /docs/api-reference/put-pets-by-id/
 ---
 
-# Replace a pet profile
+## Replace a pet profile
 
 This operation edits all fields of an existing pet record in the PawFinder System.
 
-## PUT vs PATCH
+### PUT vs PATCH
 
 `PUT` replaces an entire profile and `PATCH` only updates
 the fields provided in the request body. In a `PUT` request,
 missing fields set to `null` or default values. In a `PATCH`
 request, fields not present in the request remain unchanged.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 PUT /pets/{id}
 ```
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 
-## Request body
+### Request body
 
 All fields required.
 
@@ -48,7 +48,7 @@ All fields required.
 | `status` | string | Pet's adoption status |
 | `intake_date` | string | Date the pet entered the shelter in Year-Month-Day format |
 
-## Field requirements
+### Field requirements
 
 | Field | Validation Rule |
 |---|---|
@@ -60,12 +60,12 @@ All fields required.
 | `status` | Must be `available`, `pending`, or `adopted` |
 | `intake_date` | Must be valid ISO 8601 date in YYYY-MM-DD format |
 
-## ID generation
+### `id` generation
 
 PawFinder auto-generates pet unique identifiers, `id`. The system
 ignores `id` fields in `PUT` request bodies or returns a `400` error.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X PUT {base_url}/pets/4 \
@@ -91,7 +91,7 @@ curl -X PUT {base_url}/pets/4 \
 } 
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK`
 
@@ -147,7 +147,7 @@ curl -X PUT {base_url}/pets/4 \
 }
 ```
 
-## Related topics
+### Related topics
 
 - [`/pets` resource](pets.md)
 - [Get all pet profiles](get-all-pets.md)
