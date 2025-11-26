@@ -15,6 +15,8 @@ options including species, breed, shelter, and more.
 The PawFinder Service API provides an endpoint for searching
 adoptable pets from shelters in the Dallas-Fort Worth area.
 Filter results with query parameters to find a perfect match.
+Install all [tutorial requirements](../overview/tutorial-requirements.md)
+before continuing this tutorial.
 
 ## Endpoint structure
 
@@ -77,7 +79,7 @@ curl -X GET "{base_url}/pets?species=dog" \
   -H "Content-Type: application/json"
 ```
 
-**Response `200 OK`**
+**Response** `200 OK`
 
 ```json
 [
@@ -136,7 +138,7 @@ curl -X GET "{base_url}/pets?species=cat&shelter_id=1&status=available" \
   -H "Content-Type: application/json"
 ```
 
-**Response `200 OK`**
+**Response** `200 OK`
 
 ```json
 [
@@ -188,7 +190,7 @@ curl -X GET "{base_url}/pets?species=cat&breed=Maine%20Coon" \
   -H "Content-Type: application/json"
 ```
 
-**Response `200 OK`**
+**Response** `200 OK`
 
 ```json
 [
@@ -221,7 +223,7 @@ curl -X GET "{base_url}/pets?_limit=2&_start=0&_sort=name&_order=asc" \
   -H "Content-Type: application/json"
 ```
 
-**Response `200 OK`**
+**Response** `200 OK`
 
 ```json
 [
@@ -279,7 +281,7 @@ curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=d
   -H "Content-Type: application/json"
 ```
 
-**Response `200 OK`**
+**Response** `200 OK`
 
 ```json
 [
@@ -309,7 +311,9 @@ curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=d
 ]                                                            
 ```
 
-### Empty response `200 OK`
+## Common responses
+
+**Empty response** `200 OK`
 
 If no pets match the criteria, PawFinder returns an empty array:
 
@@ -317,7 +321,8 @@ If no pets match the criteria, PawFinder returns an empty array:
 []
 ```
 
-### Error response `400 Bad Request`
+**Error response** `400 Bad Request` indicates a malformed set
+of query parameters, verify the cURL syntax.
 
 ```json
 {
@@ -375,6 +380,7 @@ more specific filters to reduce the dataset size.
 
 ## Next steps
 
-- Explore the [Shelter Endpoint](../api-reference/shelters.md) to get information about specific shelters.
-- Check the [Pet Details Endpoint](../api-reference/pets.md) to fetch comprehensive information about individual pets.
+- Explore the [shelter profiles endpoint](../api-reference/shelters.md)
+to get information about specific shelters.
+- Check the [pet profiles endpoint](../api-reference/pets.md) to fetch comprehensive information about individual pets.
 - Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest improvements or report issues.

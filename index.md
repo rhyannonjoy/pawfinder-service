@@ -19,7 +19,7 @@ how different development audiences use the API.
 ## Developer environment setup
 
 Install all [tutorial requirements](./docs/overview/tutorial-requirements.md)
-before proceeding to the tutorials.
+before moving on to the tutorials.
 
 ## Quickstart guide
 
@@ -31,19 +31,17 @@ Make a `GET` request to `/pets`. View a real JSON example with field-by-field an
 Tour task-based guides for common workflows and use cases.
 
 - [Find the perfect pet](./docs/tutorials/find-perfect-pet.md)\
-  Filter pets by species, breed, shelter, and other criteria.
+  Filter pet profiles by species, breed, shelter, and other criteria.
 
-- [Get Shelter Information](tutorials/get-shelter-information.md,), _coming soon_ \
-  Retrieve shelter directory listings and availability data.
+- [Mark pets as adopted](./docs/tutorials/mark-pet-adopted.md)\
+  Update a pet profile when finalizing adoptions.
 
-- [Track Adoption Status](tutorials/track-adoption-status.md), _coming soon_ \
+- [Track Adoption Status](./docs/tutorials/track-adoption-status.md)\
   Follow pet availability and adoption status in real-time.
 
-- [Build a Location-Based Search](tutorials/location-based-search.md), _coming soon_ \
+- [Build a Location-Aware Search](./docs/tutorials/build-location-aware-search.md)\
   Apply proximity filtering and distance calculations.
 
-- [Handle Pagination](tutorials/handle-pagination.md), _coming soon_ \
-  Work efficiently with large result sets and pagination controls.
 
 ## API Reference
 
