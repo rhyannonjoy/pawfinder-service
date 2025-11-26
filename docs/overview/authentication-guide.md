@@ -4,16 +4,16 @@ title: Authentication Guide
 permalink: /docs/overview/authentication-guide/
 ---
 
-# Authentication guide
+## Authentication guide
 
-## Overview
+### Overview
 
 The PawFinder Service API uses a token-based authentication system.
 Read-only operations, `GET` requests, don't require authentication.
 Operations that change data, such as `POST`, `PUT`, `PATCH`, and
 `DELETE` require an API token passed in the request header.
 
-## Authentication requirements
+### Authentication requirements
 
 | HTTP Method | Purpose | Authentication Required |
 |-------------|---------|------------------------|
@@ -23,7 +23,7 @@ Operations that change data, such as `POST`, `PUT`, `PATCH`, and
 | `PATCH` | Partially update a pet or shelter profile | Yes |
 | `DELETE` | Remove pet or shelter profiles from the PawFinder System | Yes |
 
-## Authenticating requests
+### Authenticating requests
 
 For any write operation, include the API token in the `Authorization` header:
 
@@ -31,7 +31,7 @@ For any write operation, include the API token in the `Authorization` header:
 Authorization: Bearer API_TOKEN
 ```
 
-### Authenticated example request
+#### Authenticated example request
 
 ```bash
 curl -X POST {base_url}/shelters \
@@ -44,13 +44,13 @@ curl -X POST {base_url}/shelters \
   }'
 ```
 
-### Read-only example request
+#### Read-only example request
 
 ```bash
 curl {base_url}/pets
 ```
 
-## Create an API token
+### Create an API token
 
 For development and testing purposes, assign any string as the token.
 In a production environment, PawFinder issues tokens through a proper
@@ -63,7 +63,7 @@ start the PawFinder json-server instance: `json-server -w pawfinder-db-source.js
 2. Use any string as the token, such as `test-token`, `dev-key`, etc.
 3. Pass it in the `Authorization: Bearer` header to perform write operations.
 
-## Security best practices
+### Security best practices
 
 - **Never commit tokens to version control.** Use environment variables
 or create an `.env` file and add it to the `.gitignore` file.
@@ -74,7 +74,7 @@ stage, QA, and production.
 - **Limit token permissions**. In a production environment with a robust backend
 system, use tokens with write-only or read-only scopes as needed.
 
-### Environment variable example
+#### Environment variable example
 
 ```bash
 # Store the token in an .env file and don't commit it to git
@@ -87,9 +87,9 @@ curl -X POST {base_url}/pets \
   -d '{"name": "Buddy", "species": "dog"}'
 ```
 
-## Error responses
+### Error responses
 
-### Missing authentication
+#### Missing authentication
 
 A write operation attempt without an authentication header returns
 a `401 Unauthorized` response:
@@ -101,7 +101,7 @@ a `401 Unauthorized` response:
 }
 ```
 
-### Invalid authentication
+#### Invalid authentication
 
 An invalid or malformed token returns a `403 Forbidden` response:
 
@@ -112,9 +112,9 @@ An invalid or malformed token returns a `403 Forbidden` response:
 }
 ```
 
-### Reaching the rate limit
+#### Exceeding the rate limit
 
-Reaching the rate limit returns the `429 Too Many Requests` response:
+Exceeding the rate limit returns the `429 Too Many Requests` response:
 
 ```json
 {
@@ -125,7 +125,7 @@ Reaching the rate limit returns the `429 Too Many Requests` response:
 }
 ```
 
-## Rate limiting
+### Rate limiting
 
 For development and testing, there are currently no strict rate limits,
 as json-server isn't designed for high-volume traffic. In production,
@@ -153,10 +153,10 @@ An example breakdown of client request limits:
 | Premium | 1,000 | 100,000 |
 | Enterprise | Custom | Custom |
 
-## Implementation note
+### Implementation note
 
-The PawFinder Service API is a project for shared documentation practice
-and educational purposes only. PawFinder uses json-server and an intentionally
+The PawFinder Service API is a project for _shared documentation practice
+and educational purposes only._ PawFinder uses json-server and an intentionally
 minimal authentication system. In a production system, consider the following:
 
 - Audit logging of all authenticated requests

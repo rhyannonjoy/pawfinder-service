@@ -4,39 +4,39 @@ title: Get a shelter profile by ID
 permalink: /docs/api-reference/get-shelters-by-id/
 ---
 
-# Get shelter profiles by id
+## Get shelter profiles by id
 
-This operation retrieves a shelter's profile by their ID.
+This operation retrieves a shelter's profile by their `id`.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 GET /shelter/{id}
 ```
 
-## Path parameters
+### Path parameters
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `id` | integer | Yes | Shelter's unique identifier |
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X GET {base_url}/shelters/1
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK`
 
@@ -68,7 +68,7 @@ curl -X GET {base_url}/shelters/1
 ```json
 {
   "error": "Not Found",
-  "message": "Shelter with ID 999 not found",
+  "message": "Shelter with ID 999 not found.",
   "status": 404
 }
 ```
@@ -84,7 +84,7 @@ curl -X GET {base_url}/shelters/1
 - `adoption_fee_range` : Shelter's fee range in United States Dollar
 - `id` : Shelter's unique record ID
 
-## Related topics
+### Related topics
 
 - [`/shelters` resource](shelters.md)
 - [Add a new shelter profile](post-shelters.md)

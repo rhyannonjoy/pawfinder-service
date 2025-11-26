@@ -4,23 +4,23 @@ title: Add a new shelter profile
 permalink: /docs/api-reference/post-shelters/
 ---
 
-# Add a new shelter profile
+## Add a new shelter profile
 
 This operation creates a new shelter profile in the PawFinder system.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 POST /shelters
 ```
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 
-## Request body
+### Request body
 
 All fields required.
 
@@ -34,18 +34,18 @@ All fields required.
 | `available_pet_count` | integer | Shelter's available pets |
 | `adoption_fee_range` | string | Shelter's fee range in United States Dollar |
 
-## Field requirements
+### Field requirements
 
 | Field | Validation Rule |
 |---|---|
 | `phone` | Must be E.164 format: +1-XXX-XXX-XXXX |
 
-## ID generation
+### `id` generation
 
 PawFinder auto-generates shelter unique identifiers, `id`. The system
 ignores `id` fields in `POST` request bodies or returns a `400` error.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X POST {base_url}/shelters \
@@ -62,7 +62,7 @@ curl -X POST {base_url}/shelters \
 } 
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `201 Created`
 
@@ -101,7 +101,7 @@ curl -X POST {base_url}/shelters \
 }
 ```
 
-## Related topics
+### Related topics
 
 - [`/shelters` resource](shelters.md)
 - [Get all shelter profiles](get-all-shelters.md)

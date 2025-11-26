@@ -4,9 +4,9 @@ title: Get a pet profile by ID
 permalink: /docs/api-reference/get-pets-by-id/
 ---
 
-# Get pet profiles by id
+## Get pet profiles by `id`
 
-This operation retrieves a pet's profile by their ID.
+This operation retrieves a pet's profile by their `id`.
 
 ## Endpoint structure
 
@@ -14,29 +14,29 @@ This operation retrieves a pet's profile by their ID.
 GET /pets/{id}
 ```
 
-## Path parameters
+### Path parameters
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
 | `id` | integer | Yes | Pet's unique identifier |
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X GET {base_url}/pets/1
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK`
 
@@ -67,7 +67,7 @@ curl -X GET {base_url}/pets/1
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid pet ID. Must be a positive integer",
+  "message": "Invalid pet ID. Must be a positive integer.",
   "status": 400
 }
 ```
@@ -77,7 +77,7 @@ curl -X GET {base_url}/pets/1
 ```json
 {
   "error": "Not Found",
-  "message": "Pet with ID 999 not found",
+  "message": "Pet with ID 999 not found.",
   "status": 404
 }
 ```
@@ -98,7 +98,7 @@ curl -X GET {base_url}/pets/1
 - `intake_date` : When the pet entered the shelter
 - `id` : Pet's unique record ID
 
-## Related topics
+### Related topics
 
 - [`/pets` resource](pets.md)
 - [Add a new pet profile](post-pets.md)

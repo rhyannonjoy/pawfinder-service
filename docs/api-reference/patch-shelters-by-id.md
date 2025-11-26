@@ -4,33 +4,33 @@ title: Partially update a shelter profile
 permalink: /docs/api-reference/patch-shelters-by-id/
 ---
 
-# Partially update a shelter profile
+## Partially update a shelter profile
 
 This operation edits specific fields of an existing shelter record
 in the PawFinder System.
 
-## PUT vs PATCH
+### PUT vs PATCH
 
 `PUT` replaces an entire profile and `PATCH` only updates
 the fields provided in the request body. In a `PUT` request,
 missing fields set to `null` or default values. In a `PATCH`
 request, fields not present in the request remain unchanged.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 PATCH /shelters/{id}
 ```
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 
-## Request body
+### Request body
 
-All fields required.
+Only include fields that need updating. Omitted fields remain unchanged.
 
 | Property | Type | Description |
 |---|---|---|
@@ -42,18 +42,18 @@ All fields required.
 | `available_pet_count` | integer | Shelter's available pets |
 | `adoption_fee_range` | string | Shelter's fee range in United States Dollar |
 
-## Field requirements
+### Field requirements
 
 | Field | Validation Rule |
 |---|---|
 | `phone` | Must be E.164 format: +1-XXX-XXX-XXXX |
 
-## ID generation
+### ID generation
 
 PawFinder auto-generates shelter unique identifiers, `id`. The system
 ignores `id` fields in `PATCH` request bodies or returns a `400` error.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X PATCH {base_url}/shelters/1 \
@@ -64,7 +64,7 @@ curl -X PATCH {base_url}/shelters/1 \
       } 
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK`
 
@@ -108,12 +108,12 @@ curl -X PATCH {base_url}/shelters/1 \
 ```json
 {
   "error": "Not Found",
-  "message": "Shelter with ID 999 not found",
+  "message": "Shelter with ID 999 not found.",
   "status": 404
 }
 ```
 
-## Related topics
+### Related topics
 
 - [`/shelters` resource](shelters.md)
 - [Get all shelter profiles](get-all-shelters.md)

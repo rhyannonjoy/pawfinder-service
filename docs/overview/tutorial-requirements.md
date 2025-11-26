@@ -4,12 +4,12 @@ title: Tutorial Requirements
 permalink: /docs/overview/tutorial-requirements/
 ---
 
-# Tutorial requirements
+## Tutorial requirements
 
 Complete these steps to prepare for the PawFinder API tutorials.
 Estimated preparation ~20 minutes.
 
-## Development environment setup
+### Development environment setup
 
 The following are tutorial prerequisites. Open the links in
 separate browser tabs before installing any software.
@@ -38,7 +38,7 @@ also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
 
 <!-- vale Google.Acronyms = YES -->
 
-## Verify the development setup
+### Verify the development setup
 
 1. Create and checkout a test branch of the fork of the PawFinder Service repository.
 `GitHub repository workspace` is the directory that contains the fork of
@@ -107,6 +107,8 @@ the `pawfinder-service` repository.
         },
         ...
     ```
+
+### Troubleshooting
 
 When encountering errors in any procedure steps, investigate,
 and correct the error before moving forward. Common situations

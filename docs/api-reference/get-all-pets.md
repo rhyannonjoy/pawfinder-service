@@ -4,37 +4,37 @@ title: Get all pet profiles
 permalink: /docs/api-reference/get-all-pets/
 ---
 
-# Get all pet profiles
+## Get all pet profiles
 
 This operation retrieves all pets in the PawFinder system.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
 GET /pets
 ```
 
-## Path parameters
+### Path parameters
 
 This operation doesn't require parameters.
 
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
 curl -X GET {base_url}/pets
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK`
 
@@ -81,12 +81,12 @@ curl -X GET {base_url}/pets
 ]
 ```
 
-**Response**: `429 Too Many Requests` - reaching rate limit
+**Response**: `429 Too Many Requests`
 
 ```json
 {
   "error": "Too Many Requests",
-  "message": "Rate limit exceeded. Try again in 60 seconds",
+  "message": "Rate limit exceeded. Try again in 60 seconds.",
   "status": 429,
   "retry_after": 60
 }
@@ -108,7 +108,7 @@ curl -X GET {base_url}/pets
 - `intake_date` : When the pet entered the shelter
 - `id` : Pet's unique record ID
 
-## Related topics
+### Related topics
 
 - [`/pets` resource](pets.md)
 - [Add a new pet profile](post-pets.md)

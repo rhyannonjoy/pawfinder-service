@@ -4,43 +4,43 @@ title: Get pet profiles from a specific shelter
 permalink: /docs/api-reference/get-pets-from-shelter/
 ---
 
-# Get pet profiles from a specific shelter
+## Get pet profiles from a specific shelter
 
 This operation retrieves all pets associated with a specific shelter.
 
-## Endpoint structure
+### Endpoint structure
 
 ```bash
-GET /shelters/{id}/pets
+GET /pets?shelter_id={id}
 ```
 
-## Path parameters
+### Path parameters
+
+This operation doesn't use path parameters.
+
+### Query parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `id` | integer | The unique identifier of the shelter |
+| `shelter_id` | integer | Shelter's unique identifier |
 
-## Query parameters
-
-This operation doesn't require query parameters.
-
-## Request headers
+### Request headers
 
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
-## Request body
+### Request body
 
 This operation doesn't require a request body.
 
-## cURL request
+### cURL request
 
 ```bash
-curl -X GET {base_url}/shelters/1/pets
+curl -X GET {base_url}/pets?shelter_id=1
 ```
 
-## Example responses
+### Example responses
 
 **Response**: `200 OK` with matches
 
@@ -93,6 +93,26 @@ curl -X GET {base_url}/shelters/1/pets
 []
 ```
 
+**Response**: `400 Bad Request` - invalid `id`, either non-numeric or negative integer
+
+```json
+{
+  "error": "Bad Request",
+  "message": "Invalid shelter ID. Must be a positive integer.",
+  "status": 400
+}
+```
+
+**Response**: `404 Not Found` - no matching `id`
+
+```json
+{
+  "error": "Not Found",
+  "message": "Shelter with ID 999 not found.",
+  "status": 404
+}
+```
+
 **Successful responses include a list of pets with the following**:
 
 - `name` : Pet's name
@@ -109,7 +129,7 @@ curl -X GET {base_url}/shelters/1/pets
 - `intake_date` : Date the pet entered the shelter
 - `id` : Pet's unique record ID
 
-## Related topics
+### Related topics
 
 - [`/shelters` resource](shelters.md)
 - [Get all shelter profiles](get-all-shelters.md)
