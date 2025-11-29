@@ -120,4 +120,4 @@ that cause errors:
 - Required software component isn't up to date
 
 If the service correctly retrieves a list of pet profiles, move on
-to the [Quickstart Guide](../tutorials/quickstart-guide.md).
+to the [Quickstart Guide](quickstart-guide.md).

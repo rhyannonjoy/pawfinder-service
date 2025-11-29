@@ -40,6 +40,7 @@ nav_items:
       - { title: "Overview", url: "/docs/overview/" }
       - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements/" }
       - { title: "Authentication Guide", url: "/docs/overview/authentication-guide/" }
+      - { title: "Quickstart Guide", url: "/docs/overview/quickstart-guide/" }
       - { title: "Contribution Guide", url: "/docs/overview/contribution-guide/" }
   - title: "API Reference"
     url: "/docs/api-reference/"
@@ -67,7 +68,6 @@ nav_items:
       - { title: "Build a location-aware search", url: "/docs/tutorials/build-location-aware-search/" }
       - { title: "Find the perfect pet", url: "/docs/tutorials/find-perfect-pet/" }
       - { title: "Mark a pet as adopted", url: "/docs/tutorials/mark-pet-adopted/" }
-      - { title: "Quickstart Guide", url: "/docs/tutorials/quickstart-guide/" }
       - { title: "Track adoption status", url: "/docs/tutorials/track-adoption-status/" }
   - title: "GitHub"
     url: "https://github.com/rhyannonjoy/pawfinder-service"

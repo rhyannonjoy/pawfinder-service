@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Quickstart Guide
-permalink: /docs/tutorials/quickstart-guide/
+permalink: /docs/overview/quickstart-guide/
 ---
 
 ## Quickstart guide
@@ -128,7 +128,7 @@ curl -X GET "{base_url}/pets?_limit=10&_start=10"
 
 - Explore the [API Index](../api-reference/api-index.md)
 for complete endpoint documentation.
-- Check out the [Find the Perfect Pet](find-perfect-pet.md)
+- Check out the [Find the Perfect Pet](../tutorials/find-perfect-pet.md)
 tutorial for advanced filtering.
 - View the [PawFinder source code on GitHub](https://github.com/rhyannonjoy/pawfinder-service).
 

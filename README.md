@@ -16,12 +16,16 @@ Build adoption platforms that connect paws with people. PawFinder is the
 REST API for real-time shelter data in the Dallas-Fort Worth area.
 
 - Explore [PawFinder API Documentation](https://rhyannonjoy.github.io/pawfinder-service/) for more information.
-- Review the [API Index](https://rhyannonjoy.github.io/pawfinder-service/docs/api-reference/api-index/) for the complete reference for all endpoint operations, parameters, and responses.
-- Use the [Tutorial Requirements](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/tutorial-requirements/) to install development environment tools.
-- Get up and running with the [Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/tutorials/quickstart/), _shorter version in the "Getting Started" section below._
+- Use the [Tutorial Requirements](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/tutorial-requirements/)
+to install development environment tools.
 - Learn how to create API keys for write operations in the
 [Authentication Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/authentication-guide/).
-- Visit the [Contribution Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/contribution-guide/) to report issues or suggest improvements.
+- Get up and running with the [Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/quickstart-guide/),
+_shorter version in the "Getting Started" section below._
+- Visit the [Contribution Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/contribution-guide/)
+to report issues or suggest improvements.
+- Review the [API Index](https://rhyannonjoy.github.io/pawfinder-service/docs/api-reference/api-index/)
+for the complete reference for all endpoint operations, parameters, and responses.
 
 ## Build with PawFinder
 

@@ -9,66 +9,44 @@ Welcome to the API for animal adoption. Learn how to connect
 adoptable pets with potential families by integrating pet
 adoption data into apps, websites, and services.
 
-### Overview
+### Start here
 
-Get familiar with the fundamentals and core concepts
-in the [PawFinder API Overview](./docs/overview/overview.md). Learn more
-about pets, shelters, adoption status, and search filters. Discover
-how different development audiences use the API.
-
-### Developer environment setup
-
-Install all [tutorial requirements](./docs/overview/tutorial-requirements.md)
-before moving on to the tutorials.
-
-### Quickstart guide
-
-Get up and running in the [Quickstart Guide](./docs/tutorials/quickstart-guide.md).
-Make a `GET` request to `/pets`. View a real JSON example with field-by-field annotations.
-
-### Tutorials
-
-Tour task-based guides for common workflows and use cases.
-
-- [Find the perfect pet](./docs/tutorials/find-perfect-pet.md)\
-  Filter pet profiles by species, breed, shelter, and other criteria.
-
-- [Mark pets as adopted](./docs/tutorials/mark-pet-adopted.md)\
-  Update a pet profile when finalizing adoptions.
-
-- [Track Adoption Status](./docs/tutorials/track-adoption-status.md)\
-  Follow pet availability and adoption status in real-time.
-
-- [Build a Location-Aware Search](./docs/tutorials/build-location-aware-search.md)\
-  Apply proximity filtering and distance calculations.
+- [Overview](./docs/overview/overview.md)\
+Learn key concepts. Discover how different development audiences use the API.
+- [Tutorial Requirements](./docs/overview/tutorial-requirements.md)\
+Set-up the development environment before moving on to the tutorials.
+- [Authentication Guide](./docs/overview/authentication-guide.md)\
+Create API keys for write operations.
+- [Quickstart Guide](./docs/overview/quickstart-guide.md)\
+Make a `GET` request to `/pets` and view annotated JSON examples.
+- [Contribution Guide](./docs/overview/contribution-guide.md)\
+Report issues and suggest improvements.
 
 ### API reference
 
-Survey [the complete technical](./docs/api-reference/api-index.md)
-reference for all endpoint operations, parameters, and responses.
+- [API Index](./docs/api-reference/api-index.md)\
+Reference all endpoint operations, parameters, and responses.
+- `/pets` endpoint
+    - [GET /pets?{query_parameters}](./docs/api-reference/get-pets-with-filters.md)\
+    Search and filter pet profiles.
+    - [GET /pets/{id}](./docs/api-reference/get-pets-by-id.md)\
+    Retrieve detailed information for a specific pet.
+- `/shelters` endpoint
+    - [GET /shelters](./docs/api-reference/get-all-shelters.md)\
+    Retrieve the profiles of all participating shelters.
+    - [GET /shelters/{id}](./docs/api-reference/get-shelters-by-id.md)\
+    Get detailed shelter information and contact details.
 
-#### `/pets`
+### Tutorials
 
-- [GET /pets?{query_parameters}](./docs/api-reference/get-pets-with-filters.md) \
-  Search and filter pet profiles with different criteria.
-
-- [GET /pets/{id}](./docs/api-reference/get-pets-by-id.md) \
-  Retrieve detailed information for a specific pet.
-
-- [GET /pets/{id}/status](./docs/api-reference/get-pets-with-filters.md) \
-  Check a specific pet's adoption status and availability.
-
-#### `/shelters`
-
-- [GET /shelters](./docs/api-reference/get-all-shelters.md) \
-  List all participating shelters with filtering options.
-
-- [GET /shelters/{id}](./docs/api-reference/get-shelters-by-id.md) \
-  Get detailed shelter information and contact details.
-
-### Authentication guide
-
-Learn how to create API keys for write operations in the [Authentication guide](./docs/overview/authentication-guide.md).
+- [Find the perfect pet](./docs/tutorials/find-perfect-pet.md)\
+Filter pet profiles by species, breed, shelter, and other criteria.
+- [Mark pets as adopted](./docs/tutorials/mark-pet-adopted.md)\
+Update a pet profile when finalizing adoptions.
+- [Track Adoption Status](./docs/tutorials/track-adoption-status.md)\
+Follow pet availability and adoption status in real-time.
+- [Build a Location-Aware Search](./docs/tutorials/build-location-aware-search.md)\
+Apply proximity filtering and distance calculations.
 
 ### Get help
 
