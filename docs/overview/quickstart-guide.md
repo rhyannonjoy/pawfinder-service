@@ -19,6 +19,7 @@ before continuing this tutorial.
 ### Use cURL
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X GET "{base_url}/pets" \
   -H "Content-Type: application/json"
 ```

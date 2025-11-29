@@ -68,6 +68,7 @@ ignores `id` fields in `PUT` request bodies or returns a `400` error.
 ### cURL request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X PUT {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \

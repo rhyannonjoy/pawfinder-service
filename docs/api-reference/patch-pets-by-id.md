@@ -64,6 +64,7 @@ Only include fields that need updating. Omitted fields remain unchanged.
 ### cURL request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X PATCH {base_url}/pets/4 \
   -H "Content-Type: application/json" \
   -d '{

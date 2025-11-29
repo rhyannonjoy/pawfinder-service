@@ -13,6 +13,7 @@ before listing a new pet. Visit the [shelters resource](shelters.md).
 Base endpoint:
 
 ```shell
+# Recommended base_url = http://localhost:3000
 {base_url}/pets
 ```
 

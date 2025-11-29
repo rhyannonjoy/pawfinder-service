@@ -14,6 +14,7 @@ Visit the [pets resource](pets.md).
 Base endpoint:
 
 ```shell
+# Recommended base_url = http://localhost:3000
 {base_url}/shelters
 ```
 
