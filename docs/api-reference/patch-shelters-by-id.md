@@ -56,6 +56,7 @@ ignores `id` fields in `PATCH` request bodies or returns a `400` error.
 ### cURL request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X PATCH {base_url}/shelters/1 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \

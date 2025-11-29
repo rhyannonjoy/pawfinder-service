@@ -61,6 +61,7 @@ PawFinder auto-generates pet unique identifiers, `id`. The system ignores
 ### cURL request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X POST {base_url}/pets \
   -H "Authorization: Bearer pawfinder-secret-2025" \
   -H "Content-Type: application/json" \

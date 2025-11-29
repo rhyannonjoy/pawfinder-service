@@ -23,6 +23,7 @@ before continuing this tutorial.
 ### Endpoint structure
 
 ```bash
+# Recommended base_url = http://localhost:3000
 PATCH {base_url}/pets/{id}
 ```
 

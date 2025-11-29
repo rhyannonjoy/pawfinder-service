@@ -31,6 +31,7 @@ This operation doesn't require a request body.
 ### cURL request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X GET {base_url}/shelters
 ```
 

@@ -19,23 +19,23 @@ permalink: /docs/api-reference/api-index/
 
 #### `/pets` operations
 
-- [GET all pet profiles](get-all-pets.md)
-- [GET pet profiles by `id`](get-pets-by-id.md)
-- [GET pet profiles from a specific shelter](get-pets-from-shelter.md)
-- [GET pet profiles using filters](get-pets-with-filters.md)
-- [POST pet profiles](post-pets.md)
-- [PUT pet profiles by `id`](put-pets-by-id.md)
-- [PATCH pet profiles by `id`](patch-pets-by-id.md)
-- [DELETE pet profiles by `id`](delete-pets-by-id.md)
+- [`GET` all pet profiles](get-all-pets.md)
+- [`GET` pet profiles by `id`](get-pets-by-id.md)
+- [`GET` pet profiles from a specific shelter](get-pets-from-shelter.md)
+- [`GET` pet profiles using filters](get-pets-with-filters.md)
+- [`POST` pet profiles](post-pets.md)
+- [`PUT` pet profiles by `id`](put-pets-by-id.md)
+- [`PATCH` pet profiles by `id`](patch-pets-by-id.md)
+- [`DELETE` pet profiles by `id`](delete-pets-by-id.md)
 
 #### `/shelters` operations
 
-- [GET all shelter profiles](get-all-shelters.md)
-- [GET shelter profiles by `id`](get-shelters-by-id.md)
-- [POST shelter profiles](post-shelters.md)
-- [PUT shelter profiles by `id`](put-shelters-by-id.md)
-- [PATCH shelter profiles by `id`](patch-shelters-by-id.md)
-- [DELETE shelter profiles by `id`](delete-shelters-by-id.md)
+- [`GET` all shelter profiles](get-all-shelters.md)
+- [`GET` shelter profiles by `id`](get-shelters-by-id.md)
+- [`POST` shelter profiles](post-shelters.md)
+- [`PUT` shelter profiles by `id`](put-shelters-by-id.md)
+- [`PATCH` shelter profiles by `id`](patch-shelters-by-id.md)
+- [`DELETE` shelter profiles by `id`](delete-shelters-by-id.md)
 
 ### Common error responses for all endpoints
 
@@ -77,7 +77,8 @@ If encountering connection errors like `Connection refused` or
 indicates the local port is reaching its connection limit.
 This is normal during stress testing and doesn't reflect production
 API performance. To continue testing locally, either increase OS
-connection limits, run many instances on different ports such as 3001, 3002, or test against a staging environment if available.
+connection limits, run many instances on different ports such as
+3001, 3002, or test against a staging environment if available.
 
 **OS-specific guidance**:
 
@@ -85,7 +86,9 @@ connection limits, run many instances on different ports such as 3001, 3002, or 
 limits and change `/etc/security/limits.conf` to increase them
 - **macOS**: Use `launchctl maxfiles` to adjust file limits,
 or change `/etc/launchd.conf` for persistent changes
-- **Windows**: Change the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters` and adjust `MaxUserPort` to increase ephemeral port range
+- **Windows**: Change the registry key
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters`
+and adjust `MaxUserPort` to increase ephemeral port range
 
 ### Versioning
 
