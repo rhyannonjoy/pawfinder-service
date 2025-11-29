@@ -5,9 +5,9 @@ title: Home
 
 ## PawFinder API Documentation
 
-Welcome to the API for animal adoption. Learn how to connect
-adoptable pets with potential families by integrating pet
-adoption data into apps, websites, and services.
+Connect paws to people with the PawFinder REST API. Integrate
+adoptable pet data into apps, websites, and services to help
+families find their perfect match.
 
 ### Start here
 

@@ -8,10 +8,10 @@ permalink: /docs/overview/
 
 ### Introduction
 
-PawFinder is a REST API that connects potential pet adopters with animal shelters
-in the greater Dallas-Fort Worth area. This platform aggregates real-time data from
-hundreds of shelters, making it easier for people to find their perfect companion
-and for shelters to reach qualified adopters. This API enables developers to:
+PawFinder is a REST API connecting adoptable pets with potential families across
+the Dallas-Fort Worth area. Real-time data from hundreds of shelters makes it
+easier for people to find their perfect companion and for shelters to reach
+qualified adopters. This API enables developers to:
 
 - Search available pets by species, breed, age, location and temperament
 - Access detailed shelter profiles and contact information
