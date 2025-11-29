@@ -65,10 +65,16 @@ nav_items:
   - title: "Tutorials"
     url: "/docs/tutorials/"
     children:
-      - { title: "Build a location-aware search", url: "/docs/tutorials/build-location-aware-search/" }
-      - { title: "Find the perfect pet", url: "/docs/tutorials/find-perfect-pet/" }
-      - { title: "Mark a pet as adopted", url: "/docs/tutorials/mark-pet-adopted/" }
-      - { title: "Track adoption status", url: "/docs/tutorials/track-adoption-status/" }
+    - title: "API Fundamentals"
+      url: "/docs/tutorials/api-fundamentals/"
+      children:
+        - { title: "Find the perfect pet", url: "/docs/tutorials/api-fundamentals/find-perfect-pet/" }
+        - { title: "Mark a pet as adopted", url: "/docs/tutorials/api-fundamentals/mark-pet-adopted/" }
+        - { title: "Track adoption status", url: "/docs/tutorials/api-fundamentals/track-adoption-status/" }
+    - title: "Building Applications"
+      url: "/docs/tutorials/building-applications/"
+      children:
+        - { title: "Build a location-aware search", url: "/docs/tutorials/building-applications/build-location-aware-search/" }
   - title: "GitHub"
     url: "https://github.com/rhyannonjoy/pawfinder-service"
     external: true

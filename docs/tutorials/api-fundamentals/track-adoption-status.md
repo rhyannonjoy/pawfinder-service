@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Track Adoption Status
-permalink: /docs/tutorials/track-adoption-status/
+permalink: /docs/tutorials/api-fundamentals/track-adoption-status/
 ---
 
 ## Track adoption status
@@ -16,7 +16,8 @@ The PawFinder Service API provides an endpoint for retrieving
 individual pet profiles and tracking adoption status changes.
 Use this to track whether the perfect pet is still available,
 has adoption applications pending review, or has settled
-with a new family. Install all [tutorial requirements](../overview/tutorial-requirements.md)
+with a new family. Install all
+[tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
 
 ### Endpoint structure
@@ -201,11 +202,12 @@ incomplete, contact the shelter directly for details.
 
 ### Next steps
 
-- Return to [Find the perfect pet](find-perfect-pet.md) to search for
+- Return to [Find the Perfect Pet](find-perfect-pet.md) to search for
 pets matching that match specific criteria.
-- For shelter staff: [Mark a pet as adopted](mark-pet-adopted.md)
+- For shelter staff: [Mark a Pet as Adopted](mark-pet-adopted.md)
 when finalizing adoption.
-- Explore [Build location-aware search](build-location-aware-search.md)
+- Explore
+[Build a Location-Aware Search](../../tutorials/building-applications/build-location-aware-search.md)
 for a development use case that enables nearby shelter discovery.
-- Visit the [Contribution Guide](../overview/contribution-guide.md)
+- Visit the [Contribution Guide](../../overview/contribution-guide.md)
 to suggest improvements or report issues.

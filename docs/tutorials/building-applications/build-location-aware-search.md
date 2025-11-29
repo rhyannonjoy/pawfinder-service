@@ -1,10 +1,14 @@
 ---
 layout: page
 title: Build a location-aware search
-permalink: /docs/tutorials/build-location-aware-search/
+permalink: /docs/tutorials/building-applications/build-location-aware-search/
 ---
 
 ## Build a location-aware search
+
+_This tutorial guides developers building applications that integrate with PawFinder.
+Developers write or change JavaScript code in their own applications.
+This integration doesn't require enabling a feature in the PawFinder service itself._
 
 Use client-side location-based filtering to help potential adopters
 discover shelters near their current location. Learn how to integrate
@@ -24,21 +28,28 @@ while client-side logic handles geolocation, geocoding, and distance
 calculations. This approach keeps the API stateless and allows adopters
 to perform location-based searches without more server processing.
 
-### Tutorial prerequisites
+### Prerequisities
 
-Install all [tutorial requirements](../overview/tutorial-requirements.md)
+Install all [tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial. This content also
 assumes familiarity with the following concepts:
 
 - Retrieving data from REST endpoints using `GET` requests
+    - [Quickstart Guide](../../overview/quickstart-guide.md)
 - Parsing JSON responses
+    - [Working with JSON](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON)
 - JavaScript async/await patterns
+    - [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+    - [How to use promises](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Promises)
 - HTML forms and event handling
+    - [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events)
+    - [HTMLFormElement: submit event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
 
 Web applications leverage standard web platform APIs such as
 the Geolocation API and Fetch API to access location data and retrieve
 shelter information. Modzilla documents these APIs extensively on
-the Modzilla Developer Network: [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API), [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+the Modzilla Developer Network: [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API),
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 Mobile applications integrate native geolocation libraries,
 such as [Core Location on iOS](https://developer.apple.com/documentation/corelocation)
@@ -384,9 +395,9 @@ progress to the adopter.
 [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
 or [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
 to display shelters on an interactive map.
-- Explore [Track adoption status](track-adoption-status.md) to observe pet
-availability changes in real time.
-- Check out [Mark a pet as adopted](mark-pet-adopted.md) to understand
+- Check out [Mark a Pet as Adopted](../api-fundamentals/mark-pet-adopted.md) to understand
 adoption workflow management from the shelter perspective.
-- Visit the [Contribution Guide](../overview/contribution-guide.md) to suggest
+- Explore [Track Adoption Status](../api-fundamentals/track-adoption-status.md) to observe pet
+availability changes in real time.
+- Visit the [Contribution Guide](../../overview/contribution-guide.md) to suggest
 improvements or report issues.

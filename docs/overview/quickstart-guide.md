@@ -13,7 +13,7 @@ a list of available pets.
 ### Prerequisites
 
 Read-only operations don't require authentication, but install the
-recommended tools in the [Tutorial Requirements](../overview/tutorial-requirements.md)
+recommended tools in the [Tutorial Requirements](tutorial-requirements.md)
 before continuing this tutorial.
 
 ### Use cURL
@@ -128,7 +128,7 @@ curl -X GET "{base_url}/pets?_limit=10&_start=10"
 
 - Explore the [API Index](../api-reference/api-index.md)
 for complete endpoint documentation.
-- Check out the [Find the Perfect Pet](../tutorials/find-perfect-pet.md)
+- Check out the [Find the Perfect Pet](../tutorials/api-fundamentals/find-perfect-pet.md)
 tutorial for advanced filtering.
 - View the [PawFinder source code on GitHub](https://github.com/rhyannonjoy/pawfinder-service).
 
