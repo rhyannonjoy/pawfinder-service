@@ -39,14 +39,16 @@ Reference all endpoint operations, parameters, and responses.
 
 ### Tutorials
 
-- [Find the perfect pet](./docs/tutorials/find-perfect-pet.md)\
-Filter pet profiles by species, breed, shelter, and other criteria.
-- [Mark pets as adopted](./docs/tutorials/mark-pet-adopted.md)\
-Update a pet profile when finalizing adoptions.
-- [Track Adoption Status](./docs/tutorials/track-adoption-status.md)\
-Follow pet availability and adoption status in real-time.
-- [Build a Location-Aware Search](./docs/tutorials/build-location-aware-search.md)\
-Apply proximity filtering and distance calculations.
+- API Fundamentals
+    - [Find the Perfect Pet](/docs/tutorials/api-fundamentals/find-perfect-pet.md)\
+    Filter pet profiles by species, breed, shelter, and other criteria.
+    - [Mark Pets as Adopted](/docs/tutorials/api-fundamentals/mark-pet-adopted.md)\
+    Update a pet profile when finalizing adoptions.
+    - [Track Adoption Status](/docs/tutorials/api-fundamentals/track-adoption-status.md)\
+    Follow pet availability and adoption status in real-time.
+- Building Applications
+    - [Build a Location-Aware Search](/docs/tutorials/building-applications/build-location-aware-search.md)\
+    Apply proximity filtering and distance calculations.
 
 ### Get help
 

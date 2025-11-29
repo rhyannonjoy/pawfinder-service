@@ -1,0 +1,57 @@
+{% if item.children %}
+  <details class="sidebar-nav-group" {% if page.url contains item.url %}open{% endif %}>
+    <summary class="sidebar-nav-toggle">
+      {{ item.title }}
+    </summary>
+    <nav class="sidebar-nav-children">
+      {% for child in item.children %}
+        {% if child.children %}
+          <details class="sidebar-nav-group sidebar-nav-child" {% if page.url contains child.url %}open{% endif %}>
+            <summary class="sidebar-nav-toggle">
+              {{ child.title }}
+            </summary>
+            <nav class="sidebar-nav-children">
+              {% for grandchild in child.children %}
+                {% if page.url == grandchild.url %}
+                  <a class="sidebar-nav-item sidebar-nav-child active" href="{% if grandchild.external %}{{ grandchild.url }}{% else %}{{ site.baseurl }}{{ grandchild.url }}{% endif %}"{% if grandchild.external %} target="_blank"{% endif %}>
+                    {{ grandchild.title }}
+                  </a>
+                {% else %}
+                  <a class="sidebar-nav-item sidebar-nav-child" href="{% if grandchild.external %}{{ grandchild.url }}{% else %}{{ site.baseurl }}{{ grandchild.url }}{% endif %}"{% if grandchild.external %} target="_blank"{% endif %}>
+                    {{ grandchild.title }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </nav>
+          </details>
+        {% else %}
+          {% if page.url == child.url %}
+            <a class="sidebar-nav-item sidebar-nav-child active" href="{% if child.external %}{{ child.url }}{% else %}{{ site.baseurl }}{{ child.url }}{% endif %}"{% if child.external %} target="_blank"{% endif %}>
+              {{ child.title }}
+            </a>
+          {% else %}
+            <a class="sidebar-nav-item sidebar-nav-child" href="{% if child.external %}{{ child.url }}{% else %}{{ site.baseurl }}{{ child.url }}{% endif %}"{% if child.external %} target="_blank"{% endif %}>
+              {{ child.title }}
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </details>
+{% else %}
+  {% if page.url == item.url %}
+    <a class="sidebar-nav-item active" href="{% if item.external %}{{ item.url }}{% else %}{{ site.baseurl }}{{ item.url }}{% endif %}"{% if item.external %} target="_blank"{% endif %}>
+      {{ item.title }}
+    </a>
+  {% else %}
+    {% if item.external %}
+      <a class="sidebar-nav-item" href="{{ item.url }}" target="_blank">
+        {{ item.title }}
+      </a>
+    {% else %}
+      <a class="sidebar-nav-item" href="{{ site.baseurl }}{{ item.url }}">
+        {{ item.title }}
+      </a>
+    {% endif %}
+  {% endif %}
+{% endif %}

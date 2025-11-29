@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Find the perfect pet
-permalink: /docs/tutorials/find-perfect-pet/
+permalink: /docs/tutorials/api-fundamentals/find-perfect-pet/
 ---
 
 ## Find the perfect pet
@@ -15,7 +15,7 @@ options including species, breed, shelter, and more.
 The PawFinder Service API provides an endpoint for searching
 adoptable pets from shelters in the Dallas-Fort Worth area.
 Filter results with query parameters to find a perfect match.
-Install all [tutorial requirements](../overview/tutorial-requirements.md)
+Install all [tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
 
 ### Endpoint structure
@@ -380,9 +380,9 @@ more specific filters to reduce the dataset size.
 
 ### Next steps
 
-- Explore the [shelter profiles endpoint](../api-reference/shelters.md)
-to get information about specific shelters.
-- Check the [pet profiles endpoint](../api-reference/pets.md)
+- Check the [pet profiles endpoint](../../api-reference/pets.md)
 to fetch comprehensive information about individual pets.
-- Visit the [Contribution Guide](../overview/contribution-guide.md)
+- Explore the [shelter profiles endpoint](../../api-reference/shelters.md)
+to get information about specific shelters.
+- Visit the [Contribution Guide](../../overview/contribution-guide.md)
 to suggest improvements or report issues.

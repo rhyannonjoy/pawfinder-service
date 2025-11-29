@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Mark a pet as adopted
-permalink: /docs/tutorials/mark-pet-adopted/
+permalink: /docs/tutorials/api-fundamentals/mark-pet-adopted/
 ---
 
 ## Mark a pet as `adopted`
@@ -16,7 +16,8 @@ The PawFinder Service API provides an endpoint for updating pet
 profiles as adoptions progress. Shelter staff use the `PATCH`
 method to mark pets as `adopted` after finalizing paperwork,
 ensuring the system reflects current availability, and prevents
-duplicate adoption inquiries. Install all [tutorial requirements](../overview/tutorial-requirements.md)
+duplicate adoption inquiries. Install all
+[tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
 
 ### Endpoint structure
@@ -288,7 +289,8 @@ malformed request body.
 Verify the API key is valid and included in the `X-API-Key`
 header. It's possible that the key requires rotation or resetting.
 - **404 Not Found response**\
-Confirm the pet profile `id` is correct. Use [Get pet profiles using filters](../api-reference/get-pets-with-filters.md)
+Confirm the pet profile `id` is correct. Use
+[Get pet profiles using filters](../../api-reference/get-pets-with-filters.md)
 and cross-check the pet profile's `id` with another field.
 - **Changes didn't persist**\
 Verify the request succeeded with a `200 OK` response.
@@ -300,11 +302,11 @@ object structure.
 
 ### Next steps
 
-- Learn how to [Track adoption status](track-adoption-status.md)
+- Check out [Track Adoption Status](track-adoption-status.md)
 to observe pet availability from the adopter perspective.
-- Return to [Find the perfect pet](find-perfect-pet.md) to
+- Return to [Find the Perfect Pet](find-perfect-pet.md) to
 understand search workflows.
 - For shelter management features, explore the
-[/shelters endpoint](../api-reference/shelters.md).
-- Visit the [Contribution Guide](../overview/contribution-guide.md)
+[/shelters endpoint](../../api-reference/shelters.md).
+- Visit the [Contribution Guide](../../overview/contribution-guide.md)
 to suggest improvements or report issues.
