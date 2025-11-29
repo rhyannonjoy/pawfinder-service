@@ -339,22 +339,27 @@ of query parameters, verify the cURL syntax.
 Begin with filters like  `species` and `shelter_id`, then
 add more specific criteria to narrow results.
 - **Use pagination for large result sets**\
-Always use pagination when displaying results to handle
-large datasets efficiently. Set an appropriate `limit`
-and use `offset` to fetch the next pages.
+Always use [pagination](https://www.merge.dev/blog/rest-api-pagination)
+when displaying results to handle large datasets efficiently.
+Set an appropriate `limit` and use `offset` to fetch the next pages.
 - **Cache results locally**\
-Consider caching search results on the client-side with
-a reasonable time to live to reduce API calls and improve
-user experience.
+Consider
+[caching search results](https://www.geeksforgeeks.org/system-design/caching-strategies-for-api/)
+on the client-side with a reasonable time to live to reduce API calls
+and improve user experience.
 - **Verify user input**\
-Always sanitize and verify filter parameters on the
-client-side before sending requests to prevent unnecessary
-API errors.
+Always
+[sanitize and verify](https://www.esecurityplanet.com/endpoint/prevent-web-attacks-using-input-sanitization/)
+filter parameters on the client-side before sending requests to
+prevent unnecessary API errors.
 - **Handle rate limiting**\
-Use exponential backoff when encountering the rate limit
-response: `429 Too Many Requests`.
+Use
+[exponential backoff](https://henrychan.tech/why-your-api-retries-keep-failing-fix-it-with-exponential-backoff/)
+when encountering the rate limit response: `429 Too Many Requests`.
 - **Combine filters logically**\
-Use `AND` logic when combining many filters. For example,
+Use
+[`AND` logic](https://www.electrical-info.net/2025/11/logic-gates.html)
+when combining many filters. For example,
 `species=dog&temperament=calm` returns dogs that are
 calm, not all dogs plus all calm pets.
 
