@@ -347,9 +347,10 @@ If a shelter address fails to geocode, log the error and exclude it
 from distance calculations.
 
 **CORS errors when calling Geocoding API**\
-CORS, Cross-Origin Resource Sharing, errors occur when the browser blocks
-requests to external APIs. Ensure that the API key has the correct origins
-configured, and that requests originate from allowed domains.
+[CORS, Cross-Origin Resource Sharing, errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors)
+occur when the browser blocks requests to external APIs.
+Ensure that the API key has the correct origins configured,
+and that requests originate from allowed domains.
 
 **Slow performance with many shelter locations**\
 Geocoding many addresses sequentially is slow.
@@ -365,7 +366,8 @@ repeated API calls for the same shelter addresses. Invalidate cache
 periodically to account for address changes.
 
 - **Handle geolocation permission denial**\
-Not all potential adopters grant location access. Provide a fallback
+Not all potential adopters grant location access.
+[Provide a fallback](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 that allows manual address entry or displays all shelter profiles
 without distance filtering.
 
@@ -374,7 +376,8 @@ Check that geocoding and shelter API responses contain expected fields.
 Handle missing or malformed data gracefully.
 
 - **Respect API rate limits**\
-Geocoding APIs have rate limits. Use request throttling and caching
+Geocoding APIs have rate limits. Use
+[request throttling and caching](https://www.geeksforgeeks.org/system-design/api-throttling-vs-api-rate-limiting-system-design/)
 to stay within limits, especially for production applications.
 
 - **Test with mock data**\
@@ -387,9 +390,9 @@ Offer preset options such as 5 miles, 10 miles, and 25 miles
 for quick filtering.
 
 - **Display loading states**\
-Show feedback while fetching shelter data, geocoding addresses, and
-calculating distances. Long-running operations should communicate
-progress to the adopter.
+[Show feedback](https://primer.style/product/ui-patterns/loading/)
+while fetching shelter data, geocoding addresses, and calculating distances.
+Long-running operations should communicate progress to the adopter.
 
 ### Next steps
 

@@ -185,8 +185,9 @@ shelter and `description` field for context about their behavior.
 - **Poll for `status` updates**\
 If developing with this demo API, poll this endpoint manually
 and periodically to track `status` changes and test app workflows.
-Production implementations might integrate webhooks for
-updates instead.
+Production implementations might integrate
+[webhooks](https://www.geeksforgeeks.org/blogs/what-is-a-webhook-and-how-to-use-it/)
+for updates instead.
 
 ### Troubleshooting
 
