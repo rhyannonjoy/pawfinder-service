@@ -18,8 +18,8 @@ REST API for real-time shelter data in the Dallas-Fort Worth area.
 - Explore [PawFinder API Documentation](https://rhyannonjoy.github.io/pawfinder-service/)
 for more information.
 - Use the
-[Tutorial Requirements](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/tutorial-requirements/)
-to install development environment tools.
+[Installation Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/installation-guide/)
+for development environment set up.
 - Learn how PawFinder protects pet and shelter data with token-based authentication in the
 [Authentication Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/authentication-guide/).
 `GET` requests don't require authentication. Write operations,

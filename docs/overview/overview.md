@@ -73,7 +73,7 @@ community support.
 
 ### Next steps
 
-- [Tutorial Requirements](tutorial-requirements.md)
+- [Installation Guide](installation-guide.md)
 - [Authentication Guide](authentication-guide.md)
 - [Quickstart Guide](quickstart-guide.md)
 - [Contribution Guide](contribution-guide.md)

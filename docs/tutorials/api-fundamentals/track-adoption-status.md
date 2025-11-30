@@ -16,8 +16,8 @@ The PawFinder Service API provides an endpoint for retrieving
 individual pet profiles and tracking adoption status changes.
 Use this to track whether the perfect pet is still available,
 has adoption applications pending review, or has settled
-with a new family. Install all
-[tutorial requirements](../../overview/tutorial-requirements.md)
+with a new family. Complete all appropriate steps in the
+[Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial.
 
 ### Endpoint structure

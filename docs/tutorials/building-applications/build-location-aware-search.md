@@ -30,7 +30,8 @@ to perform location-based searches without more server processing.
 
 ### Prerequisities
 
-Install all [tutorial requirements](../../overview/tutorial-requirements.md)
+Complete all appropriate steps in the
+[Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial. This content also
 assumes familiarity with the following concepts:
 
