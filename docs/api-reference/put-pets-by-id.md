@@ -27,6 +27,14 @@ PUT /pets/{id}
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 
+### Authentication
+
+**Required** - include an API token in the Authorization header:
+
+```bash
+Authorization: Bearer API_TOKEN
+```
+
 ### Request body
 
 All fields required.
@@ -133,7 +141,7 @@ curl -X PUT {base_url}/pets/4 \
 ```json
 {
   "error": "Bad Request",
-  "message": "Invalid value for 'species'. Must be one of: cat, dog",
+  "message": "Invalid value for 'species'. Must be one of: cat, dog.",
   "status": 400
 }
 ```
@@ -143,7 +151,7 @@ curl -X PUT {base_url}/pets/4 \
 ```json
 {
   "error": "Not Found",
-  "message": "Pet with ID 999 not found",
+  "message": "Pet with ID 999 not found.",
   "status": 404
 }
 ```

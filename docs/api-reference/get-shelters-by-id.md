@@ -26,6 +26,10 @@ GET /shelter/{id}
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
+### Authentication
+
+This operation doesn't require authentication.
+
 ### Request body
 
 This operation doesn't require a request body.

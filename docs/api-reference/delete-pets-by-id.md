@@ -26,6 +26,14 @@ DELETE /pets/{id}
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
+### Authentication
+
+**Required** - include an API token in the Authorization header:
+
+```bash
+Authorization: Bearer API_TOKEN
+```
+
 ### Request body
 
 This operation doesn't require a request body.
@@ -35,7 +43,7 @@ This operation doesn't require a request body.
 ```bash
 # Recommended base_url = http://localhost:3000
 curl -X DELETE {base_url}/pets/6 \
-  -H "Authorization: Bearer pawfinder-secret-2025"
+  -H "Authorization: Bearer API_TOKEN"
 ```
 
 ### Example responses

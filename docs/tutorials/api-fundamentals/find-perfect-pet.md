@@ -15,7 +15,8 @@ options including species, breed, shelter, and more.
 The PawFinder Service API provides an endpoint for searching
 adoptable pets from shelters in the Dallas-Fort Worth area.
 Filter results with query parameters to find a perfect match.
-Install all [tutorial requirements](../../overview/tutorial-requirements.md)
+Install all
+[tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
 
 ### Endpoint structure

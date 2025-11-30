@@ -16,7 +16,7 @@ Learn key concepts. Discover how different development audiences use the API.
 - [Tutorial Requirements](./docs/overview/tutorial-requirements.md)\
 Set-up the development environment before moving on to the tutorials.
 - [Authentication Guide](./docs/overview/authentication-guide.md)\
-Create API keys for write operations.
+Create API tokens for write operations.
 - [Quickstart Guide](./docs/overview/quickstart-guide.md)\
 Make a `GET` request to `/pets` and view annotated JSON examples.
 - [Contribution Guide](./docs/overview/contribution-guide.md)\

@@ -16,9 +16,17 @@ The PawFinder Service API provides an endpoint for updating pet
 profiles as adoptions progress. Shelter staff use the `PATCH`
 method to mark pets as `adopted` after finalizing paperwork,
 ensuring the system reflects current availability, and prevents
-duplicate adoption inquiries. Install all
+duplicate adoption inquiries.
+
+### Prerequisites
+
+- Install all
 [tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
+- This tutorial modifies data and requires an API token.
+- Visit the
+[Authentication Guide](../../overview/authentication-guide.md)
+for instructions.
 
 ### Endpoint structure
 
@@ -38,7 +46,14 @@ PATCH {base_url}/pets/{id}
 | Header | Value | Required |
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
-| `X-API-Key` | Admin API key | Yes |
+
+### Authentication
+
+**Required** - include an API token in the Authorization header:
+
+```bash
+Authorization: Bearer API_TOKEN
+```
 
 ### Request body
 
@@ -69,7 +84,7 @@ the finalized adoption.
 ```bash
 curl -X PATCH "{base_url}/pets/1" \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: admin-key-12345" \
+  -H "Authorization: Bearer API_TOKEN" \
   -d '{
     "status": "adopted"
   }'
@@ -108,7 +123,7 @@ any `medical` procedures completed at the shelter.
 ```bash
 curl -X PATCH "{base_url}/pets/4" \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: admin-key-12345" \
+  -H "Authorization: Bearer API_TOKEN" \
   -d '{
     "status": "adopted",
     "medical": {
@@ -151,7 +166,7 @@ adoption form is under review. Update the pet `status` to `pending`.
 ```bash
 curl -X PATCH "{base_url}/pets/2" \
   -H "Content-Type: application/json" \
-  -H "X-API-Key: admin-key-12345" \
+  -H "Authorization: Bearer API_TOKEN" \
   -d '{
     "status": "pending"
   }'
@@ -234,14 +249,14 @@ curl -X GET "{base_url}/pets/1" \
 }
 ```
 
-**Response** `401 Unauthorized` indicates that the API key is
-missing or invalid. All `PATCH` requests to pet profiles
+**Response** `401 Unauthorized` indicates that the API
+token is missing or invalid. All `PATCH` requests to pet profiles
 require authentication.
 
 ```json
 {
   "error": "Unauthorized",
-  "message": "Valid API key required.",
+  "message": "Authentication token is required for this operation.",
   "status": 401
 }
 ```
@@ -260,8 +275,8 @@ require authentication.
 ### Best practices
 
 - **Authenticate every update**\
-Always include a valid API key in the `X-API-Key` header.
-Production systems should rotate keys regularly.
+Always include a valid API token in the in the Authorization
+header. Production systems should rotate tokens regularly.
 - **Update `status` promptly**\
 To prevent conflicting inquiries, mark pets as `pending`
 as soon as applications arrive. Mark pets as `adopted` when finalizing
@@ -287,8 +302,9 @@ malformed request body.
 ### Troubleshooting
 
 - **401 Unauthorized response**\
-Verify the API key is valid and included in the `X-API-Key`
-header. It's possible that the key requires rotation or resetting.
+Verify that the API token is valid and included in
+the authorization header. It's possible that the token
+requires rotation or resetting.
 - **404 Not Found response**\
 Confirm the pet profile `id` is correct. Use
 [Get pet profiles using filters](../../api-reference/get-pets-with-filters.md)
