@@ -19,7 +19,7 @@ REST API for real-time shelter data in the Dallas-Fort Worth area.
 for more information.
 - Use the
 [Installation Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/installation-guide/)
-for development environment set up.
+to set up the development environment.
 - Learn how PawFinder protects pet and shelter data with token-based authentication in the
 [Authentication Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/authentication-guide/).
 `GET` requests don't require authentication. Write operations,
@@ -65,7 +65,7 @@ for the complete reference for all endpoint operations, parameters, and response
 
 _This is the condensed approach. For step-by-step instructions,
 visit the
-[Tutorial Requirements](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/tutorial-requirements/)._
+[Installation Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/installation-guide/)._
 
 ### Installation
 
@@ -81,7 +81,7 @@ npm install
 ### Start the server
 
 ```bash
-# option #1: use npm
+# option #1: use npm (recommended)
 npm start
 
 # option #2: use json-server directly
