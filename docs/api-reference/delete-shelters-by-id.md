@@ -26,6 +26,14 @@ DELETE /shelters/{id}
 |---|---|---|
 | `Content-Type` | `application/json` | No |
 
+### Authentication
+
+**Required** - include an API token in the Authorization header:
+
+```bash
+Authorization: Bearer API_TOKEN
+```
+
 ### Request body
 
 This operation doesn't require a request body.

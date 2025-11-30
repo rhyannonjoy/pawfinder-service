@@ -46,9 +46,9 @@ Base endpoint:
 
 ### Field requirements
 
-- `phone` : Must be in  E.164 format, such as +1-XXX-XXX-XXXX
-- `adoption_fee_range` : Must be in USD, format "min - max"
-- `id` : PawFinder auto-generates this field and users can't change it directly.
+- `phone`: Must be in  E.164 format, such as +1-XXX-XXX-XXXX
+- `adoption_fee_range`: Must be in USD, format "min - max"
+- `id`: PawFinder auto-generates this field and users can't change it directly.
 
 ### Operations
 
@@ -59,3 +59,10 @@ Base endpoint:
 - [Delete a shelter profile](delete-shelters-by-id.md)
 - [Partially update a shelter profile](patch-shelters-by-id.md)
 - [Replace a shelter profile](put-shelters-by-id.md)
+
+### Authentication
+
+`GET` requests don't require authentication. Write operations
+`POST`, `PUT`, `PATCH`, and `DELETE` require an API token.
+Visit the [Authentication Guide](../overview/authentication-guide.md)
+for instructions and security best practices.

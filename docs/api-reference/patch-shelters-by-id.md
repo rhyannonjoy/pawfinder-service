@@ -28,6 +28,14 @@ PATCH /shelters/{id}
 |---|---|---|
 | `Content-Type` | `application/json` | Yes |
 
+### Authentication
+
+**Required** - include an API token in the Authorization header:
+
+```bash
+Authorization: Bearer API_TOKEN
+```
+
 ### Request body
 
 Only include fields that need updating. Omitted fields remain unchanged.

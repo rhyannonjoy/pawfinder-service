@@ -7,8 +7,12 @@ permalink: /docs/api-reference/api-index/
 ## API Index
 
 - Run PawFinder locally or in a compatible server environment.
+- `GET` requests don't require authentication. Write operations
+`POST`, `PUT`, `PATCH`, and `DELETE` require an API token.
+Visit the [Authentication Guide](../overview/authentication-guide.md)
+for instructions and security best practices.
 - All requests and responses are in the JSON data format.
-- Recommended base_url: `http://localhost:3000`
+- Recommended `base_url`: `http://localhost:3000`
 
 ### Reference topics
 
@@ -38,6 +42,24 @@ permalink: /docs/api-reference/api-index/
 - [`DELETE` shelter profiles by `id`](delete-shelters-by-id.md)
 
 ### Common error responses for all endpoints
+
+`401 Unauthorized` - missing API token, write operations only
+
+```json
+{
+  "error": "Unauthorized",
+  "message": "Authentication token is required for this operation."
+}
+```
+
+`403 Forbidden` - invalid or expired API token, write operations only
+
+```json
+{
+  "error": "Forbidden",
+  "message": "Invalid or expired authentication token."
+}
+```
 
 `429 Too Many Requests` - exceeding rate limit
 

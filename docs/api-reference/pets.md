@@ -61,15 +61,15 @@ Base endpoint:
 
 ### Field requirements
 
-- `species` : Must be `cat`, `dog`
-- `gender` : Must be `male`, `female`
-- `size` : Must be `small`, `medium`, `large`
-- `medical.spayed_neutered` : Must be a boolean
-- `medical.vaccinations` : Must be an array of strings
-- `status` : Must be `available`, `pending`, or `adopted`
-- `intake_date` : Must be in ISO 8601 format, such as "2025-09-01"
-- `shelter_id` : PawFinder auto-generates this field and users can't change it directly.
-- `id` : PawFinder auto-generates this field and users can't change it directly.
+- `species`: Must be `cat`, `dog`
+- `gender`: Must be `male`, `female`
+- `size`: Must be `small`, `medium`, `large`
+- `medical.spayed_neutered`: Must be a boolean
+- `medical.vaccinations`: Must be an array of strings
+- `status`: Must be `available`, `pending`, or `adopted`
+- `intake_date`: Must be in ISO 8601 format, such as "2025-09-01"
+- `shelter_id`: PawFinder auto-generates this field and users can't change it directly.
+- `id`: PawFinder auto-generates this field and users can't change it directly.
 
 ### Operations
 
@@ -80,3 +80,10 @@ Base endpoint:
 - [Delete a pet profile](delete-pets-by-id.md)
 - [Partially update a pet profile](patch-pets-by-id.md)
 - [Replace a pet profile](put-pets-by-id.md)
+
+### Authentication
+
+`GET` requests don't require authentication. Write operations
+`POST`, `PUT`, `PATCH`, and `DELETE` require an API token.
+Visit the [Authentication Guide](../overview/authentication-guide.md)
+for instructions and security best practices.

@@ -35,7 +35,7 @@ Authorization: Bearer API_TOKEN
 
 ```bash
 curl -X POST {base_url}/shelters \
-  -H "Authorization: Bearer token_here" \
+  -H "Authorization: Bearer API_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Dallas Animal Rescue",
@@ -47,10 +47,15 @@ curl -X POST {base_url}/shelters \
 #### Read-only example request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl {base_url}/pets
 ```
 
 ### Create an API token
+
+**Most tutorials only read data and don't need authentication.**\
+Return here to set up an API token when using tutorials
+to create, update, or delete PawFinder records.
 
 For development and testing purposes, assign any string as the token.
 In a production environment, PawFinder issues tokens through a proper
@@ -60,8 +65,8 @@ authentication system.
 
 1. As described in the [Tutorial Requirements](tutorial-requirements.md),
 start the PawFinder json-server instance: `json-server -w pawfinder-db-source.json`.
-2. Use any string as the token, such as `test-token`, `dev-key`, etc.
-3. Pass it in the `Authorization: Bearer` header to perform write operations.
+1. Use any string as the token, such as `test-token`, `dev-token`, etc.
+2. Pass it in the `Authorization: Bearer` header to perform write operations.
 
 ### Security best practices
 
@@ -91,7 +96,7 @@ curl -X POST {base_url}/pets \
 
 #### Missing authentication
 
-A write operation attempt without an authentication header returns
+A write operation attempt without an API token returns
 a `401 Unauthorized` response:
 
 ```json
@@ -103,7 +108,7 @@ a `401 Unauthorized` response:
 
 #### Invalid authentication
 
-An invalid or malformed token returns a `403 Forbidden` response:
+An invalid or malformed API token returns a `403 Forbidden` response:
 
 ```json
 {
@@ -135,7 +140,7 @@ use rate limiting to:
 - Ensure fair access across users
 - Protect backend resources
 
-A typical approach would limit requests per IP or API key over a time window.
+A typical approach would limit requests per IP or API token over a time window.
 In a production environment, responses might include rate limit headers:
 
 ```shell
@@ -159,8 +164,11 @@ The PawFinder Service API is a project for _shared documentation practice
 and educational purposes only._ PawFinder uses json-server and an intentionally
 minimal authentication system. In a production system, consider the following:
 
-- Audit logging of all authenticated requests
-- Cryptographic key management
+- [Audit logging](https://www.datadoghq.com/knowledge-center/audit-logging/)
+of all authenticated requests
+- [Cryptographic key management](https://www.geeksforgeeks.org/computer-networks/easy-key-management-in-cryptography/)
 - [OAuth 2.0](https://oauth.net/2/) or similar industry-standard authentication
-- Abuse prevention systems with robust rate limiting methods
-- Token TTLs, time to live policies, and refresh mechanisms
+- [Abuse prevention systems](https://www.akamai.com/glossary/what-is-api-abuse)
+with robust rate limiting methods
+- [Token TTLs](https://www.geeksforgeeks.org/computer-networks/what-is-time-to-live-ttl/),
+time to live policies, and refresh mechanisms
