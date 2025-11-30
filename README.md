@@ -22,13 +22,16 @@ for more information.
 to install development environment tools.
 - Learn how PawFinder protects pet and shelter data with token-based authentication in the
 [Authentication Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/authentication-guide/).
-Read-only operations (`GET`) don't require authentication while write operations,
-`POST`, `PUT`, `PATCH`, and `DELETE` do.
-- Get up and running with the [Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/quickstart-guide/),
+`GET` requests don't require authentication. Write operations,
+`POST`, `PUT`, `PATCH`, and `DELETE`, do.
+- Get up and running with the
+[Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/quickstart-guide/),
 _shorter version in the "Getting Started" section below._
-- Visit the [Contribution Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/contribution-guide/)
+- Visit the
+[Contribution Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/contribution-guide/)
 to report issues or suggest improvements.
-- Review the [API Index](https://rhyannonjoy.github.io/pawfinder-service/docs/api-reference/api-index/)
+- Review the
+[API Index](https://rhyannonjoy.github.io/pawfinder-service/docs/api-reference/api-index/)
 for the complete reference for all endpoint operations, parameters, and responses.
 
 ## Build with PawFinder
