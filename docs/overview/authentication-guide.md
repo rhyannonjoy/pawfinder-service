@@ -47,10 +47,15 @@ curl -X POST {base_url}/shelters \
 #### Read-only example request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl {base_url}/pets
 ```
 
 ### Create an API token
+
+**Most tutorials only read data and don't need authentication.**\
+Return here to set up a token when approaching tutorials
+that describe creating, updating, or deleting PawFinder records.
 
 For development and testing purposes, assign any string as the token.
 In a production environment, PawFinder issues tokens through a proper
