@@ -16,9 +16,16 @@ The PawFinder Service API provides an endpoint for updating pet
 profiles as adoptions progress. Shelter staff use the `PATCH`
 method to mark pets as `adopted` after finalizing paperwork,
 ensuring the system reflects current availability, and prevents
-duplicate adoption inquiries. Install all
+duplicate adoption inquiries.
+
+### Prerequisites
+
+- Install all
 [tutorial requirements](../../overview/tutorial-requirements.md)
 before continuing this tutorial.
+- This tutorial modifies data and requires an API token. Visit the
+[Authentication Guide](../overview/authentication-guide.md#create-an-api-token)
+for instructions.
 
 ### Endpoint structure
 
