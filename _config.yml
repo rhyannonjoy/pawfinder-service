@@ -38,7 +38,7 @@ nav_items:
     url: "/docs/overview/"
     children:
       - { title: "Overview", url: "/docs/overview/" }
-      - { title: "Tutorial Requirements", url: "/docs/overview/tutorial-requirements/" }
+      - { title: "Installation Guide", url: "/docs/overview/installation-guide/" }
       - { title: "Authentication Guide", url: "/docs/overview/authentication-guide/" }
       - { title: "Quickstart Guide", url: "/docs/overview/quickstart-guide/" }
       - { title: "Contribution Guide", url: "/docs/overview/contribution-guide/" }

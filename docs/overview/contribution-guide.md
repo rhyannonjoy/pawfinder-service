@@ -29,7 +29,7 @@ the content or code examples.
 ### Troubleshooting
 
 **Documentation build fails locally**\
-Revisit the [Tutorial Requirements](tutorial-requirements.md).
+Revisit the [Installation Guide](installation-guide.md).
 Make sure all software requirements installed correctly. For
 example, ensure [Node.js](https://nodejs.org/en/download)
 and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
@@ -60,7 +60,7 @@ if changes still don't appear.
 
 ### Related topics
 
-- [Tutorial Requirements](tutorial-requirements.md)
+- [Installation Guide](installation-guide.md)
 - [Authentication Guide](authentication-guide.md)
 - [Quickstart Guide](quickstart-guide.md)
 - [API Index](../api-reference/api-index.md)

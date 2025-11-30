@@ -13,8 +13,8 @@ families find their perfect match.
 
 - [Overview](./docs/overview/overview.md)\
 Learn key concepts. Discover how different development audiences use the API.
-- [Tutorial Requirements](./docs/overview/tutorial-requirements.md)\
-Set-up the development environment before moving on to the tutorials.
+- [Installation Guide](./docs/overview/installation-guide.md)\
+Set up the development environment before moving on to the tutorials.
 - [Authentication Guide](./docs/overview/authentication-guide.md)\
 Create API tokens for write operations.
 - [Quickstart Guide](./docs/overview/quickstart-guide.md)\

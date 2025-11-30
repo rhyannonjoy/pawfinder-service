@@ -12,8 +12,9 @@ a list of available pets.
 
 ### Prerequisites
 
-Read-only operations don't require authentication, but install the
-recommended tools in the [Tutorial Requirements](tutorial-requirements.md)
+Read-only operations don't require authentication, but complete
+all appropriate steps in the
+[Installation Guide](installation-guide.md)
 before continuing this tutorial.
 
 ### Use cURL
@@ -24,9 +25,9 @@ curl -X GET "{base_url}/pets" \
   -H "Content-Type: application/json"
 ```
 
-### Use Postman
+### Use Postman desktop app
 
-1. Open Postman Desktop
+1. Open the Postman desktop app
 2. Create a new request
 3. Set the method to `GET`
 4. Enter the URL: `{base_url}/pets`

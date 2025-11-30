@@ -20,11 +20,11 @@ duplicate adoption inquiries.
 
 ### Prerequisites
 
-- Install all
-[tutorial requirements](../../overview/tutorial-requirements.md)
+- Complete all appropriate steps in the
+[Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial.
 - This tutorial modifies data and requires an API token.
-- Visit the
+Visit the
 [Authentication Guide](../../overview/authentication-guide.md)
 for instructions.
 
