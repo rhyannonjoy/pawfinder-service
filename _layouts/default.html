@@ -23,6 +23,29 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+
+  <!-- Mermaid diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  
+    // Convert code blocks to mermaid divs
+    document.addEventListener('DOMContentLoaded', function() {
+      let count = 0;
+      document.querySelectorAll('pre > code.language-mermaid').forEach((codeBlock) => {
+        const preBlock = codeBlock.parentElement;
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = codeBlock.textContent;
+        preBlock.parentElement.replaceChild(mermaidDiv, preBlock);
+        count++;
+      });
+    
+    if (count > 0) {
+      mermaid.run();
+    }
+  });
+</script>
 </head>
 
 <body class="layout-reverse theme-base-0d">
@@ -33,5 +56,11 @@
   </div>
 
   <script src="{{ site.baseurl }}/assets/js/sidebar-toggle.js"></script>
+
+  <script>
+  if (window.mermaid) {
+    mermaid.run();
+  }
+  </script>
 </body>
 </html>

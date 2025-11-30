@@ -4,7 +4,7 @@ title: /shelters
 permalink: /docs/api-reference/shelters/
 ---
 
-## `shelters` resource
+## `/shelters` resource
 
 This reference provides information about animal shelters
 and rescue organizations in the PawFinder network. Shelters
@@ -16,6 +16,32 @@ Base endpoint:
 ```shell
 # Recommended base_url = http://localhost:3000
 {base_url}/shelters
+```
+
+### `/shelters` map
+
+```mermaid
+graph TD
+    A["Shelters Resource<br/>{base_url}/shelters"]
+    
+    A -->|GET| B["Get all shelter profiles<br/>GET /shelters"]
+    A -->|GET| C["Get shelter by ID<br/>GET /shelters/{id}"]
+    
+    A -->|POST| D["Create shelter profile<br/>POST /shelters"]
+    
+    A -->|PATCH| E["Partial update<br/>PATCH /shelters/{id}"]
+    
+    A -->|PUT| F["Replace shelter<br/>PUT /shelters/{id}"]
+    
+    A -->|DELETE| G["Delete shelter<br/>DELETE /shelters/{id}"]
+    
+    style A fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Example shelter profile

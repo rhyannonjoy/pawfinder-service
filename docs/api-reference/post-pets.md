@@ -95,50 +95,11 @@ curl -X POST {base_url}/pets \
 
 ### Example responses
 
-**Response**: `201 Created`
-
-```json
-{
-  "name": "Charlie",
-  "species": "dog",
-  "breed": "Beagle",
-  "age_months": 24,
-  "gender": "male",
-  "size": "medium",
-  "temperament": "curious, friendly",
-  "medical": {
-    "spayed_neutered": true,
-    "vaccinations": ["rabies", "dhpp"]
-  },
-  "description": "Charlie is a friendly beagle who loves exploring.",
-  "shelter_id": 1,
-  "status": "available",
-  "intake_date": "2025-11-12",
-  "id": 6
-}
-```
-
-**Response**: `400 Bad Request` - missing required field values
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Missing required field: name",
-  "status": 400
-}
-```
-
-**Response**: `400 Bad Request` - invalid values for fields
-`species`, `gender`, `size`, or `status`
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid value for 'species'.
-             Must be one of 'cat', 'dog'.",
-  "status": 400
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `201` | Created | `{ "name": "Charlie", "species": "dog", ...}` |
+| `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
+| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'species'. Must be one of 'cat', 'dog'.", ... }`|
 
 ### Related topics
 

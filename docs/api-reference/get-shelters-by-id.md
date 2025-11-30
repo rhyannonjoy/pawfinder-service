@@ -43,51 +43,22 @@ curl -X GET {base_url}/shelters/1
 
 ### Example responses
 
-**Response**: `200 OK`
-
-```json
-{
-  "name": "Dallas Animal Services", 
-  "address": "1818 N Westmoreland Rd, Dallas, TX 75212", 
-  "phone": "+1-214-671-0249", 
-  "email": "info@dallasanimalservices.org", 
-  "hours": "Mon-Sat 11:00-18:00", 
-  "available_pet_count": 22, 
-  "adoption_fee_range": "75-200", 
-  "id": 1 
-}
-```
-
-**Response**: `400 Bad Request` - invalid `id`, either non-numeric or negative integer
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid shelter ID. Must be a positive integer.",
-  "status": 400
-}
-```
-
-**Response**: `404 Not Found` - no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Shelter with ID 999 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Success | `{ "name": "Dallas Animal Services", "address": ...}` |
+| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid shelter ID. Must be a positive integer.", ... }`|
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with ID 1 not found.", ... }`|
 
 **Successful responses includes a list of shelters with the following**:
 
-- `name` : Shelter's name
-- `address` : Shelter's location information
-- `phone` : Shelter's phone number
-- `email` : Shelter's email address
-- `hours` : Shelter's hours of operation
-- `available_pet_count` : Amount of shelter's available pets
-- `adoption_fee_range` : Shelter's fee range in United States Dollar
-- `id` : Shelter's unique record ID
+- `name`: Shelter's name
+- `address`: Shelter's location information
+- `phone`: Shelter's phone number
+- `email`: Shelter's email address
+- `hours`: Shelter's hours of operation
+- `available_pet_count`: Amount of shelter's available pets
+- `adoption_fee_range`: Shelter's fee range in United States Dollar
+- `id`: Shelter's unique record ID
 
 ### Related topics
 

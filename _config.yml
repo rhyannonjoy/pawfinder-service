@@ -8,6 +8,9 @@ theme: null
 plugins:
   - jekyll-paginate
   - jekyll-feed
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Pagination
 paginate: 10

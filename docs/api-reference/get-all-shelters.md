@@ -41,54 +41,21 @@ curl -X GET {base_url}/shelters
 
 ### Example responses
 
-**Response**: `200 OK`
-
-```json
-[
-  {
-    "name": "Dallas Animal Services",
-    "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
-    "phone": "+1-214-671-0249",
-    "email": "info@dallasanimalservices.org",
-    "hours": "Mon-Sat 11:00-18:00",
-    "available_pet_count": 22,
-    "adoption_fee_range": "75-200",
-    "id": 1
-  },
-  {
-    "name": "Fort Worth Animal Care & Control",
-    "address": "4900 Martin St, Fort Worth, TX 76119",
-    "phone": "+1-817-392-1234",
-    "email": "adopt@fortworthanimalcare.org",
-    "hours": "Mon-Fri 11:00-18:00, Sat-Sun 12:00-17:00",
-    "available_pet_count": 18,
-    "adoption_fee_range": "50-175",
-    "id": 2
-  }
-]
-```
-
-**Response**: `429 Too Many Requests`
-
-```json
-{
-  "error": "Too Many Requests",
-  "message": "Rate limit exceeded. Try again in 60 seconds.",
-  "status": 429,
-  "retry_after": 60
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Success | `[{ "name": "Dallas Animal Services", "address": ...}, ...]` |
+| `429` | Exceed rate limit | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
 
 **Successful responses includes a list of shelters with the following**:
 
-- `name` : Shelter's name
-- `address` : Shelter's location information
-- `phone` : Shelter's phone number
-- `email` : Shelter's email address
-- `hours` : Shelter's hours of operation
-- `available_pet_count` : Amount of shelter's available pets
-- `adoption_fee_range` : Shelter's fee range in United States Dollar
-- `id` : Shelter's unique record ID
+- `name`: Shelter's name
+- `address`: Shelter's location information
+- `phone`: Shelter's phone number
+- `email`: Shelter's email address
+- `hours`: Shelter's hours of operation
+- `available_pet_count`: Amount of shelter's available pets
+- `adoption_fee_range`: Shelter's fee range in United States Dollar
+- `id`: Shelter's unique record ID
 
 ### Related topics
 

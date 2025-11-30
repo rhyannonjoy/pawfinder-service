@@ -4,7 +4,7 @@ title: /pets
 permalink: /docs/api-reference/pets/
 ---
 
-## `pets` resource
+## `/pets` resource
 
 This reference contains information about pet profiles stored
 in the PawFinder system. Shelters must register in the service
@@ -15,6 +15,34 @@ Base endpoint:
 ```shell
 # Recommended base_url = http://localhost:3000
 {base_url}/pets
+```
+
+### `/pets` map
+
+```mermaid
+graph TD
+    A["Pets Resource<br/>{base_url}/pets"]
+    
+    A -->|GET| B["Get all pet profiles<br/>GET /pets"]
+    A -->|GET| C["Get pet by ID<br/>GET /pets/{id}"]
+    A -->|GET| D["Get with filters<br/>GET /pets?species=..."]
+    
+    A -->|POST| E["Create pet profile<br/>POST /pets"]
+    
+    A -->|PATCH| F["Partial update<br/>PATCH /pets/{id}"]
+    
+    A -->|PUT| G["Replace pet<br/>PUT /pets/{id}"]
+    
+    A -->|DELETE| H["Delete pet<br/>DELETE /pets/{id}"]
+    
+    style A fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Example pet profile

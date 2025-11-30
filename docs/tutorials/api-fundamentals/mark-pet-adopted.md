@@ -10,13 +10,28 @@ Update a pet profile `status` when finalizing adoptions.
 Learn how to update pet records using the `PATCH` method
 and manage adoption workflows from the shelter perspective.
 
-### Overview
+### How the adoption workflow works
 
 The PawFinder Service API provides an endpoint for updating pet
-profiles as adoptions progress. Shelter staff use the `PATCH`
-method to mark pets as `adopted` after finalizing paperwork,
-ensuring the system reflects current availability, and prevents
-duplicate adoption inquiries.
+profiles as adoptions progress.
+
+PawFinder uses `json-server` with basic `status` updates.
+The diagram below shows what a production shelter management
+system might look like when tracking pet adoptions:
+
+```mermaid
+graph LR
+    A["Step 1:<br/>Log In<br/>Shelter Admin"] -->|Access Inventory| B["Step 2:<br/>View Pet<br/>Records"]
+    B -->|Select Pet| C["Step 3:<br/>Update Status<br/>From Available<br/>to Adopted"]
+    C -->|Confirm Update| D["Step 4:<br/>System Confirms<br/>Change Saved"]
+    D -->|Notify Adopters| E["Step 5:<br/>Pet Removed<br/>From Search<br/>Results"]
+    
+    style A fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#c5d3a6,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+```
 
 ### Prerequisites
 
@@ -41,12 +56,6 @@ PATCH {base_url}/pets/{id}
 |-----------|------|-------------|---------|
 | `id` | integer | Pet's unique identifier | 1, 2, 3, 4 |
 
-### Request headers
-
-| Header | Value | Required |
-|---|---|---|
-| `Content-Type` | `application/json` | Yes |
-
 ### Authentication
 
 **Required** - include an API token in the Authorization header:
@@ -65,13 +74,46 @@ and leaves the others unchanged.
 |-------|------|-------------|---------|
 | `status` | string | Pet's adoption status | `adopted`, `pending`, `available` |
 | `medical` | object | Pet's medical information | `{"spayed_neutered": true, "vaccinations": [...]}` |
-| `intake_date` | string | Date pet entered shelter | `2025-09-01` |
 
 ### Understanding state transitions
 
-Pet `status` moves through a defined workflow:
-`available` → `pending` → `adopted`. Once a pet reaches `adopted`,
-their profile shouldn't change unless there's an error that needs correction.
+Pet `status` moves through a defined workflow. Understanding these
+transitions help shelter staff manage adoption inquiries efficiently:
+
+```mermaid
+stateDiagram-v2
+    [*] --> available: Pet enters shelter
+    
+    available --> pending: Received
+    available --> available: Rejected
+    
+    pending --> adopted: Finalized
+    pending --> available: Rejected
+    
+    adopted --> [*]: Pet left shelter
+    
+    style available fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style pending fill:#c5d3a6,stroke:#333,stroke-width:2px,color:#000
+    style adopted fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+
+```
+
+**State meanings**:
+
+- `available`: pet is ready for adoption inquiries; adopters can search
+and express interest.
+- `pending`: an adoption form is under review; block the pet from
+new inquiries to prevent conflicts.
+- `adopted`: adoption finalized; remove the pet from search results, as
+they're no longer available.
+
+**Transition rules**:
+
+- Pets can return from `pending` to `available` if the shelter rejects
+an adoption form or the applicant withdraws.
+- Once a pet reaches `adopted`, they typically remain in that state -
+no reversals unless correcting data entry errors.
+- Use `PATCH` requests to transition between states as adoptions progress.
 
 ### cURL request examples
 
@@ -133,32 +175,26 @@ curl -X PATCH "{base_url}/pets/4" \
   }'
 ```
 
-**Response** `200 OK` - Bella's record now reflects both the
-`adoption` and the completed medical procedures.
+**Response** `200 OK` - Bella's record now reflects both
+`adopted` and the completed medical procedures.
 
 ```json
 {
   "name": "Bella",
   "species": "dog",
-  "breed": "Labrador Retriever",
-  "age_months": 12,
-  "gender": "female",
-  "size": "large",
-  "temperament": "friendly, energetic",
+  ...
   "medical": {
     "spayed_neutered": true,
     "vaccinations": ["rabies", "dhpp", "leptospirosis"]
   },
-  "description": "Bella is a young lab who loves to play fetch 
-                 and swim.",
-  "shelter_id": 4,
+  ...
   "status": "adopted",
-  "intake_date": "2025-10-01",
-  "id": 4
+  ...
 }
 ```
 
-**Example 3**: move pet to `status`: `pending` during an adoption form review
+**Example 3**: move pet to `status`: `pending` during an
+adoption form review
 
 Block other applicants from inquiring about a pet while an
 adoption form is under review. Update the pet `status` to `pending`.
@@ -178,104 +214,24 @@ reviews a potential adopter's form.
 ```json
 {
   "name": "Max",
-  "species": "dog",
-  "breed": "Golden Retriever Mix",
-  "age_months": 36,
-  "gender": "male",
-  "size": "large",
-  "temperament": "energetic, loyal",
-  "medical": {
-    "spayed_neutered": true,
-    "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-  },
-  "description": "Max is an active dog who needs regular 
-                 exercise and responds well to commands.",
-  "shelter_id": 2,
+  ...
   "status": "pending",
-  "intake_date": "2025-07-20",
-  "id": 2
+  ...
 }
 ```
-
-### Verifying updates
-
-After updating a pet record, use the `GET` method to retrieve the
-full profile. Confirm that the fields requiring updates reflect
-the intended changes.
-
-```bash
-curl -X GET "{base_url}/pets/1" \
-  -H "Content-Type: application/json"
-```
-
-**Response** `200 OK` - `GET` request confirms that Luna's
-`status` persisted as `adopted`.
-
-```json
-{
-  "name": "Luna",
-  "species": "cat",
-  "breed": "Domestic Shorthair",
-  "age_months": 18,
-  "gender": "female",
-  "size": "small",
-  "temperament": "playful, affectionate",
-  "medical": {
-    "spayed_neutered": true,
-    "vaccinations": ["fvrcp", "rabies"]
-  },
-  "description": "Luna is a playful tabby who loves interactive 
-                 toys and sunny windows.",
-  "shelter_id": 1,
-  "status": "adopted",
-  "intake_date": "2025-09-01",
-  "id": 1
-}
-```
-
----
 
 ### Common error responses
 
-**Response** `400 Bad Request` indicates invalid values for fields
-`species`, `gender`, `size`, or `status`
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid value for 'status'. Must be
-             'available', 'pending', or 'adopted'.",
-  "status": 400
-}
-```
-
-**Response** `401 Unauthorized` indicates that the API
-token is missing or invalid. All `PATCH` requests to pet profiles
-require authentication.
-
-```json
-{
-  "error": "Unauthorized",
-  "message": "Authentication token is required for this operation.",
-  "status": 401
-}
-```
-
-**Response** `404 Not Found` indicates that the pet profile
-`id` doesn't exist in the PawFinder system.
-
-```json
-{
-  "error": "Not Found",
-  "message": "Pet with ID 999 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'status'." ...}` |
+| `401` | Invalid API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." ...}` |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 999 not found." ...}` |
 
 ### Best practices
 
 - **Authenticate every update**\
-Always include a valid API token in the in the Authorization
+Always include a valid API token in the Authorization
 header. Production systems should rotate tokens regularly.
 - **Update `status` promptly**\
 To prevent conflicting inquiries, mark pets as `pending`

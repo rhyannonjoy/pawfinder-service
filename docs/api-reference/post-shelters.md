@@ -73,42 +73,11 @@ curl -X POST {base_url}/shelters \
 
 ### Example responses
 
-**Response**: `201 Created`
-
-```json
-{
-   "name": "Plano Animal Services",
-   "address": "4028 W Plano Pkwy, Plano, TX 75093",
-   "phone": "+1-972-769-4360",
-   "email": "contact@planoanimalservices.org",
-   "hours": "Mon-Fri 10:00-17:00, Sat 10:00-16:00",
-   "available_pet_count": 12,
-   "adoption_fee_range": "80-150",
-   "id": 5
-}
-```
-
-**Response**: `400 Bad Request` - missing required field values
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Missing required field: name",
-  "status": 400
-}
-```
-
-**Response**: `400 Bad Request` - invalid values for fields
-`phone` or `adoption_fee_range`
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'.
-             Must be in USD.",
-  "status": 400
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `201` | Created | `{ "name": "Plano Animal Services", "address": ...}` |
+| `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
+| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }`|
 
 ### Related topics
 

@@ -7,6 +7,8 @@ permalink: /docs/api-reference/delete-pets-by-id/
 ## Delete a pet profile
 
 This operation removes a pet record from the PawFinder database.
+Use this endpoint to ensure that users can access fresh
+data.
 
 ### Endpoint structure
 
@@ -48,30 +50,11 @@ curl -X DELETE {base_url}/pets/6 \
 
 ### Example responses
 
-**Response**: `204 NO CONTENT`
-
-```json
-(No response body)
-```
-
-**Response**: `200 OK`
-
-```json
-{
-  "message": "Pet with ID 6 successfully deleted.",
-  "deleted_id": 6
-}
-```
-
-**Response**: `404 Not Found`- no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Pet with ID 6 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Success | `{ "message": "Pet with ID 6 successfully deleted.", ... }` |
+| `204` | `NO CONTENT` | No response body |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 6 not found.", ... }` |
 
 ### Related topics
 

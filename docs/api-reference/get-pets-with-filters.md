@@ -6,7 +6,46 @@ permalink: /docs/api-reference/get-pets-with-filters/
 
 ## Get pet profiles using filters
 
-This operation retrieves pets profiles that match the specified filter criteria.
+This operation retrieves pets profiles that match the specified
+filter criteria. Use this endpoint to power search and discover
+features in an adoption platform.
+
+### Pet search workflow
+
+The sequence diagram below shows how a search request might flow through a production system with a more robust architecture and
+cache optimization for frequently searched queries:
+
+```mermaid
+sequenceDiagram
+    actor App as Client App
+    participant Gateway as API Gateway
+    participant Auth as Auth Service
+    participant PetSvc as Pet Service
+    participant Cache as Cache Layer
+    participant PetDB as Pet Database
+    
+    App->>Gateway: GET /pets?species=dog&shelter_id=1
+    Gateway->>Auth: Verify Request
+    Auth-->>Gateway: ✓ Valid (GET is public)
+    Gateway->>Cache: Check Cache for Query
+    
+    alt Cache Hit
+        Cache-->>Gateway: Cached Results
+    else Cache Miss
+        Gateway->>PetSvc: Query Pets by Filters
+        PetSvc->>PetDB: SELECT * FROM pets WHERE...
+        PetDB-->>PetSvc: Pet Records
+        PetSvc->>Cache: Store Results (TTL: 5min)
+        PetSvc-->>Gateway: Pet Array
+    end
+    
+    Gateway-->>App: 200 OK - Pets Array
+    App->>App: Display Search Results
+
+    rect rgba(200, 180, 200, 0.2)
+    note right of App: User sees filtered pets<br/>with availability status
+    end
+```
 
 ### Endpoint structure
 
@@ -55,65 +94,27 @@ curl -X GET {base_url}/pets?species=cat&status=available
 
 ### Example responses
 
-**Response**: `200 OK` - with a match
-
-```json
-[
-  {
-    "name": "Luna",
-    "species": "cat",
-    "breed": "Domestic Shorthair",
-    "age_months": 18,
-    "gender": "female",
-    "size": "small",
-    "temperament": "playful, affectionate",
-    "medical": {
-      "spayed_neutered": true,
-      "vaccinations": ["fvrcp", "rabies"]
-    },
-    "description": "Luna is a playful tabby who loves interactive
-                   toys and sunny windows.",
-    "shelter_id": 1,
-    "status": "available",
-    "intake_date": "2025-09-01",
-    "id": 1
-  }
-]
-```
-
-**Response**: `200 OK` - without any matches
-
-```json
-{
-  []
-}
-```
-
-**Response**: `400 Bad Request` - malformed query parameters
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid query parameter format",
-  "status": 400
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Match found | `[{ "name": "Luna", "species": "cat",...}]` |
+| `200` | No matches | `[]` |
+| `400` | Malformed query parameters | `{ "error": "Bad Request", "message": "Invalid query parameter format", ...}` |
 
 **Successful responses includes a list of pets with the following**:
 
-- `name` : Pet's name
-- `species` : Pet's species
-- `breed` : Pet's breed if known
-- `age_months` : Pet's age in months
-- `gender` : Pet's gender if known
-- `size` : Pet's size category
-- `temperament` : Pet's personality traits and behavioral characteristics
-- `medical` : Pet's medical information
-- `description` : Pet's personality, needs, background
-- `shelter_id` : ID of pet's current shelter
-- `status` : Pet's adoption status
-- `intake_date` : When the pet entered the shelter
-- `id` : Pet's unique record ID
+- `name`: Pet's name
+- `species`: Pet's species
+- `breed`: Pet's breed if known
+- `age_months`: Pet's age in months
+- `gender`: Pet's gender if known
+- `size`: Pet's size category
+- `temperament`: Pet's personality traits and behavioral characteristics
+- `medical`: Pet's medical information
+- `description`: Pet's personality, needs, background
+- `shelter_id`: ID of pet's current shelter
+- `status`: Pet's adoption status
+- `intake_date`: When the pet entered the shelter
+- `id`: Pet's unique record ID
 
 ### Related topics
 

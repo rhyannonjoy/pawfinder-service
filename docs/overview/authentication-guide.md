@@ -94,41 +94,11 @@ curl -X POST {base_url}/pets \
 
 ### Error responses
 
-#### Missing authentication
-
-A write operation attempt without an API token returns
-a `401 Unauthorized` response:
-
-```json
-{
-  "error": "Unauthorized",
-  "message": "Authentication token is required for this operation."
-}
-```
-
-#### Invalid authentication
-
-An invalid or malformed API token returns a `403 Forbidden` response:
-
-```json
-{
-  "error": "Forbidden",
-  "message": "Invalid or expired authentication token."
-}
-```
-
-#### Exceeding the rate limit
-
-Exceeding the rate limit returns the `429 Too Many Requests` response:
-
-```json
-{
-  "error": "Too Many Requests",
-  "message": "Rate limit exceeded. Try again in 60 seconds.",
-  "status": 429,
-  "retry_after": 60
-}
-```
+| Status Code | Error | Description | Response Example |
+|---|---|---|---|
+| `401` | Unauthorized | Missing API token - write operations only | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." }` |
+| `403` | Forbidden | Invalid or expired API token - write operations only | `{ "error": "Forbidden", "message": "Invalid or expired authentication token." }` |
+| `429` | Too Many Requests | Rate limit exceeded - too many requests | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", "retry_after": 60 }` |
 
 ### Rate limiting
 
