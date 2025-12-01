@@ -4,6 +4,8 @@ title: Delete a shelter profile
 permalink: /docs/api-reference/delete-shelters-by-id/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Delete a shelter profile
 
 This operation removes a shelter record from the PawFinder database.

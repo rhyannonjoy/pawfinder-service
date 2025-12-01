@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Find the perfect pet
+show-paw-image: true
 permalink: /docs/tutorials/api-fundamentals/find-perfect-pet/
 ---
 

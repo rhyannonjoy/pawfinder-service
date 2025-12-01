@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Mark a pet as adopted
+show-paw-image: true
 permalink: /docs/tutorials/api-fundamentals/mark-pet-adopted/
 ---
 

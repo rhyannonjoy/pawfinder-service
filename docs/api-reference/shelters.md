@@ -4,6 +4,8 @@ title: /shelters
 permalink: /docs/api-reference/shelters/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## `/shelters` resource
 
 This reference provides information about animal shelters

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Build a location-aware search
+show-paw-image: true
 permalink: /docs/tutorials/building-applications/build-location-aware-search/
 ---
 

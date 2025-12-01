@@ -4,40 +4,72 @@ title: Installation Guide
 permalink: /docs/overview/installation-guide/
 ---
 
+![PawFinder paw image](../images/paw.svg)
+
 ## Installation guide
 
-Complete these steps to prepare for the PawFinder API tutorials.\
-_Estimated preparation ~20 minutes._
+Set up the development environment for PawFinder tutorials.\
+_Estimated preparation: ~20 minutes._
 
-### Development environment setup
+### Software prerequisites
 
-The following are tutorial prerequisites. Open the links in
-separate browser tabs before installing any software.
+Open the links in separate browser tabs before installing any software.
 
 - A [GitHub account](https://github.com)
-- A development system running a current version or a long-term support,
-also known as _LTS_, version of the Windows, MacOS, or Linux operating system.
-- The following software:
-    - [Git, command line](https://docs.github.com/en/get-started/quickstart/set-up-git)
-    - [GitHub Desktop](https://desktop.github.com) _optional, but recommended_
-    - A fork of the [PawFinder Service repository](https://github.com/rhyannonjoy/pawfinder-service)
-    - A current or LTS version of [node.js](https://nodejs.org/en/download)
-    - Version 0.17.4 of [json-server](https://www.npmjs.com/package/json-server)
-    - [Postman desktop app](https://www.postman.com/downloads/)
-        - Running PawFinder Service in a development system with
-          an `http://localhost` host name isn't compatible with
-          the web-version of Postman.
+- A development system running a current version or LTS, long-term support,
+version of the Windows, MacOS, or Linux operating system.
+- [Git, command line](https://docs.github.com/en/get-started/quickstart/set-up-git)
+- [GitHub Desktop](https://desktop.github.com) _optional, but recommended_
+- A fork of the [PawFinder Service repository](https://github.com/rhyannonjoy/pawfinder-service)
+- A current or LTS version of [Node.js](https://nodejs.org/en/download),
+_includes npm_
+- Version 0.17.4 of [`json-server`](https://www.npmjs.com/package/json-server)
+- [Postman desktop app](https://www.postman.com/downloads/)
+_(desktop version required; web version incompatible with `http://localhost`)_
   
     **Tip**: while using a fork of the repository, create a working
     branch in which to complete the tutorials. Create a new branch for
     each tutorial to prevent a mistake in one from affecting any
     work in another.
 
-### Clone the repository
+### Installation workflow at-a-glance
 
-After forking the PawFinder Service repository, clone it locally.
+```mermaid
+graph LR
+  A["Prerequisites"]
+  B["Fork &<br/>Clone"]
+  C["Install"]
+  D["Start"]
+  E["Test"]
+  F["✓ Ready"]
+  
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E --> F
+  
+  style A fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff,font-family:Helvetica
+  style B fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff,font-family:Helvetica
+  style C fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff,font-family:Helvetica
+  style D fill:#cc848a,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+  style E fill:#cc848a,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+  style F fill:#9fb56a,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+```
 
-**Using GitHub Desktop:**
+### Fork and clone the repository
+
+**Fork on GitHub**
+
+1. Navigate to the
+[PawFinder Service repository](https://github.com/rhyannonjoy/pawfinder-service)
+2. Find the **Fork** button in the top-right corner
+3. Select where to fork (typically a personal GitHub account)
+4. Wait for the fork to complete
+5. Once forked, clone the repository locally using either
+GitHub Desktop or the command line.
+
+**Clone using GitHub Desktop:**
 
 1. Open GitHub Desktop
 2. Click **File** > **Clone Repository**
@@ -46,21 +78,17 @@ After forking the PawFinder Service repository, clone it locally.
 5. Choose a local path for the project
 6. Click **Clone**
 
-**Using the command line:**
+**Clone using the command line:**
 
 ```bash
 git clone https://github.com/USERNAME/pawfinder-service.git
 cd pawfinder-service
 ```
 
-After cloning, the repository contains the `pawfinder-db-source.json`
+Confirm that the clone contains the `pawfinder-db-source.json`
 database file in the `api` directory.
 
 ### Install dependencies
-
-Navigate to the cloned repository and install the required packages,
-which includes `json-server` and other dependencies needed to
-run the API locally.
 
 ```bash
 cd pawfinder-service
@@ -69,7 +97,7 @@ npm install
 
 ### Verify the development setup
 
-#### Step 1: create and checkout a test branch
+#### Step 1: Create and checkout a test branch
 
 **Using GitHub Desktop:**
 
@@ -83,7 +111,7 @@ npm install
 8. Click **Create Branch**
 
 GitHub Desktop automatically switches to the new `tutorial-test` branch.
-The Current Branch dropdown should display "tutorial-test."
+The **Current Branch** dropdown should display "tutorial-test."
 
 **Using the command line:**
 
@@ -92,20 +120,22 @@ cd pawfinder-service
 git checkout -b tutorial-test
 ```
 
-#### Step 2: start `json-server` from the command line
+#### Step 2: Start the service
 
 ```bash
-# Option #1: using npm (recommended)
+# Option 1: using npm (recommended)
+# Run from the pawfinder-service root directory
 npm start
 ```
 
 ```bash
-# Option #2: using json-server directly
+# Option 2: using json-server directly
+# Run from the pawfinder-service api directory
 cd api
 json-server -w pawfinder-db-source.json
 ```
 
-#### Step 3: test the service
+#### Step 3: Test the service
 
 **Using cURL**
 
@@ -164,5 +194,5 @@ Common situations that cause errors:
 - Required software component isn't up to date
 - Port 3000 already in use by another app
 
-If the service correctly retrieves a list of pet profiles,
+If the service correctly retrieves a list of shelter profiles,
 move on to the [Quickstart Guide](quickstart-guide.md).

@@ -4,6 +4,8 @@ title: Get a shelter profile by ID
 permalink: /docs/api-reference/get-shelters-by-id/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Get shelter profiles by `id`
 
 This operation retrieves a shelter's profile by their `id`.

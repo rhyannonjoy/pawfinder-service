@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Track Adoption Status
+show-paw-image: true
 permalink: /docs/tutorials/api-fundamentals/track-adoption-status/
 ---
 
