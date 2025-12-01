@@ -6,9 +6,10 @@ permalink: /docs/tutorials/building-applications/build-location-aware-search/
 
 ## Build a location-aware search
 
-_This tutorial guides developers building applications that integrate with PawFinder.
-Developers write or change JavaScript code in their own applications.
-This integration doesn't require enabling a feature in the PawFinder service itself._
+_This tutorial guides developers building applications that integrate
+with PawFinder. Developers write or change JavaScript code in their
+own applications. This integration doesn't require enabling a feature
+in the PawFinder service itself._
 
 Use client-side location-based filtering to help potential adopters
 discover shelters near their current location. Learn how to integrate
@@ -28,7 +29,43 @@ while client-side logic handles geolocation, geocoding, and distance
 calculations. This approach keeps the API stateless and allows adopters
 to perform location-based searches without more server processing.
 
-### Prerequisities
+### How client-side location-aware search works
+
+PawFinder uses `json-server` to provide shelter data. The diagram below
+shows what a production location-aware search implementation might look
+like, orchestrating calls between a client app, the PawFinder API, the
+browser Geolocation API, and an external geocoding service:
+
+```mermaid
+sequenceDiagram
+    actor Adopter as Adopter
+    participant App as Client App
+    participant Geo as Browser<br/>Geolocation API
+    participant API as PawFinder API
+    participant Geocoder as Geocoding API<br/>Google Maps
+    participant Calc as Distance<br/>Calculation
+    
+    Adopter->>App: Click "Find Nearby Shelters"
+    App->>Geo: Request user location
+    Geo->>Adopter: Browser permission prompt
+    Adopter-->>Geo: Grant access
+    Geo-->>App: Return latitude, longitude
+    
+    App->>API: GET /shelters
+    API-->>App: Shelter list with addresses
+    
+    loop For each shelter address
+        App->>Geocoder: Geocode address
+        Geocoder-->>App: Latitude, longitude
+    end
+    
+    App->>Calc: Calculate distances
+    Calc-->>App: Shelters sorted by distance
+    
+    App-->>Adopter: Display nearby shelters<br/>on map or in list
+```
+
+### Prerequisites
 
 Complete all appropriate steps in the
 [Installation Guide](../../overview/installation-guide.md)
@@ -47,10 +84,9 @@ assumes familiarity with the following concepts:
     - [HTMLFormElement: submit event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
 
 Web applications leverage standard web platform APIs such as
-the Geolocation API and Fetch API to access location data and retrieve
-shelter information. Modzilla documents these APIs extensively on
-the Modzilla Developer Network: [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API),
-[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+and [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+to access location data and retrieve shelter information.
 
 Mobile applications integrate native geolocation libraries,
 such as [Core Location on iOS](https://developer.apple.com/documentation/corelocation)
@@ -69,7 +105,7 @@ Location-aware search follows this workflow:
 6. **Filter and sort** shelters by distance
 7. **Display results** on a map or in a list
 
-### Step 1: retrieve shelter data from the API
+### Step 1: Retrieve shelter data from PawFinder
 
 PawFinder shelter profiles include address information.
 Make a `GET` request to retrieve all shelters:
@@ -83,31 +119,29 @@ curl -X GET "{base_url}/shelters" \
 A successful response includes shelter objects with location data:
 
 ```json
-{
-  "shelters": [
-    {
-      "id": 1,
-      "name": "Dallas Animal Services",
-      "address": "1818 N Westmoreland Rd, Dallas, TX 75211",
-      "phone": "214-671-0249",
-      "hours": "Monday - Friday: 11am - 7pm,
-               Saturday - Sunday: 10am - 5pm",
-      "website": "https://www.dallasanimalservices.org"
-    },
-    {
-      "id": 2,
-      "name": "SPCA of Texas",
-      "address": "2400 Lone Star Dr, Dallas, TX 75212",
-      "phone": "214-651-9611",
-      "hours": "Monday - Friday: 11am - 7pm,
-               Saturday - Sunday: 10am - 5pm",
-      "website": "https://www.spca.org"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Dallas Animal Services",
+    "address": "1818 N Westmoreland Rd, Dallas, TX 75211",
+    "phone": "214-671-0249",
+    "hours": "Monday - Friday: 11am - 7pm,
+              Saturday - Sunday: 10am - 5pm",
+    "website": "https://www.dallasanimalservices.org"
+  },
+  {
+    "id": 2,
+    "name": "SPCA of Texas",
+    "address": "2400 Lone Star Dr, Dallas, TX 75212",
+    "phone": "214-651-9611",
+    "hours": "Monday - Friday: 11am - 7pm,
+              Saturday - Sunday: 10am - 5pm",
+    "website": "https://www.spca.org"
+  }
+]
 ```
 
-### Step 2: request geolocation permission
+### Step 2: Request geolocation permission
 
 The browser Geolocation API allows adopters to share their location.
 Request geolocation asynchronously and handle permission responses:
@@ -135,7 +169,7 @@ Users should expect a browser permission prompt. If they deny access,
 the promise rejects and an error message displays. If they grant access,
 the coordinates resolve with latitude and longitude values.
 
-### Step 3: geocode shelter addresses
+### Step 3: Geocode shelter addresses
 
 Converting addresses to coordinates requires a geocoding service.
 [Google Maps Platform](https://mapsplatform.google.com/) and
@@ -183,7 +217,7 @@ async function enrichSheltersWithCoordinates(shelters, apiKey) {
 }
 ```
 
-### Step 4: calculate distances
+### Step 4: Calculate distances
 
 [The Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula)
 calculates great-circle distances between two points on a sphere given
@@ -220,7 +254,7 @@ function addDistancesToShelters(shelters, userLat, userLon) {
 }
 ```
 
-### Step 5: filter shelters by distance radius
+### Step 5: Filter shelters by distance radius
 
 Filter shelter locations within a specified distance threshold.
 Allow potential adopters to choose their preferred search radius:
@@ -238,28 +272,28 @@ Combine the steps into a single function that orchestrates the entire flow:
 ```javascript
 async function searchNearestShelters(maxDistanceMiles = 10, mapsApiKey) {
   try {
-    // Step 1: get user location
+    // Step 1: Get user location
     const userLocation = await getUserLocation();
     console.log("User location:", userLocation);
 
-    // Step 2: fetch shelters from API
+    // Step 2: Fetch shelters from API
     const shelterResponse = await fetch("{base_url}/shelters");
-    const shelterData = await shelterResponse.json();
+    const shelters = await shelterResponse.json();
 
-    // Step 3: geocode shelter addresses
+    // Step 3: Geocode shelter addresses
     const enrichedShelters = await enrichSheltersWithCoordinates(
-      shelterData.shelters,
+      shelters,
       mapsApiKey
     );
 
-    // Step 4: calculate distances
+    // Step 4: Calculate distances
     const sheltersWithDistance = addDistancesToShelters(
       enrichedShelters,
       userLocation.latitude,
       userLocation.longitude
     );
 
-    // Step 5: filter by radius
+    // Step 5: Filter by radius
     const nearbyShelters = filterSheltersByDistance(
       sheltersWithDistance,
       maxDistanceMiles
@@ -336,24 +370,21 @@ document.getElementById("search-button").addEventListener("click", () => {
 
 ### Troubleshooting
 
-**"Geolocation isn't supported"**\
+- **"Geolocation isn't supported"**\
 Some browsers or environments don't support the Geolocation API.
 Check `navigator.geolocation` before attempting to access location data.
 For development, use mock coordinates to test the filtering logic.
-
-**"Couldn't geocode address"**\
+- **"Couldn't geocode address"**\
 The Geocoding API may fail if address formatting is inconsistent.
 Verify and clean address data from the API response before geocoding.
 If a shelter address fails to geocode, log the error and exclude it
 from distance calculations.
-
-**CORS errors when calling Geocoding API**\
+- **CORS errors when calling Geocoding API**\
 [CORS, Cross-Origin Resource Sharing, errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors)
 occur when the browser blocks requests to external APIs.
 Ensure that the API key has the correct origins configured,
 and that requests originate from allowed domains.
-
-**Slow performance with many shelter locations**\
+- **Slow performance with many shelter locations**\
 Geocoding many addresses sequentially is slow.
 Use `Promise.all()` to geocode addresses in parallel.
 Consider caching geocoded coordinates to avoid
@@ -365,31 +396,25 @@ re-geocoding the same addresses on future searches.
 Store geocoded coordinates in local storage or a database to avoid
 repeated API calls for the same shelter addresses. Invalidate cache
 periodically to account for address changes.
-
 - **Handle geolocation permission denial**\
 Not all potential adopters grant location access.
 [Provide a fallback](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 that allows manual address entry or displays all shelter profiles
 without distance filtering.
-
 - **Verify API responses**\
 Check that geocoding and shelter API responses contain expected fields.
 Handle missing or malformed data gracefully.
-
 - **Respect API rate limits**\
 Geocoding APIs have rate limits. Use
 [request throttling and caching](https://www.geeksforgeeks.org/system-design/api-throttling-vs-api-rate-limiting-system-design/)
 to stay within limits, especially for production applications.
-
 - **Test with mock data**\
 Use mock coordinates and shelter objects during development to test
 filtering and distance calculation logic without relying on live APIs.
-
 - **Provide distance options**\
-Allow potenial adopters to adjust the search radius dynamically.
+Allow potential adopters to adjust the search radius dynamically.
 Offer preset options such as 5 miles, 10 miles, and 25 miles
 for quick filtering.
-
 - **Display loading states**\
 [Show feedback](https://primer.style/product/ui-patterns/loading/)
 while fetching shelter data, geocoding addresses, and calculating distances.

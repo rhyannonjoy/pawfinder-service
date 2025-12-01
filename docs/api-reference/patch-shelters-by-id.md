@@ -55,11 +55,7 @@ Only include fields that need updating. Omitted fields remain unchanged.
 | Field | Validation Rule |
 |---|---|
 | `phone` | Must be E.164 format: +1-XXX-XXX-XXXX |
-
-### ID generation
-
-PawFinder auto-generates shelter unique identifiers, `id`. The system
-ignores `id` fields in `PATCH` request bodies or returns a `400` error.
+| `id` | Auto-generated, can't be manually changed |
 
 ### cURL request
 
@@ -75,52 +71,11 @@ curl -X PATCH {base_url}/shelters/1 \
 
 ### Example responses
 
-**Response**: `200 OK`
-
-```json
-{
-  "name": "Dallas Animal Services",
-  "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
-  "phone": "+1-214-671-0249",
-  "email": "info@dallasanimalservices.org",
-  "hours": "Mon-Sat 11:00-19:00",
-  "available_pet_count": 20,
-  "adoption_fee_range": "75-200",
-  "id" : 1
-}
-```
-
-**Response**: `400 Bad Request` - missing required field values
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Missing required field: name",
-  "status": 400
-}
-```
-
-**Response**: `400 Bad Request` - invalid values for fields
-`phone` or `adoption_fee_range`
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'.
-             Must be in USD.",
-  "status": 400
-}
-```
-
-**Response**: `404 Not Found` - no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Shelter with ID 999 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | `id` match | `{ "name": "Dallas Animal Services", "address": ...}` |
+| `400` | Invalid field values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }` |
+| `404` | No matching `id` | `{ "error": "Not Found", "message": "Shelter with ID 1 not found.", ...}` |
 
 ### Related topics
 

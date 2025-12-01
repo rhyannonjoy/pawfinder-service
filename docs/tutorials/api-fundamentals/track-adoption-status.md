@@ -10,15 +10,32 @@ Observe pet availability and adoption progress in real time.
 Learn how to query individual pet profiles and understand
 adoption status transitions throughout the adoption workflow.
 
-### Overview
+### How the adoption status workflow works
 
 The PawFinder Service API provides an endpoint for retrieving
 individual pet profiles and tracking adoption status changes.
-Use this to track whether the perfect pet is still available,
-has adoption applications pending review, or has settled
-with a new family. Complete all appropriate steps in the
+Complete all appropriate steps in the
 [Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial.
+
+PawFinder uses `json-server` with basic `status` tracking.
+The diagram below shows what a production adoption platform
+might track through the full adoption lifecycle:
+
+```mermaid
+graph LR
+    A["Step 1:<br/>Adopter Expresses<br/>Interest<br/>Status: Pending"] -->|Shelter Reviews| B["Step 2:<br/>Application<br/>Approved<br/>Status: Approved"]
+    B -->|Schedule Meeting| C["Step 3:<br/>Meet & Greet<br/>Status: In Progress"]
+    C -->|Meeting Complete| D["Step 4:<br/>Adoption<br/>Finalized<br/>Status: Completed"]
+    D -->|Record Updated| E["Step 5:<br/>Pet Marked<br/>as Adopted<br/>Status: Unavailable"]
+    
+    style A fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#c5d3a6,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#add8e6,stroke:#333,stroke-width:2px,color:#000
+
+```
 
 ### Endpoint structure
 
@@ -38,11 +55,11 @@ GET {base_url}/pets/{id}
 Pets transition through defined `status` states as they move
 through the adoption process:
 
-| Status | Meaning | Next step |
-|--------|---------|-----------|
-| `available` | Ready for adoption inquiries | Submit an adoption form |
-| `pending` | Adoption form under review | Wait for shelter response |
-| `adopted` | Successfully placed with a family | Pet is no longer available |
+| Status | Meaning |
+|--------|---------|
+| `available` | Ready for adoption inquiries |
+| `pending` | Adoption form under review |
+| `adopted` | Successfully placed with a family |
 
 ### cURL request examples
 
@@ -52,8 +69,8 @@ curl -X GET "{base_url}/pets/1" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - `"status": "available"` indicates Luna
-is ready for adoption inquiries.
+**Response** `200 OK` - Luna's `status` is `available`,
+meaning she is ready for adoption inquiries.
 
 ```json
 {
@@ -80,13 +97,13 @@ is ready for adoption inquiries.
 ---
 
 ```bash
-# Check the status of a pet with pending adoption inquiries
+# Check the `status` of a pet with `pending` adoption inquiries
 curl -X GET "{base_url}/pets/4" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - `"status": "pending"` means someone's adoption
-form is under review. Check back later for updates.
+**Response** `200 OK` - `"status": "pending"` means someone's
+adoption form is under review. Check back later for updates.
 
 ```json
 {
@@ -118,8 +135,9 @@ curl -X GET "{base_url}/pets/3" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK` - Individual pet profiles include essential medical information,
-making a pet's health status accessible before committing to adoption.
+**Response** `200 OK` - Individual pet profiles include essential medical
+information, making a pet's health status accessible before committing
+to adoption.
 
 ```json
 {
@@ -145,37 +163,17 @@ making a pet's health status accessible before committing to adoption.
 
 ### Common error responses
 
-**Response** `400 Bad Request` indicates an invalid pet profile `id`.
-An `id` can't be non-numeric or a negative integer.
+| Status | Scenario | Response |
+|---|---|---|
+| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid pet ID. Must be a positive integer." ...}` |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 999 not found." ...}` |
 
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid pet ID. Must be a positive integer.",
-  "status": 400
-}
-```
-
-**Response** `404 Not Found` indicates that the pet profile `id`
-doesn't exist in the PawFinder system.
-
-```json
-{
-  "error": "Not Found",
-  "message": "Pet with ID 999 not found.",
-  "status": 404
-}
-```
-
-### Common use cases
+### Best practices
 
 - **Confirm availability before applying**\
 Always retrieve the full pet profile before submitting an adoption form.
-Confirm the pet is `available` and get the latest medical information.
-- **Track pending applications**\
-After sending an adoption form, check the pet's `status` to see if it
-has changed from `pending` to `adopted`. Contact the shelter directly
-for detailed status updates.
+Confirm the pet is `available` and contact the shelter directly for
+detailed status updates.
 - **Review medical history**\
 Use the `medical` field to understand vaccinations and spay/neuter status.
 Contact the shelter about any concerns before finalizing adoption.
@@ -205,7 +203,7 @@ incomplete, contact the shelter directly for details.
 ### Next steps
 
 - Return to [Find the Perfect Pet](find-perfect-pet.md) to search for
-pets matching that match specific criteria.
+pets matching specific criteria.
 - For shelter staff: [Mark a Pet as Adopted](mark-pet-adopted.md)
 when finalizing adoption.
 - Explore

@@ -6,18 +6,39 @@ permalink: /docs/tutorials/api-fundamentals/find-perfect-pet/
 
 ## Find the perfect pet
 
-Use PawFinder to discover the perfect furry friend.
-Learn how to search for adoptable pets using filtering
-options including species, breed, shelter, and more.
+Use PawFinder to discover adoptable pets using search and filter
+options like species, breed, age, and shelter location. This
+tutorial walks through the typical user journey: browsing available
+pets → applying filters → viewing details → expressing interest.
 
-### Overview
+### How the search workflow works
 
 The PawFinder Service API provides an endpoint for searching
 adoptable pets from shelters in the Dallas-Fort Worth area.
-Filter results with query parameters to find a perfect match.
 Complete all appropriate steps in the
 [Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial.
+
+PawFinder uses `json-server` with basic search features.
+The diagram below shows what a production adoption plaform
+might look like when implementing pet search features:
+
+```mermaid
+graph LR
+    A["Step 1:<br/>Open App"] -->|Browse All| B["Step 2:<br/>Search/Filter<br/>Species, Age,<br/>Location"]
+    B -->|Select Filters| C["Step 3:<br/>View Results<br/>Matching Pets"]
+    C -->|Click Pet| D["Step 4:<br/>View Profile<br/>Photos, Bio,<br/>Medical History"]
+    D -->|Not Interested| E["Back to Results<br/>Browse More Pets"]
+    E -->|New Search| B
+    D -->|Interested| F["Step 5:<br/>Express Interest<br/>Contact Shelter"]
+    
+    style A fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#88b2c4,stroke:#333,stroke-width:2px,color:#fff
+    style F fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
+```
 
 ### Endpoint structure
 
@@ -40,6 +61,9 @@ for the following parameters:
 | `gender` | string | Pet's gender | `male`, `female`|
 | `shelter_id` | integer | Shelter's unique identifier | 1, 2, 3, 4 |
 
+_Partial matching isn't supported. For example, `breed=Maine Coon`
+works, but `breed=Maine` doesn't._
+
 #### Size and status filters
 
 | Parameters  | Type | Description | Examples |
@@ -49,9 +73,9 @@ for the following parameters:
 
 #### Pagination
 
-_Recommended software json-server uses underscores as a naming convention
-for its special query parameters - this is different from standard
-REST API naming._
+`json-server` uses underscores for special query parameters `_limit`,
+`_offset`, `_sort`, and `_order`, which differs from standard
+REST conventions.
 
 | Parameters  | Type | Description | Notes |
 |-----------|------|-------------|----------|
@@ -60,19 +84,11 @@ REST API naming._
 | `_sort` | string | Field to sort by | `name`, `age`, `intake_date` |
 | `_order` | string | Sort direction | default `desc` |
 
-#### Exact-match filtering only
-
-_PawFinder currently supports exact-match filtering only._
-Partial matching isn't currently supported. Query parameters
-must match field values exactly:
-
-| Parameter  | Syntax | Notes |
-|-----------|------|-------------|
-| `breed` |`breed=Maine Coon`| Works ✅ |
-| `breed` |`breed=maine coon`| Doesn't work ❌ |
-| `breed` |`breed=Maine`| Partial match doesn't work ❌ |
-
 ### cURL request examples
+
+Below are common search scenarios. The first two show complete responses.
+See the "Best practices" section below for handling larger result
+sets with pagination.
 
 **Example 1**: find all available dogs
 
@@ -185,154 +201,33 @@ curl -X GET "{base_url}/pets?species=cat&shelter_id=1&status=available" \
 ]
 ```
 
-**Example 3**: search for a specific cat breed
+**More Examples**:
 
 ```bash
+# Find all Maine Coons (exact breed match required)
 curl -X GET "{base_url}/pets?species=cat&breed=Maine%20Coon" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK`
-
-```json
-[
-  {
-    "name": "Oliver",
-    "species": "cat",
-    "breed": "Maine Coon",
-    "age_months": 24,
-    "gender": "male",
-    "size": "large",
-    "temperament": "gentle, calm",
-    "medical": {
-      "spayed_neutered": true,
-      "vaccinations": ["fvrcp", "rabies"]
-    },
-    "description": "Oliver is a gentle giant who loves
-                   to be brushed and cuddled.",
-    "shelter_id": 1,
-    "status": "available",
-    "intake_date": "2025-08-15",
-    "id": 5
-  }
-]
-```
-
-**Example 4**: get the first 2 results sorted by `name` in ascending order
-
 ```bash
+# Work with large sets of pet data
+# Get the first 2 results sorted by `name` in ascending order
 curl -X GET "{base_url}/pets?_limit=2&_start=0&_sort=name&_order=asc" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK`
-
-```json
-[
-  {
-    "name": "Bella",
-    "species": "dog",
-    "breed": "Labrador Retriever",
-    "age_months": 12,
-    "gender": "female",
-    "size": "large",
-    "temperament": "friendly, energetic",
-    "medical": {
-      "spayed_neutered": false,
-      "vaccinations": [
-        "rabies",
-        "dhpp"
-      ]
-    },
-    "description": "Bella is a young lab who loves to
-                   play fetch and swim.",
-    "shelter_id": 4,
-    "status": "pending",
-    "intake_date": "2025-10-01",
-    "id": 4
-  },
-  {
-    "name": "Luna",
-    "species": "cat",
-    "breed": "Domestic Shorthair",
-    "age_months": 18,
-    "gender": "female",
-    "size": "small",
-    "temperament": "playful, affectionate",
-    "medical": {
-      "spayed_neutered": true,
-      "vaccinations": [
-        "fvrcp",
-        "rabies"
-      ]
-    },
-    "description": "Luna is a playful tabby who loves
-                   interactive toys and sunny windows.",
-    "shelter_id": 1,
-    "status": "available",
-    "intake_date": "2025-09-01",
-    "id": 1
-  }
-]
-```
-
-**Example 5**: search dogs from Fort Worth Shelter, sorted by `intake_date`
-
 ```bash
+# Find dogs sorted by how recently they arrived at the shelter
 curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=desc" \
   -H "Content-Type: application/json"
 ```
 
-**Response** `200 OK`
-
-```json
-[
-  {
-    "name": "Max",
-    "species": "dog",
-    "breed": "Golden Retriever Mix",
-    "age_months": 36,
-    "gender": "male",
-    "size": "large",
-    "temperament": "energetic, loyal",
-    "medical": {
-      "spayed_neutered": true,
-      "vaccinations": [
-        "rabies",
-        "dhpp",
-        "leptospirosis"
-      ]
-    },
-    "description": "Max is an active dog who needs regular
-                   exercise and responds well to commands.",
-    "shelter_id": 2,
-    "status": "available",
-    "intake_date": "2025-07-20",
-    "id": 2
-  }
-]                                                            
-```
-
 ### Common responses
 
-**Empty response** `200 OK`
-
-If no pets match the criteria, PawFinder returns an empty array:
-
-```json
-[]
-```
-
-**Error response** `400 Bad Request` indicates a malformed set
-of query parameters, verify the cURL syntax.
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid query parameter format",
-  "status": 400
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | No matches | `[]` |
+| `400` | Invalid parameters | `{ "error": "Bad Request", "message": "Invalid query parameter format" ...}` |
 
 ### Best practices
 
@@ -363,15 +258,6 @@ Use
 when combining many filters. For example,
 `species=dog&temperament=calm` returns dogs that are
 calm, not all dogs plus all calm pets.
-
-### Common use cases
-
-- **Family looking for friendly dogs**\
-Search with `species=dog` and `temperament=friendly`.
-- **Apartment dweller seeking small pet**\
-Use `size=small` to find the right pet.
-- **First-time cat owner**\
-Filter with `species=cat`, `temperament=calm`.
 
 ### Troubleshooting
 

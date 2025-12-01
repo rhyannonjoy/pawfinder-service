@@ -6,14 +6,56 @@ permalink: /docs/api-reference/patch-pets-by-id/
 
 ## Partially update a pet profile
 
-This operation edits specific fields of an existing pet record in the PawFinder System.
+This operation updates specific fields of an existing pet record
+without affecting other data. Use this endpoint when shelter
+staff need to edit details without replacing the entire pet
+profile, such as changing a pet's `status` to mark them as
+`adopted`.
 
 ### PUT vs PATCH
 
-`PUT` replaces an entire profile and `PATCH` only updates
-the fields provided in the request body. In a `PUT` request,
-missing fields set to `null` or default values. In a `PATCH`
-request, fields not present in the request remain unchanged.
+`PUT` replaces an entire profile and sets missing fields to
+`null` or default values. `PATCH` only updates the fields provided
+in the request body, leaving the other fields unchanged.
+`PATCH` is typically used for pet inventory updates.
+
+### Shelter pet inventory update workflow
+
+The sequence diagram below shows how a shelter might update pet `status`
+through PawFinder's services in a production environment with a more
+robust architecture, including authentication requirements and cache
+invalidation to make sure that other users see fresh data:
+
+```mermaid
+sequenceDiagram
+    actor Shelter as Shelter Admin
+    participant App as Shelter App
+    participant Gateway as API Gateway
+    participant Auth as Auth Service
+    participant PetSvc as Pet Service
+    participant Cache as Cache Layer
+    participant PetDB as Pet Database
+    
+    Shelter->>App: Mark Pet as "Adopted"
+    App->>Gateway: PATCH /pets/7<br/>{"status": "adopted"}
+    Gateway->>Auth: Verify API Token
+    Auth-->>Gateway: ✓ Valid Token
+    
+    Gateway->>PetSvc: Update Pet Status
+    PetSvc->>PetDB: UPDATE pets SET status='adopted'
+    PetDB-->>PetSvc: Update Confirmed
+    
+    PetSvc->>Cache: Invalidate Cache for Pet 7
+    Cache-->>PetSvc: Cache Cleared
+    
+    PetSvc-->>Gateway: 200 OK - Updated Pet
+    Gateway-->>App: 200 OK - Status Updated
+    App-->>Shelter: ✓ Pet Status Changed
+    
+    rect rgba(200, 180, 200, 0.2)
+    note right of Cache: Next search queries get<br/>fresh pet data
+    end
+```
 
 ### Endpoint structure
 
@@ -68,6 +110,7 @@ Only include fields that need updating. Omitted fields remain unchanged.
 | `medical.vaccinations` | Must be array of strings |
 | `status` | Must be `available`, `pending`, or `adopted` |
 | `intake_date` | Must be valid ISO 8601 date in YYYY-MM-DD format |
+| `id` | Auto-generated, can't be manually changed |
 
 ### cURL request
 
@@ -86,39 +129,11 @@ curl -X PATCH {base_url}/pets/4 \
 
 ### Example responses
 
-**Response**: `200 OK`
-
-```json
-{
-  "name": "Bella",
-  "species": "dog",
-  "breed": "Labrador Retriever",
-  "age_months": 12,
-  "gender": "female",
-  "size": "large",
-  "temperament": "friendly, energetic",
-  "medical": {
-    "spayed_neutered": true,
-    "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-  },
-  "description": "Bella is a young lab who loves
-                 to play fetch and swim.",
-  "shelter_id": 4,
-  "status": "adopted",
-  "intake_date": "2025-10-01",
-  "id" : 4
-}
-```
-
-**Response**: `404 Not Found`- no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Pet with ID 999 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | `id` match | `{ "name": "Bella", "species": "dog",...}` |
+| `400` | Invalid `id` | `{ "error": "Bad Request", "message": "Invalid pet ID. Must be a positive integer." ...}` |
+| `404` | No matching `id` | `{ "error": "Not Found", "message": "Pet with ID 4 not found.", ...}` |
 
 ### Related topics
 

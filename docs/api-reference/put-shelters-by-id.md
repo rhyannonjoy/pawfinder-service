@@ -80,51 +80,12 @@ curl -X PUT {base_url}/shelters/1 \
 
 ### Example responses
 
-**Response**: `200 OK`
-
-```json
-{
-  "name": "Dallas Animal Services",
-  "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
-  "phone": "+1-214-671-0249",
-  "email": "info@dallasanimalservices.org",
-  "hours": "Mon-Sat 11:00-19:00",
-  "available_pet_count": 25,
-  "adoption_fee_range": "75-200"
-}
-```
-
-**Response**: `400 Bad Request` - missing required field values
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Missing required field: name",
-  "status": 400
-}
-```
-
-**Response**: `400 Bad Request` - invalid values for fields
-`phone` or `adoption_fee_range`
-
-```json
-{
-  "error": "Bad Request",
-  "message": "Invalid value for 'adoption_fee_range'.
-             Must be in USD.",
-  "status": 400
-}
-```
-
-**Response**: `404 Not Found` - no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Shelter with ID 999 not found.",
-  "status": 404 
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Success | `{ "name": "Dallas Animal Services", "address": ...}` |
+| `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
+| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }`|
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with ID 1 not found.", ... }`|
 
 ### Related topics
 

@@ -7,6 +7,7 @@ permalink: /docs/api-reference/delete-shelters-by-id/
 ## Delete a shelter profile
 
 This operation removes a shelter record from the PawFinder database.
+Use this endpoint to ensure that users can access fresh data.
 
 ### Endpoint structure
 
@@ -48,30 +49,11 @@ curl -X DELETE {base_url}/shelters/5 \
 
 ### Example responses
 
-**Response**: `204 NO CONTENT`
-
-```json
-(No response body)
-```
-
-**Response**: `200 OK`
-
-```json
-{
-  "message": "Shelter with ID 5 successfully deleted.",
-  "deleted_id": 5
-}
-```
-
-**Response**: `404 Not Found`- no matching `id`
-
-```json
-{
-  "error": "Not Found",
-  "message": "Shelter with ID 5 not found.",
-  "status": 404
-}
-```
+| Status | Scenario | Response |
+|---|---|---|
+| `200` | Success | `{ "message": "Shelter with ID 5 successfully deleted.", ... }` |
+| `204` | `NO CONTENT` | No response body |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with ID 5 not found.", ... }` |
 
 ### Related topics
 
