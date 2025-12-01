@@ -3,6 +3,8 @@ layout: default
 title: Home
 ---
 
+![PawFinder logo](./docs/images/logo.svg)
+
 ## PawFinder API Documentation
 
 Connect paws to people with the PawFinder REST API. Integrate
