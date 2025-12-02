@@ -11,6 +11,16 @@ Connect paws to people with the PawFinder REST API. Integrate
 adoptable pet data into apps, websites, and services to help
 families find their perfect match.
 
+## Documentation structure
+
+Different sections serve different needs:
+
+| Section | Best for | Contents |
+|---------|----------|----------|
+| Start here | First-time setup, contributors | Overview, installation, authentication, first API call, report issues |
+| Tutorials | Task-based learning | Add pets, filter results, manage shelter data |
+| API Reference | Looking up endpoints | Complete schemas and operations |
+
 ### Start here
 
 - [Overview](./docs/overview/overview.md)\
