@@ -4,6 +4,8 @@ title: Get all pet profiles
 permalink: /docs/api-reference/get-all-pets/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Get all pet profiles
 
 This operation retrieves all pets in the PawFinder system.

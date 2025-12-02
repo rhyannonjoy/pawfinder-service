@@ -4,6 +4,8 @@ title: Replace a shelter profile
 permalink: /docs/api-reference/put-shelters-by-id/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Replace a shelter profile
 
 This operation edits all fields of an existing shelter record in the PawFinder System.

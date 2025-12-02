@@ -4,6 +4,8 @@ title: Authentication Guide
 permalink: /docs/overview/authentication-guide/
 ---
 
+![PawFinder paw image](../images/paw.svg)
+
 ## Authentication guide
 
 ### Overview
@@ -13,15 +15,34 @@ Read-only operations, `GET` requests, don't require authentication.
 Operations that change data, such as `POST`, `PUT`, `PATCH`, and
 `DELETE` require an API token passed in the request header.
 
-### Authentication requirements
+### Authentication flow
 
-| HTTP Method | Purpose | Authentication Required |
-|-------------|---------|------------------------|
-| `GET` | Retrieve pet or shelter profiles | No |
-| `POST` | Add a new pet or shelter profile | Yes |
-| `PUT` | Replace an entire pet or shelter profile | Yes |
-| `PATCH` | Partially update a pet or shelter profile | Yes |
-| `DELETE` | Remove pet or shelter profiles from the PawFinder System | Yes |
+The diagram below illustrates how PawFinder authentication works.
+Developers following a write operation workflow can refer to this
+visual to understand the complete request lifecycle: from creating
+an API token through successful data operations or error handling.
+This diagram shows the authentication happy path and the error
+states developers may encounter:
+
+```mermaid
+sequenceDiagram
+  actor Developer as Developer<br/>(Client App)
+  participant API as PawFinder API<br/>(json-server)
+  participant DB as Database
+  
+  Developer->>Developer: 1. Obtain API Token<br/>(any string for dev)
+  Developer->>API: 2. POST/PUT/PATCH/DELETE<br/>with Authorization header
+  API->>API: 3. Validate Token
+  alt Token Valid
+      API->>DB: 4. Process Request
+      DB->>API: Return Data
+      API->>Developer: 5. 200/201 Success<br/>with Response
+  else Token Invalid
+      API->>Developer: 401/403 Error<br/>Missing or Invalid Token
+  else Rate Limited
+      API->>Developer: 429 Error<br/>Rate Limit Exceeded
+  end
+```
 
 ### Authenticating requests
 
@@ -48,7 +69,7 @@ curl -X POST {base_url}/shelters \
 
 ```bash
 # Recommended base_url = http://localhost:3000
-curl {base_url}/pets
+curl -X GET {base_url}/shelters
 ```
 
 ### Create an API token
@@ -63,10 +84,19 @@ authentication system.
 
 **For local development:**
 
-1. As described in the [Tutorial Requirements](tutorial-requirements.md),
-start the PawFinder json-server instance: `json-server -w pawfinder-db-source.json`.
-1. Use any string as the token, such as `test-token`, `dev-token`, etc.
-2. Pass it in the `Authorization: Bearer` header to perform write operations.
+1. As described in the [Installation Guide](installation-guide.md),
+start the PawFinder:
+
+   ```bash
+   # Option 1: using npm (recommended)
+   npm run
+
+   # Option 2: using json-server directly
+   json-server -w pawfinder-db-source.json
+   ```
+
+2. Use any string as the token, such as `test-token`, `dev-token`, etc.
+3. Pass it in the `Authorization: Bearer` header to perform write operations.
 
 ### Security best practices
 
@@ -92,19 +122,19 @@ curl -X POST {base_url}/pets \
   -d '{"name": "Buddy", "species": "dog"}'
 ```
 
-### Error responses
+### Common error responses
 
-| Status Code | Error | Description | Response Example |
-|---|---|---|---|
-| `401` | Unauthorized | Missing API token - write operations only | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." }` |
-| `403` | Forbidden | Invalid or expired API token - write operations only | `{ "error": "Forbidden", "message": "Invalid or expired authentication token." }` |
-| `429` | Too Many Requests | Rate limit exceeded - too many requests | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", "retry_after": 60 }` |
+| Status | Scenario | Response |
+|---|---|---|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid or expired API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
+| `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ...}` |
 
 ### Rate limiting
 
 For development and testing, there are currently no strict rate limits,
-as json-server isn't designed for high-volume traffic. In production,
-use rate limiting to:
+as `json-server` isn't designed for high-volume traffic. A production
+environment may use rate limiting to:
 
 - Prevent abuse
 - Ensure fair access across users
@@ -131,8 +161,8 @@ An example breakdown of client request limits:
 ### Implementation note
 
 The PawFinder Service API is a project for _shared documentation practice
-and educational purposes only._ PawFinder uses json-server and an intentionally
-minimal authentication system. In a production system, consider the following:
+and educational purposes only._ PawFinder uses `json-server` and an intentionally
+minimal authentication system. For a production system, consider the following:
 
 - [Audit logging](https://www.datadoghq.com/knowledge-center/audit-logging/)
 of all authenticated requests

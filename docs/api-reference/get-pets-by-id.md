@@ -4,6 +4,8 @@ title: Get a pet profile by ID
 permalink: /docs/api-reference/get-pets-by-id/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Get pet profiles by `id`
 
 This operation retrieves a pet's profile by their `id`.

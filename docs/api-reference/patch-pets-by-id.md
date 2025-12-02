@@ -4,6 +4,8 @@ title: Partially update a pet profile
 permalink: /docs/api-reference/patch-pets-by-id/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Partially update a pet profile
 
 This operation updates specific fields of an existing pet record

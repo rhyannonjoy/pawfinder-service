@@ -4,11 +4,13 @@ title: Contribution Guide
 permalink: /docs/overview/contribution-guide/
 ---
 
+![PawFinder paw image](../images/paw.svg)
+
 ## Contribution guide
 
 Documentation improvements are always welcome. Contributions
 must benefit PawFinder users. Create
-[an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) and or
+[an issue](https://github.com/rhyannonjoy/pawfinder-service/issues) and/or
 make [a pull request](https://github.com/rhyannonjoy/pawfinder-service/pulls).
 
 ### Pull request tips
@@ -30,18 +32,18 @@ the content or code examples.
 
 **Documentation build fails locally**\
 Revisit the [Installation Guide](installation-guide.md).
-Make sure all software requirements installed correctly. For
-example, ensure [Node.js](https://nodejs.org/en/download)
+Make sure all software requirements installed correctly.
+For example, ensure [Node.js](https://nodejs.org/en/download)
 and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 are up to date. Run `npm install` in the fork directory,
 then attempt the build again. If using
-[json-server](https://www.npmjs.com/package/json-server),
+[`json-server`](https://www.npmjs.com/package/json-server),
 ensure the version is at least 0.17.4.
 
 **Vale or markdownlint extensions don't appear in VS Code**\
 Install the extensions from
 [the Visual Studio Code marketplace](https://marketplace.visualstudio.com/VSCode).
-Reload the VS Code window (`Ctrl+R` on Windows/Linux, `Cmd+R` on Mac) after installation.
+Reload VS Code (`Ctrl+R` on Windows/Linux, `Cmd+R` on Mac) after installation.
 
 **Vale reports errors but the content appears correct**\
 Check the `.vale.ini` configuration file in the repository root.
@@ -55,7 +57,7 @@ Most formatting issues can be auto-fixed with `npm run lint:fix`.
 **Changes don't appear after pushing to GitHub**\
 GitHub Pages can take a few minutes to rebuild and deploy.
 Wait a few minutes, then refresh the site. Clear the browser cache
-(`Ctrl+Shift+Delete` on Windows/Linux,`Cmd+Shift+Delete on Mac`)
+(`Ctrl+Shift+Delete` on Windows/Linux, `Cmd+Shift+Delete` on Mac)
 if changes still don't appear.
 
 ### Related topics

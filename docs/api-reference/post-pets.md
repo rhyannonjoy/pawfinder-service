@@ -4,6 +4,8 @@ title: Add a new pet profile
 permalink: /docs/api-reference/post-pets/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Add a new pet profile
 
 This operation creates a new pet profile in the PawFinder system.

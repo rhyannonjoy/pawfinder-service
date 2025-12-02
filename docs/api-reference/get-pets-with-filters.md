@@ -4,6 +4,8 @@ title: Get pet profiles using filters
 permalink: /docs/api-reference/get-pets-with-filters/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Get pet profiles using filters
 
 This operation retrieves pets profiles that match the specified

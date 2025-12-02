@@ -4,6 +4,8 @@ title: /pets
 permalink: /docs/api-reference/pets/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## `/pets` resource
 
 This reference contains information about pet profiles stored

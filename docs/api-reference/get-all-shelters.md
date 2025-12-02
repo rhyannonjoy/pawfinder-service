@@ -4,6 +4,8 @@ title: Get all shelter profiles
 permalink: /docs/api-reference/get-all-shelters/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Get all shelter profiles
 
 This operation retrieves all shelter profiles in the PawFinder system.

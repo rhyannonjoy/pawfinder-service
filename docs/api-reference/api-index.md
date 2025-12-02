@@ -4,6 +4,8 @@ title: API Index
 permalink: /docs/api-reference/api-index/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## API Index
 
 **Getting started**: PawFinder is a REST API for managing

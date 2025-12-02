@@ -4,6 +4,8 @@ title: Add a new shelter profile
 permalink: /docs/api-reference/post-shelters/
 ---
 
+![PawFinder paws image](../images/paws.svg)
+
 ## Add a new shelter profile
 
 This operation creates a new shelter profile in the PawFinder system.

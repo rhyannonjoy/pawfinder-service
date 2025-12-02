@@ -4,6 +4,8 @@ title: Quickstart Guide
 permalink: /docs/overview/quickstart-guide/
 ---
 
+![PawFinder paw image](../images/paw.svg)
+
 ## Quickstart guide
 
 Quickly integrate the PawFinder Service API. This guide covers
@@ -17,12 +19,54 @@ all appropriate steps in the
 [Installation Guide](installation-guide.md)
 before continuing this tutorial.
 
-### Use cURL
+### Request flow
+
+The diagram below illustrates how a request for available pets
+flows through the PawFinder system. Developers send a `GET` request
+to the API, which queries the database and returns standardized
+pet profiles. Understanding this flow helps developers construct
+effective requests and interpret responses as they build
+pet adoption features.
+
+```mermaid
+graph LR
+    A["Developer<br/>Client"]
+    B["PawFinder REST API<br/>(json-server)"]
+    C["Pet Database"]
+    D["Pet Profiles<br/>Returned"]
+    
+    A -->|GET /pets| B
+    B -->|Query| C
+    C -->|Retrieve Data| B
+    B -->|200 OK + JSON| D
+    D -->|Display to Users| A
+    
+    style A fill:#9989c4,stroke:#333,stroke-width:2px,color:#fff,font-family:Helvetica
+    style B fill:#cc848a,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+    style C fill:#add8e6,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+    style D fill:#9fb56a,stroke:#333,stroke-width:2px,color:#000,font-family:Helvetica
+```
+
+### Step 1: Start the service
+
+```bash
+# Option 1: using npm (recommended)
+# Run from the pawfinder-service root directory
+npm start
+```
+
+```bash
+# Option 2: using json-server directly
+# Run from the pawfinder-service api directory
+cd api
+json-server -w pawfinder-db-source.json
+```
+
+### Step 2: Call the service
 
 ```bash
 # Recommended base_url = http://localhost:3000
-curl -X GET "{base_url}/pets" \
-  -H "Content-Type: application/json"
+curl -X GET "{base_url}/pets"
 ```
 
 ### Use Postman desktop app
@@ -32,9 +76,8 @@ curl -X GET "{base_url}/pets" \
 3. Set the method to `GET`
 4. Enter the URL: `{base_url}/pets`
 5. Click **Send**
-6. Observe the response
 
-### Response details
+### Step 3: Review the response
 
 A successful request returns a `200 OK` status code with a JSON
 array of pet profiles, for example:
@@ -63,7 +106,7 @@ array of pet profiles, for example:
 ]
 ```
 
-#### Pet profile field descriptions
+#### Pet profile fields
 
 | Property name | Type | Description |
 | ------------- | ----------- | ----------- |
@@ -81,7 +124,7 @@ array of pet profiles, for example:
 | `shelter_id` | integer | ID of pet's current shelter|
 | `status` | string | Pet's current adoption status, `available`, `pending`, or `adopted` |
 | `intake_date` | string | When the pet entered the shelter, ISO 8601 format |
-| `id` | integer | Pet's unique identifer |
+| `id` | integer | Pet's unique identifier |
 
 ### Filter pet profile results
 
@@ -117,14 +160,13 @@ curl -X GET "{base_url}/pets?_limit=10&_start=0"
 curl -X GET "{base_url}/pets?_limit=10&_start=10"
 ```
 
-### Common errors
+### Common error responses
 
-| Code | Description  |
-|------|--------------|
-| `400` | Bad Request, verify query parameters |
-| `404` | Not Found, verify `base_url` |
-| `429` | Too Many requests, exceeding rate limit |
-| `500` | Something is wrong with the server, try again later |
+| Status | Scenario | Response |
+|---|---|---|
+| `400` | Malformed parameters | `{ "error": "Bad Request", "message": "Invalid query parameter format", ...}`  |
+| `404` | Malformed `base_url` | `{ "error": "Not Found", "message": "Server can't find resource", ... }`|
+| `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "...Try again in 60 seconds.", ... }`|
 
 ### Next steps
 
