@@ -64,6 +64,10 @@ Reference all endpoint operations, parameters, and responses.
 
 ### Get help
 
+_PawFinder is a documentation portfolio project.
+Status monitoring and support channels shown below represent
+production-ready patterns. The GitHub issues link is functional._
+
 - Check real-time API status at [status.pawfinder.com](status.pawfinder.com)
 - Found an error or have a suggestion?
 [Report it here](https://github.com/rhyannonjoy/pawfinder-service/issues).
