@@ -48,23 +48,44 @@ nav_items:
   - title: "API Reference"
     url: "/docs/api-reference/"
     children:
-      - { title: "API Index", url: "/docs/api-reference/api-index/" }
-      - { title: "/pets", url: "/docs/api-reference/pets/" }
-      - { title: "/shelters", url: "/docs/api-reference/shelters/" }
-      - { title: "Add a new pet profile", url: "/docs/api-reference/post-pets/" }
-      - { title: "Add a new shelter profile", url: "/docs/api-reference/post-shelters/" }
-      - { title: "Delete a pet profile", url: "/docs/api-reference/delete-pets-by-id/" }
-      - { title: "Delete a shelter profile", url: "/docs/api-reference/delete-shelters-by-id/" }
-      - { title: "Get a pet profile by ID", url: "/docs/api-reference/get-pets-by-id/" }
-      - { title: "Get a shelter profile by ID", url: "/docs/api-reference/get-shelters-by-id/" }
-      - { title: "Get all pet profiles", url: "/docs/api-reference/get-all-pets/" }
-      - { title: "Get all shelter profiles", url: "/docs/api-reference/get-all-shelters/" }
-      - { title: "Get pet profiles from a specific shelter", url: "/docs/api-reference/get-pets-from-shelter/" }
-      - { title: "Get pet profiles using filters", url: "/docs/api-reference/get-pets-with-filters/" }
-      - { title: "Partially update a pet profile", url: "/docs/api-reference/patch-pets-by-id/" }
-      - { title: "Partially update a shelter profile", url: "/docs/api-reference/patch-shelters-by-id/" }
-      - { title: "Replace a pet profile", url: "/docs/api-reference/put-pets-by-id/" }
-      - { title: "Replace a shelter profile", url: "/docs/api-reference/put-shelters-by-id/" }
+    - title: "API Index"
+      url: "/docs/api-reference/api-index/"
+    - title: "/pets"
+      children:
+        - title: "/pets resource"
+          url: "/docs/api-reference/pets-resource/"
+        - title: "Get all pet profiles"
+          url: "/docs/api-reference/get-all-pets/"
+        - title: "Get a pet profile by ID"
+          url: "/docs/api-reference/get-pets-by-id/"
+        - title: "Get pet profiles using filters"
+          url: "/docs/api-reference/get-pets-with-filters/"
+        - title: "Get pet profiles from a specific shelter"
+          url: "/docs/api-reference/get-pets-from-shelter/"
+        - title: "Add a new pet profile"
+          url: "/docs/api-reference/post-pets/"
+        - title: "Replace a pet profile"
+          url: "/docs/api-reference/put-pets-by-id/"
+        - title: "Partially update a pet profile"
+          url: "/docs/api-reference/patch-pets-by-id/"
+        - title: "Delete a pet profile"
+          url: "/docs/api-reference/delete-pets-by-id/" 
+    - title: "/shelters"
+      children:
+        - title: "/shelters resource"
+          url: "/docs/api-reference/shelters-resource/"
+        - title: "Get all shelter profiles"
+          url: "/docs/api-reference/get-all-shelters/"
+        - title: "Get a shelter profile by ID"
+          url: "/docs/api-reference/get-shelters-by-id/"
+        - title: "Add a new shelter profile"
+          url: "/docs/api-reference/post-shelters/"
+        - title: "Replace a shelter profile"
+          url: "/docs/api-reference/put-shelters-by-id/"
+        - title: "Partially update a shelter profile"
+          url: "/docs/api-reference/patch-shelters-by-id/"
+        - title: "Delete a shelter profile"
+          url: "/docs/api-reference/delete-shelters-by-id/"
   - title: "Tutorials"
     url: "/docs/tutorials/"
     children:

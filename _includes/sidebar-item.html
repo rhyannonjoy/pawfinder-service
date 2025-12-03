@@ -6,7 +6,15 @@
     <nav class="sidebar-nav-children">
       {% for child in item.children %}
         {% if child.children %}
-          <details class="sidebar-nav-group sidebar-nav-child" {% if page.url contains child.url %}open{% endif %}>
+          {% comment %}Check if any grandchild matches current page{% endcomment %}
+          {% assign should_open = false %}
+          {% for grandchild in child.children %}
+            {% if page.url == grandchild.url %}
+              {% assign should_open = true %}
+            {% endif %}
+          {% endfor %}
+          
+          <details class="sidebar-nav-group sidebar-nav-child" {% if should_open %}open{% endif %}>
             <summary class="sidebar-nav-toggle">
               {{ child.title }}
             </summary>

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: /shelters
-permalink: /docs/api-reference/shelters/
+title: /shelters resource
+permalink: /docs/api-reference/shelters-resource/
 ---
 
 ![PawFinder paws image](../images/paws.svg)

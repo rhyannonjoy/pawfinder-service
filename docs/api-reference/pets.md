@@ -1,7 +1,7 @@
 ---
 layout: page
-title: /pets
-permalink: /docs/api-reference/pets/
+title: /pets resource
+permalink: /docs/api-reference/pets-resource/
 ---
 
 ![PawFinder paws image](../images/paws.svg)
