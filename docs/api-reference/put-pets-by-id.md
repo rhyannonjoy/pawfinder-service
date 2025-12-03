@@ -8,7 +8,8 @@ permalink: /docs/api-reference/put-pets-by-id/
 
 ## Replace a pet profile
 
-This operation edits all fields of an existing pet record in the PawFinder System.
+This operation edits all fields of an existing pet record
+in the PawFinder System.
 
 ### PUT vs PATCH
 
@@ -39,41 +40,25 @@ Authorization: Bearer API_TOKEN
 
 ### Request body
 
-All fields required.
+All fields required except `id`, which is auto-generated.
 
-| Property | Type | Description |
-|---|---|---|
-| `name` | string | Pet's name |
-| `species` | string | Pet's species |
-| `breed` | string | Pet's breed |
-| `age_months` | number | Pet's age in months |
-| `gender` | string | Pet's gender |
-| `size` | string | Pet's size category |
-| `temperament` | string | Pet's personality traits and behavioral characteristics |
-| `medical` | object | Pet's medical information |
-| `medical.spayed_neutered` | boolean | Pet's spayed/neutered status|
-| `medical.vaccinations` | array | List of vaccinations the pet has received |
-| `description` | string | Pet's personality, needs, and background |
-| `shelter_id` | number | ID of the pet's current shelter |
-| `status` | string | Pet's adoption status |
-| `intake_date` | string | Date the pet entered the shelter in Year-Month-Day format |
-
-### Field requirements
-
-| Field | Validation Rule |
-|---|---|
-| `species` | Must be either `cat` or `dog` |
-| `gender` | Must be `male` or `female` |
-| `size` | Must be `small`, `medium`, or `large` |
-| `medical.spayed_neutered` | Must be boolean |
-| `medical.vaccinations` | Must be array of strings |
-| `status` | Must be `available`, `pending`, or `adopted` |
-| `intake_date` | Must be valid ISO 8601 date in YYYY-MM-DD format |
-
-### `id` generation
-
-PawFinder auto-generates pet unique identifiers, `id`. The system
-ignores `id` fields in `PUT` request bodies or returns a `400` error.
+| Property name | Type | Description | Value Format |
+| ------------- | ----------- | ----------- |----------- |
+| `name` | string | Pet's name | Any text |
+| `species` | string | Pet's animal type | `cat`, `dog` |
+| `breed` | string | Pet's breed or breed mix | Any text |
+| `age_months` | integer | Pet's age in months | Numeric value |
+| `gender` | string | Pet's gender | `male`, `female` |
+| `size` | string | Pet's size category | `small`, `medium`, `large` |
+| `temperament` | string | Pet's personality traits, behavioral characteristics | Any text |
+| `medical` | object | Pet's medical information | See nested fields below |
+| `medical.spayed_neutered` | boolean | Pet's spay/neuter state | `true` or `false` |
+| `medical.vaccinations` | array | List of pet's current vaccinations | Any text |
+| `description` | string | Pet's personality, needs, background | Any text |
+| `shelter_id` | integer | Unique identifier of pet's current shelter| Numeric value |
+| `status` | string | Pet's current adoption stage | `available`, `pending`, or `adopted`|
+| `intake_date` | string | Pet's shelter entry date | ISO 8601 Format, "YYYY-MM-DD" |
+| `id` | integer | Pet's unique identifier | Auto-generated, read-only |
 
 ### cURL request
 
@@ -104,12 +89,12 @@ curl -X PUT {base_url}/pets/4 \
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `200` | Success | `{ "name": "Bella", "species": "dog", ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
-| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'species'. Must be one of: cat, dog.", ... }`|
-| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 4 not found.", ... }`|
+| `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'species'. Must be one of: 'cat', 'dog'.", ... }`|
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with 'id' 4 not found.", ... }`|
 
 ### Related topics
 

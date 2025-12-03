@@ -40,16 +40,17 @@ This operation doesn't require a request body.
 
 ```bash
 # Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET {base_url}/shelters/1
 ```
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `200` | Success | `{ "name": "Dallas Animal Services", "address": ...}` |
-| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid shelter ID. Must be a positive integer.", ... }`|
-| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with ID 1 not found.", ... }`|
+| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid shelter 'id'. Must be a positive integer.", ... }`|
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with 'id' 1 not found.", ... }`|
 
 **Successful responses includes a list of shelters with the following**:
 
@@ -59,8 +60,8 @@ curl -X GET {base_url}/shelters/1
 - `email`: Shelter's email address
 - `hours`: Shelter's hours of operation
 - `available_pet_count`: Amount of shelter's available pets
-- `adoption_fee_range`: Shelter's fee range in United States Dollar
-- `id`: Shelter's unique record ID
+- `adoption_fee_range`: Shelter's fee range in United States Dollars
+- `id`: Shelter's unique identifier
 
 ### Related topics
 

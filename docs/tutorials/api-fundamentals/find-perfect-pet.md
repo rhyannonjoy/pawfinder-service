@@ -8,7 +8,7 @@ permalink: /docs/tutorials/api-fundamentals/find-perfect-pet/
 ## Find the perfect pet
 
 Use PawFinder to discover adoptable pets using search and filter
-options like species, breed, age, and shelter location. This
+options like `species`, `breed`, `age_months`, and `shelter_id`. This
 tutorial walks through the typical user journey: browsing available
 pets → applying filters → viewing details → expressing interest.
 
@@ -50,8 +50,7 @@ GET {base_url}/pets
 
 ### Query parameters
 
-`/pets` currently only supports exact-match filtering
-for the following parameters:
+Filter results using exact matches for the following parameters:
 
 #### Core filters
 
@@ -62,15 +61,12 @@ for the following parameters:
 | `gender` | string | Pet's gender | `male`, `female`|
 | `shelter_id` | integer | Shelter's unique identifier | 1, 2, 3, 4 |
 
-_Partial matching isn't supported. For example, `breed=Maine Coon`
-works, but `breed=Maine` doesn't._
-
-#### Size and status filters
+#### `size` and `status` filters
 
 | Parameters  | Type | Description | Examples |
 |-----------|------|-------------|----------|
 | `size` | string | Pet's size category | `small`,  `medium`, `large` |
-| `status` | string | Pet's availability | `available`,  `pending` |
+| `status` | string | Pet's availability | `available`,  `pending`, `adopted` |
 
 #### Pagination
 
@@ -94,7 +90,8 @@ sets with pagination.
 **Example 1**: find all available dogs
 
 ```bash
-curl -X GET "{base_url}/pets?species=dog" \
+# -X GET is optional, as GET is the default operation
+curl -X GET "{base_url}/pets?species=dog&status=available" \
   -H "Content-Type: application/json"
 ```
 
@@ -125,28 +122,7 @@ curl -X GET "{base_url}/pets?species=dog" \
     "intake_date": "2025-07-20",
     "id": 2
   },
-  {
-    "name": "Bella",
-    "species": "dog",
-    "breed": "Labrador Retriever",
-    "age_months": 12,
-    "gender": "female",
-    "size": "large",
-    "temperament": "friendly, energetic",
-    "medical": {
-      "spayed_neutered": false,
-      "vaccinations": [
-        "rabies",
-        "dhpp"
-      ]
-    },
-    "description": "Bella is a young lab who loves to
-                   play fetch and swim.",
-    "shelter_id": 4,
-    "status": "pending",
-    "intake_date": "2025-10-01",
-    "id": 4
-  }
+  ...
 ]
 ```
 
@@ -225,9 +201,10 @@ curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=d
 
 ### Common responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
-| `200` | No matches | `[]` |
+| `200` | Successful with matches | `[{ "name": "Luna", "species": "cat",...}]` |
+| `200` | Successful without matches | `[]` |
 | `400` | Invalid parameters | `{ "error": "Bad Request", "message": "Invalid query parameter format" ...}` |
 
 ### Best practices
@@ -238,7 +215,7 @@ add more specific criteria to narrow results.
 - **Use pagination for large result sets**\
 Always use [pagination](https://www.merge.dev/blog/rest-api-pagination)
 when displaying results to handle large datasets efficiently.
-Set an appropriate `limit` and use `offset` to fetch the next pages.
+Set an appropriate `_limit` and use `_offset` to fetch the next pages.
 - **Cache results locally**\
 Consider
 [caching search results](https://www.geeksforgeeks.org/system-design/caching-strategies-for-api/)
@@ -274,9 +251,9 @@ more specific filters to reduce the dataset size.
 
 ### Next steps
 
-- Check the [pet profiles endpoint](../../api-reference/pets.md)
-to fetch comprehensive information about individual pets.
-- Explore the [shelter profiles endpoint](../../api-reference/shelters.md)
-to get information about specific shelters.
+- Reference the [/pets resource](../../api-reference/pets.md)
+for comprehensive `/pets` endpoint documentation.
+- Explore the [/shelters resource](../../api-reference/shelters.md)
+for the `/shelters` endpoint schema, operations, and parameters.
 - Visit the [Contribution Guide](../../overview/contribution-guide.md)
-to suggest improvements or report issues.
+to report issues or suggest improvements.

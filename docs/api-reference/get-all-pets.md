@@ -38,15 +38,16 @@ This operation doesn't require a request body.
 
 ```bash
 # Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET {base_url}/pets
 ```
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `200` | Success | `[{ "name": "Luna", "species": "cat", ...}, ...]` |
-| `429` | Exceed rate limit | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
+| `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
 
 **Successful responses includes a list of pets with the following**:
 
@@ -59,10 +60,10 @@ curl -X GET {base_url}/pets
 - `temperament`: Pet's personality traits and behavioral characteristics
 - `medical`: Pet's medical information
 - `description`: Pet's personality, needs, background
-- `shelter_id`: ID of pet's current shelter
-- `status`: Pet's adoption status
-- `intake_date`: When the pet entered the shelter
-- `id`: Pet's unique record ID
+- `shelter_id`: Unique identifier of the pet's current shelter
+- `status`: Pet's current adoption stage
+- `intake_date`: Pet's shelter entry date
+- `id`: Pet's unique identifier
 
 ### Related topics
 

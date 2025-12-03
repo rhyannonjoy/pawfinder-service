@@ -19,13 +19,12 @@ Open the links in separate browser tabs before installing any software.
 - A development system running a current version or LTS, long-term support,
 version of the Windows, MacOS, or Linux operating system.
 - [Git, command line](https://docs.github.com/en/get-started/quickstart/set-up-git)
-- [GitHub Desktop](https://desktop.github.com) _optional, but recommended_
+- [GitHub Desktop](https://desktop.github.com): _optional, but recommended_
 - A fork of the [PawFinder Service repository](https://github.com/rhyannonjoy/pawfinder-service)
 - A current or LTS version of [Node.js](https://nodejs.org/en/download),
 _includes npm_
 - Version 0.17.4 of [`json-server`](https://www.npmjs.com/package/json-server)
-- [Postman desktop app](https://www.postman.com/downloads/)
-_(desktop version required; web version incompatible with `http://localhost`)_
+- [Postman desktop app](https://www.postman.com/downloads/): _desktop version required; web version incompatible with `http://localhost`_
   
     **Tip**: while using a fork of the repository, create a working
     branch in which to complete the tutorials. Create a new branch for
@@ -104,14 +103,14 @@ npm install
 1. Open GitHub Desktop
 2. Click the **Current Repository** dropdown in the top-left corner
 3. Select `pawfinder-service` from the list
-4. Click the **Current Branch** dropdown in the top center, it likely says "main"
+4. Click the **Current Branch** dropdown in the top center, it likely says `main`
 5. Click the **New Branch** button
 6. In the "Name" field, type: `tutorial-test`
-7. Ensure "Create branch based on" shows the main branch
+7. Ensure "Create branch based on" shows the `main` branch
 8. Click **Create Branch**
 
 GitHub Desktop automatically switches to the new `tutorial-test` branch.
-The **Current Branch** dropdown should display "tutorial-test."
+The **Current Branch** dropdown should display `tutorial-test`.
 
 **Using the command line:**
 
@@ -123,13 +122,13 @@ git checkout -b tutorial-test
 #### Step 2: Start the service
 
 ```bash
-# Option 1: using npm (recommended)
+# Option 1: use npm (recommended)
 # Run from the pawfinder-service root directory
 npm start
 ```
 
 ```bash
-# Option 2: using json-server directly
+# Option 2: call json-server directly
 # Run from the pawfinder-service api directory
 cd api
 json-server -w pawfinder-db-source.json
@@ -140,7 +139,8 @@ json-server -w pawfinder-db-source.json
 **Using cURL**
 
 ```bash
-curl http://localhost:3000/shelters
+# -X GET is optional, as GET is the default operation
+curl -X GET http://localhost:3000/shelters
 ```
 
 **Using Postman desktop app**
@@ -150,7 +150,7 @@ curl http://localhost:3000/shelters
 3. Set the method to `GET`
 4. Enter the URL: `http://localhost:3000/shelters`
 5. Click **Send**
-6. Observe the response
+6. Review the response
 
 If the service is running correctly it retrieves a list of shelters:
 

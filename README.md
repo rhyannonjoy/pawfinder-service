@@ -1,9 +1,9 @@
 # PawFinder Service
 
 _PawFinder is a project for shared documentation practice and educational
-purposes only._ While using json-server to simulate a pet adoption platform,
-the following content intends to show how to design, document, and
-maintain a REST API using realistic pet adoption scenarios.
+purposes only._ While using `json-server` to simulate a pet adoption
+platform, the following content intends to show how to design, document,
+and maintain a REST API using realistic pet adoption scenarios.
 
 **SME**: Veena Acharya\
 **TW**: Rhyannon Joy Rodriguez
@@ -12,8 +12,8 @@ maintain a REST API using realistic pet adoption scenarios.
 
 ## PawFinder API
 
-Build adoption platforms that connect paws with people. PawFinder is the
-REST API for real-time shelter data in the Dallas-Fort Worth area.
+Build adoption platforms that connect paws with people. PawFinder is
+the REST API for real-time shelter data in the Dallas-Fort Worth area.
 
 - Explore [PawFinder API Documentation](https://rhyannonjoy.github.io/pawfinder-service/)
 for more information.
@@ -22,11 +22,11 @@ for more information.
 to set up the development environment.
 - Learn how PawFinder protects pet and shelter data with token-based authentication in the
 [Authentication Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/authentication-guide/).
-`GET` requests don't require authentication. Write operations,
-`POST`, `PUT`, `PATCH`, and `DELETE`, do.
+    - `GET` requests don't require authentication.
+    - Write operations, `POST`, `PUT`, `PATCH`, and `DELETE`, do.
 - Get up and running with the
-[Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/quickstart-guide/),
-_shorter version in the "Getting Started" section below._
+[Quickstart Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/quickstart-guide/)
+    - Condensed version in the "Getting Started" section below.
 - Visit the
 [Contribution Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/contribution-guide/)
 to report issues or suggest improvements.
@@ -63,28 +63,27 @@ for the complete reference for all endpoint operations, parameters, and response
 
 ## Getting started
 
-_This is the condensed approach. For step-by-step instructions,
-visit the
+_This is the condensed version. For step-by-step instructions, visit the
 [Installation Guide](https://rhyannonjoy.github.io/pawfinder-service/docs/overview/installation-guide/)._
 
 ### Installation
 
 ```bash
-# clone the repository from the command line
+# Clone the repository from the command line
 git clone https://github.com/rhyannonjoy/pawfinder-service.git
 cd pawfinder-service
 
-# install dependencies
+# Install dependencies
 npm install
 ```
 
 ### Start the server
 
 ```bash
-# option #1: use npm (recommended)
+# Option 1: use npm (recommended)
 npm start
 
-# option #2: use json-server directly
+# Option 2: call json-server directly
 cd api
 json-server --w pawfinder-db-source.json
 ```
@@ -94,20 +93,21 @@ Explore PawFinder API data at: `http://localhost:3000`
 ### Customizing the data
 
 Edit `api/pawfinder-db-source.json` to add, update, or remove
-pet and shelter profiles. json-server automatically reflects
+pet and shelter profiles. `json-server` automatically reflects
 the changes as the server restarts.
 
-### First request: all available dogs
+### First request: get all available dogs
 
 Recommended base_url: `http://localhost:3000`
 
 ```bash
-# option #1: cURL command
-curl {base_url}/pets?species=dog&status=available
+# Option 1: cURL command
+# -X GET is optional, as GET is the default operation
+curl -X GET {base_url}/pets?species=dog&status=available
 ```
 
 ```javascript
-// option #2: JavaScript method
+// Option 2: JavaScript method
 fetch('{base_url}/pets?species=dog&status=available')
   .then(response => response.json())
   .then(data => console.log(data));
@@ -129,8 +129,8 @@ fetch('{base_url}/pets?species=dog&status=available')
         "spayed_neutered": true,
         "vaccinations": ["rabies", "dhpp", "leptospirosis"]
       },
-      "description": "Max is an active dog who needs regular exercise
-                     and responds well to commands.",
+      "description": "Max is an active dog who needs regular
+                     exercise and responds well to commands.",
       "shelter_id": 2,
       "status": "available",
       "intake_date": "2025-07-20",

@@ -94,7 +94,7 @@ nav_items:
       children:
         - { title: "Find the perfect pet", url: "/docs/tutorials/api-fundamentals/find-perfect-pet/" }
         - { title: "Mark a pet as adopted", url: "/docs/tutorials/api-fundamentals/mark-pet-adopted/" }
-        - { title: "Track adoption status", url: "/docs/tutorials/api-fundamentals/track-adoption-status/" }
+        - { title: "Track adoption `status`", url: "/docs/tutorials/api-fundamentals/track-adoption-status/" }
     - title: "Building Applications"
       url: "/docs/tutorials/building-applications/"
       children:

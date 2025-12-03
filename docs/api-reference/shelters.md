@@ -61,22 +61,16 @@ graph TD
 }
 ```
 
-| Property name | Type | Description |
-| ------------- | ----------- | ----------- |
-| `name` | string | Shelter's official name |
-| `address` | string | Shelter's address information |
-| `phone` | string | Shelter's phone number |
-| `email` | string | Shelter's email address |
-| `hours` | string | Shelter's operating hours |
-| `available_pet_count` | integer | Number of shelter's available pets |
-| `adoption_fee_range` | string | Shelter's typical adoption fee range |
-| `id` | number | Shelter's unique record ID |
-
-### Field requirements
-
-- `phone`: Must be in  E.164 format, such as +1-XXX-XXX-XXXX
-- `adoption_fee_range`: Must be in USD, format "min - max"
-- `id`: PawFinder auto-generates this field and users can't change it directly.
+| Property | Type | Description | Value Format |
+|---|---|---|---|
+| `name` | string | Shelter's name | Any text |
+| `address` | string | Shelter's location information | Any text |
+| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
+| `email` | string | Shelter's email address | Any text |
+| `hours` | string | Shelter's hours of operation | Any text |
+| `available_pet_count` | integer | Shelter's available pets | Numeric value |
+| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
+| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
 
 ### Operations
 

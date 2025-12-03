@@ -1,20 +1,20 @@
 ---
 layout: page
-title: Track Adoption Status
+title: Track Adoption `status`
 show-paw-image: true
 permalink: /docs/tutorials/api-fundamentals/track-adoption-status/
 ---
 
-## Track adoption status
+## Track adoption `status`
 
 Observe pet availability and adoption progress in real time.
 Learn how to query individual pet profiles and understand
-adoption status transitions throughout the adoption workflow.
+adoption `status` transitions throughout the adoption workflow.
 
-### How the adoption status workflow works
+### Adoption `status` workflow
 
 The PawFinder Service API provides an endpoint for retrieving
-individual pet profiles and tracking adoption status changes.
+individual pet profiles and tracking adoption `status` changes.
 Complete all appropriate steps in the
 [Installation Guide](../../overview/installation-guide.md)
 before continuing this tutorial.
@@ -51,7 +51,7 @@ GET {base_url}/pets/{id}
 |-----------|------|-------------|---------|
 | `id` | integer | Pet's unique identifier | 1, 2, 3, 4 |
 
-### Understanding adoption status
+### Understanding adoption `status`
 
 Pets transition through defined `status` states as they move
 through the adoption process:
@@ -66,6 +66,7 @@ through the adoption process:
 
 ```bash
 # Check if a specific pet is still available
+# -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets/1" \
   -H "Content-Type: application/json"
 ```
@@ -137,7 +138,7 @@ curl -X GET "{base_url}/pets/3" \
 ```
 
 **Response** `200 OK` - Individual pet profiles include essential medical
-information, making a pet's health status accessible before committing
+information, making a pet's health condition accessible before committing
 to adoption.
 
 ```json
@@ -164,10 +165,10 @@ to adoption.
 
 ### Common error responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
-| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid pet ID. Must be a positive integer." ...}` |
-| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 999 not found." ...}` |
+| `400` | Malformed `id` | `{ "error": "Bad Request", "message": "Invalid pet 'id'. Must be a positive integer." ...}` |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with 'id' 999 not found." ...}` |
 
 ### Best practices
 
@@ -176,8 +177,9 @@ Always retrieve the full pet profile before submitting an adoption form.
 Confirm the pet is `available` and contact the shelter directly for
 detailed status updates.
 - **Review medical history**\
-Use the `medical` field to understand vaccinations and spay/neuter status.
-Contact the shelter about any concerns before finalizing adoption.
+Use the `medical` field to understand vaccinations and spay/neuter
+condition. Contact the shelter about any concerns before finalizing
+adoption.
 - **Understand a pet's needs**\
 Check the `intake_date` field for how long the pet has been in the
 shelter and `description` field for context about their behavior.
@@ -193,10 +195,10 @@ for updates instead.
 - **`404 Not Found` response**\
 The pet profile `id` doesn't exist. Double-check the `id` matches
 a pet profile from the [search results](find-perfect-pet.md).
-- **Unexpected status change**\
+- **Unexpected `status` change**\
 If the perfect pet's profile `status` suddenly shows `adopted`,
 the shelter approved another applicant. Search for
-[similar pets](find-perfect-pet.md) with the same criteria.
+[similar pets](find-perfect-pet.md) with similar criteria.
 - **Missing medical information**\
 All pet profiles should have medical data. If a pet profile seems
 incomplete, contact the shelter directly for details.
@@ -211,4 +213,4 @@ when finalizing adoption.
 [Build a Location-Aware Search](../../tutorials/building-applications/build-location-aware-search.md)
 for a development use case that enables nearby shelter discovery.
 - Visit the [Contribution Guide](../../overview/contribution-guide.md)
-to suggest improvements or report issues.
+to report issues or suggest improvements.

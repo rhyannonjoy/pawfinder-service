@@ -10,7 +10,8 @@ permalink: /docs/api-reference/pets-resource/
 
 This reference contains information about pet profiles stored
 in the PawFinder system. Shelters must register in the service
-before listing a new pet. Visit the [shelters resource](shelters.md).
+before listing a new pet. Visit the
+[shelters resource](shelters.md).
 
 Base endpoint:
 
@@ -71,35 +72,23 @@ graph TD
 }
 ```
 
-| Property name | Type | Description |
-| ------------- | ----------- | ----------- |
-| `name` | string | Pet's name |
-| `species` | string | Pet's animal type |
-| `breed` | string | Pet's breed or breed mix |
-| `age_months` | integer | Pet's age in months |
-| `gender` | string | Pet's gender |
-| `size` | string | Pet's size category |
-| `temperament` | string | Pet's personality traits, behavioral characteristics |
-| `medical` | object | Pet's medical information |
-| `medical.spayed_neutered` | boolean | Pet's spay/neuter status |
-| `medical.vaccinations` | array | List of pet's current vaccinations |
-| `description` | string | Pet's personality, needs, background |
-| `shelter_id` | integer | ID of pet's current shelter|
-| `status` | string | Pet's current adoption status |
-| `intake_date` | string | When the pet entered the shelter |
-| `id` | integer | Pet's unique record ID |
-
-### Field requirements
-
-- `species`: Must be `cat`, `dog`
-- `gender`: Must be `male`, `female`
-- `size`: Must be `small`, `medium`, `large`
-- `medical.spayed_neutered`: Must be a boolean
-- `medical.vaccinations`: Must be an array of strings
-- `status`: Must be `available`, `pending`, or `adopted`
-- `intake_date`: Must be in ISO 8601 format, such as "2025-09-01"
-- `shelter_id`: PawFinder auto-generates this field and users can't change it directly.
-- `id`: PawFinder auto-generates this field and users can't change it directly.
+| Property name | Type | Description | Value Format |
+| ------------- | ----------- | ----------- |----------- |
+| `name` | string | Pet's name | Any text |
+| `species` | string | Pet's animal type | `cat`, `dog` |
+| `breed` | string | Pet's breed or breed mix | Any text |
+| `age_months` | integer | Pet's age in months | Numeric value |
+| `gender` | string | Pet's gender | `male`, `female` |
+| `size` | string | Pet's size category | `small`, `medium`, `large` |
+| `temperament` | string | Pet's personality traits, behavioral characteristics | Any text |
+| `medical` | object | Pet's medical information | See nested fields below |
+| `medical.spayed_neutered` | boolean | Pet's spay/neuter state | `true` or `false` |
+| `medical.vaccinations` | array | List of pet's current vaccinations | Any text |
+| `description` | string | Pet's personality, needs, background | Any text |
+| `shelter_id` | integer | Unique identifier of pet's current shelter| Numeric value |
+| `status` | string | Pet's current adoption stage | `available`, `pending`, or `adopted`|
+| `intake_date` | string | Pet's shelter entry date | ISO 8601 Format, "YYYY-MM-DD" |
+| `id` | integer | Pet's unique identifier | Auto-generated, read-only |
 
 ### Operations
 

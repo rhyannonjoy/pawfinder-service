@@ -73,7 +73,7 @@ and leaves the others unchanged.
 
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
-| `status` | string | Pet's adoption status | `adopted`, `pending`, `available` |
+| `status` | string | Pet's current adoption stage | `available`, `pending`, `adopted` |
 | `medical` | object | Pet's medical information | `{"spayed_neutered": true, "vaccinations": [...]}` |
 
 ### Understanding state transitions
@@ -110,11 +110,11 @@ they're no longer available.
 
 **Transition rules**:
 
+- Use `PATCH` requests to transition between states as adoptions progress.
 - Pets can return from `pending` to `available` if the shelter rejects
 an adoption form or the applicant withdraws.
-- Once a pet reaches `adopted`, they typically remain in that state -
-no reversals unless correcting data entry errors.
-- Use `PATCH` requests to transition between states as adoptions progress.
+- Once a pet reaches `adopted`, they typically remain in that state.
+Don't perform reversals unless correcting data entry errors.
 
 ### cURL request examples
 
@@ -172,8 +172,7 @@ curl -X PATCH "{base_url}/pets/4" \
     "medical": {
       "spayed_neutered": true,
       "vaccinations": ["rabies", "dhpp", "leptospirosis"]
-    }
-  }'
+    }'
 ```
 
 **Response** `200 OK` - Bella's record now reflects both
@@ -223,11 +222,11 @@ reviews a potential adopter's form.
 
 ### Common error responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'status'." ...}` |
 | `401` | Invalid API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." ...}` |
-| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with ID 999 not found." ...}` |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with 'id' 999 not found." ...}` |
 
 ### Best practices
 
@@ -236,18 +235,18 @@ Always include a valid API token in the Authorization
 header. Production systems should rotate tokens regularly.
 - **Update `status` promptly**\
 To prevent conflicting inquiries, mark pets as `pending`
-as soon as applications arrive. Mark pets as `adopted` when finalizing
-adoption paperwork. Update the `status` back to
+as soon as applications arrive. Mark pets as `adopted` when
+finalizing adoption paperwork. Update the `status` back to
 `available` if the shelter rejects an adoption inquiry, so
 that other applicants can apply.
 - **Include required medical records**\
 To ensure that adoptive families have access to a pet's accurate
-medication information, ensure that the spay/neuter and vaccinations
-are present in the pet profile.
+medication information, ensure that the spay/neuter and
+vaccinations are present in the pet profile.
 - **Verify changes with `GET`**\
 Prevent data inconsistencies by confirming that the intended
 changes persist. Retrieve the recently updated record with
-the `GET` method.
+a `GET` request.
 - **Only update necessary fields**\
 Use the `PATCH` method to only update the intended fields.
 Don't unnecessarily resend the entire pet object.
@@ -268,7 +267,8 @@ Confirm the pet profile `id` is correct. Use
 and cross-check the pet profile's `id` with another field.
 - **Changes didn't persist**\
 Verify the request succeeded with a `200 OK` response.
-Confirm the update by retrieving the pet record with a `GET` request.
+Confirm the update by retrieving the pet record with a `GET`
+request. Revisit common errors to investigate and resolve.
 - **Unsuccessful partial updates**\
 Ensure the request body only includes intended fields.
 If updating nested objects like `medical`, include the full
@@ -281,6 +281,6 @@ to observe pet availability from the adopter perspective.
 - Return to [Find the Perfect Pet](find-perfect-pet.md) to
 understand search workflows.
 - For shelter management features, explore the
-[/shelters endpoint](../../api-reference/shelters.md).
+[/shelters resource](../../api-reference/shelters.md).
 - Visit the [Contribution Guide](../../overview/contribution-guide.md)
-to suggest improvements or report issues.
+to report issues or suggest improvements.

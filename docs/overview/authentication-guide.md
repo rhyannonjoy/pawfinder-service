@@ -55,6 +55,7 @@ Authorization: Bearer API_TOKEN
 #### Authenticated example request
 
 ```bash
+# Recommended base_url = http://localhost:3000
 curl -X POST {base_url}/shelters \
   -H "Authorization: Bearer API_TOKEN" \
   -H "Content-Type: application/json" \
@@ -68,7 +69,7 @@ curl -X POST {base_url}/shelters \
 #### Read-only example request
 
 ```bash
-# Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET {base_url}/shelters
 ```
 
@@ -79,8 +80,8 @@ Return here to set up an API token when using tutorials
 to create, update, or delete PawFinder records.
 
 For development and testing purposes, assign any string as the token.
-In a production environment, PawFinder issues tokens through a proper
-authentication system.
+In a production environment, PawFinder would issue tokens through
+a proper authentication system.
 
 **For local development:**
 
@@ -88,14 +89,14 @@ authentication system.
 start the PawFinder:
 
    ```bash
-   # Option 1: using npm (recommended)
+   # Option 1: use npm (recommended)
    npm run
 
-   # Option 2: using json-server directly
+   # Option 2: call json-server directly
    json-server -w pawfinder-db-source.json
    ```
 
-2. Use any string as the token, such as `test-token`, `dev-token`, etc.
+2. Use any string as the token, such as `"test-token"`, `"dev-token"`, etc.
 3. Pass it in the `Authorization: Bearer` header to perform write operations.
 
 ### Security best practices
@@ -106,8 +107,8 @@ or create an `.env` file and add it to the `.gitignore` file.
 - **Use different tokens for different environments** such as development,
 stage, QA, and production.
 - **Store tokens securely** and treat them like passwords.
-- **Limit token permissions**. In a production environment with a robust backend
-system, use tokens with write-only or read-only scopes as needed.
+- **Limit token permissions**. In a production environment with a robust
+backend system, use tokens with write-only or read-only scopes as needed.
 
 #### Environment variable example
 
@@ -124,7 +125,7 @@ curl -X POST {base_url}/pets \
 
 ### Common error responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
 | `403` | Invalid or expired API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
@@ -132,7 +133,8 @@ curl -X POST {base_url}/pets \
 
 ### Rate limiting
 
-For development and testing, there are currently no strict rate limits,
+For development and testing, there are currently no strict
+[rate limits](https://www.geeksforgeeks.org/system-design/rate-limiting-in-system-design/),
 as `json-server` isn't designed for high-volume traffic. A production
 environment may use rate limiting to:
 

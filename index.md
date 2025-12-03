@@ -26,7 +26,7 @@ Different sections serve different needs:
 - [Overview](./docs/overview/overview.md)\
 Learn key concepts. Discover how different development audiences use the API.
 - [Installation Guide](./docs/overview/installation-guide.md)\
-Set up the development environment before moving on to the tutorials.
+Set up the development environment for hands-on tutorials.
 - [Authentication Guide](./docs/overview/authentication-guide.md)\
 Create API tokens for write operations.
 - [Quickstart Guide](./docs/overview/quickstart-guide.md)\
@@ -38,26 +38,26 @@ Report issues and suggest improvements.
 
 - [API Index](./docs/api-reference/api-index.md)\
 Reference all endpoint operations, parameters, and responses.
-- `/pets` endpoint
+- `/pets` resource
     - [GET /pets?{query_parameters}](./docs/api-reference/get-pets-with-filters.md)\
     Search and filter pet profiles.
     - [GET /pets/{id}](./docs/api-reference/get-pets-by-id.md)\
-    Retrieve detailed information for a specific pet.
-- `/shelters` endpoint
+    Access detailed information for a specific pet.
+- `/shelters` resource
     - [GET /shelters](./docs/api-reference/get-all-shelters.md)\
     Retrieve the profiles of all participating shelters.
     - [GET /shelters/{id}](./docs/api-reference/get-shelters-by-id.md)\
-    Get detailed shelter information and contact details.
+    Fetch detailed shelter information and contact details.
 
 ### Tutorials
 
 - API Fundamentals
     - [Find the Perfect Pet](/docs/tutorials/api-fundamentals/find-perfect-pet.md)\
-    Filter pet profiles by species, breed, shelter, and other criteria.
+    Filter pet profiles by `species`, `breed`, and other criteria.
     - [Mark Pets as Adopted](/docs/tutorials/api-fundamentals/mark-pet-adopted.md)\
     Update a pet profile when finalizing adoptions.
     - [Track Adoption Status](/docs/tutorials/api-fundamentals/track-adoption-status.md)\
-    Follow pet availability and adoption status in real-time.
+    Follow pet availability and adoption `status` in real-time.
 - Building Applications
     - [Build a Location-Aware Search](/docs/tutorials/building-applications/build-location-aware-search.md)\
     Apply proximity filtering and distance calculations.
