@@ -8,8 +8,8 @@ permalink: /docs/api-reference/patch-shelters-by-id/
 
 ## Partially update a shelter profile
 
-This operation edits specific fields of an existing shelter record
-in the PawFinder System.
+This operation edits specific fields of an existing shelter
+record in the PawFinder System.
 
 ### PUT vs PATCH
 
@@ -40,24 +40,19 @@ Authorization: Bearer API_TOKEN
 
 ### Request body
 
-Only include fields that need updating. Omitted fields remain unchanged.
+Only include fields that need updating.
+Omitted fields remain unchanged.
 
-| Property | Type | Description |
-|---|---|---|
-| `name` | string | Shelter's name |
-| `address` | string | Shelter's address information |
-| `phone` | string | Shelter's phone number, E.164 format |
-| `email` | string | Shelter's email address |
-| `hours` | string | Shelter's hours of operation |
-| `available_pet_count` | integer | Shelter's available pets |
-| `adoption_fee_range` | string | Shelter's fee range in United States Dollar |
-
-### Field requirements
-
-| Field | Validation Rule |
-|---|---|
-| `phone` | Must be E.164 format: +1-XXX-XXX-XXXX |
-| `id` | Auto-generated, can't be manually changed |
+| Property | Type | Description | Value Format |
+|---|---|---|---|
+| `name` | string | Shelter's name | Any text |
+| `address` | string | Shelter's location information | Any text |
+| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
+| `email` | string | Shelter's email address | Any text |
+| `hours` | string | Shelter's hours of operation | Any text |
+| `available_pet_count` | integer | Shelter's available pets | Numeric value |
+| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
+| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
 
 ### cURL request
 
@@ -73,11 +68,11 @@ curl -X PATCH {base_url}/shelters/1 \
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `200` | `id` match | `{ "name": "Dallas Animal Services", "address": ...}` |
 | `400` | Invalid field values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }` |
-| `404` | No matching `id` | `{ "error": "Not Found", "message": "Shelter with ID 1 not found.", ...}` |
+| `404` | No matching `id` | `{ "error": "Not Found", "message": "Shelter with 'id' 1 not found.", ...}` |
 
 ### Related topics
 

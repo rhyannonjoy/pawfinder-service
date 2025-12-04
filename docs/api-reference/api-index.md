@@ -8,20 +8,23 @@ permalink: /docs/api-reference/api-index/
 
 ## API Index
 
-**Getting started**: PawFinder is a REST API for managing
+### Getting started
+
+PawFinder is a REST API for managing
 pet adoption data. All endpoints use JSON for requests
 and responses, available at `http://localhost:3000`.
 
-**Authentication**: `GET` requests are public and don't
-require authentication. All write operations -
-`POST`, `PUT`, `PATCH`, and `DELETE` - require a valid
-API token. Visit the
+### Authentication
+
+`GET` requests are public and don't require authentication.
+All write operations - `POST`, `PUT`, `PATCH`, and `DELETE` -
+require a valid API token. Visit the
 [Authentication Guide](../overview/authentication-guide.md)
 for more information.
 
 ### High-level architecture
 
-PawFinder is an educational project using json-server and minimal
+PawFinder is an educational project using `json-server` and minimal
 authentication. A production system would likely use a more robust
 architecture resembling the diagram below:
 
@@ -91,13 +94,13 @@ graph TB
 
 ### Common error responses for all endpoints
 
-| Status Code | Error | Description | Response Example |
-|---|---|---|---|
-| `401` | Unauthorized | Missing API token - write operations only | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." }` |
-| `403` | Forbidden | Invalid or expired API token - write operations only | `{ "error": "Forbidden", "message": "Invalid or expired authentication token." }` |
-| `429` | Too Many Requests | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", "retry_after": 60 }` |
-| `500` | Internal Server Error | Server error occurred | `{ "error": "Internal Server Error", "message": "An unexpected error occurred. Please try again later." }` |
-| `503` | Service Unavailable | API under maintenance | `{ "error": "Service Unavailable", "message": "API is temporarily unavailable for maintenance." }` |
+| Code | Scenario | Response |
+|---|---|---|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation." }` |
+| `403` | Invalid or expired API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token." }` |
+| `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }` |
+| `500` | Server error | `{ "error": "Internal Server Error", "message": "An unexpected error occurred. Please try again later." }` |
+| `503` | API under maintenance | `{ "error": "Service Unavailable", "message": "API is temporarily unavailable for maintenance." }` |
 
 ### Troubleshooting
 

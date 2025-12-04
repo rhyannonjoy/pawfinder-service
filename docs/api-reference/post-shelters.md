@@ -32,28 +32,18 @@ Authorization: Bearer API_TOKEN
 
 ### Request body
 
-All fields required.
+All fields required except for `id`, which is auto-generated.
 
-| Property | Type | Description |
-|---|---|---|
-| `name` | string | Shelter's name |
-| `address` | string | Shelter's address information |
-| `phone` | string | Shelter's phone number, E.164 format |
-| `email` | string | Shelter's email address |
-| `hours` | string | Shelter's hours of operation |
-| `available_pet_count` | integer | Shelter's available pets |
-| `adoption_fee_range` | string | Shelter's fee range in United States Dollar |
-
-### Field requirements
-
-| Field | Validation Rule |
-|---|---|
-| `phone` | Must be E.164 format: +1-XXX-XXX-XXXX |
-
-### `id` generation
-
-PawFinder auto-generates shelter unique identifiers, `id`. The system
-ignores `id` fields in `POST` request bodies or returns a `400` error.
+| Property | Type | Description | Value Format |
+|---|---|---|---|
+| `name` | string | Shelter's name | Any text |
+| `address` | string | Shelter's location information | Any text |
+| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
+| `email` | string | Shelter's email address | Any text |
+| `hours` | string | Shelter's hours of operation | Any text |
+| `available_pet_count` | integer | Shelter's available pets | Numeric value |
+| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
+| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
 
 ### cURL request
 
@@ -75,7 +65,7 @@ curl -X POST {base_url}/shelters \
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `201` | Created | `{ "name": "Plano Animal Services", "address": ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|

@@ -77,12 +77,12 @@ assumes familiarity with the following concepts:
     - [Quickstart Guide](../../overview/quickstart-guide.md)
 - Parsing JSON responses
     - [Working with JSON](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON)
-- JavaScript async/await patterns
-    - [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-    - [How to use promises](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Promises)
+- JavaScript `async/await` patterns
+    - [`async` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+    - [How to use Promises](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Promises)
 - HTML forms and event handling
     - [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events)
-    - [HTMLFormElement: submit event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
+    - [HTMLFormElement: `submit` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event)
 
 Web applications leverage standard web platform APIs such as
 the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
@@ -113,6 +113,7 @@ Make a `GET` request to retrieve all shelters:
 
 ```bash
 # Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/shelters" \
   -H "Content-Type: application/json"
 ```
@@ -122,23 +123,16 @@ A successful response includes shelter objects with location data:
 ```json
 [
   {
-    "id": 1,
     "name": "Dallas Animal Services",
-    "address": "1818 N Westmoreland Rd, Dallas, TX 75211",
-    "phone": "214-671-0249",
-    "hours": "Monday - Friday: 11am - 7pm,
-              Saturday - Sunday: 10am - 5pm",
-    "website": "https://www.dallasanimalservices.org"
+    "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
+    "phone": "+1-214-671-0249",
+    "email": "info@dallasanimalservices.org",
+    "hours": "Mon-Sat 11:00-18:00",
+    "available_pet_count": 22,
+    "adoption_fee_range": "75-200",
+    "id": 1,
   },
-  {
-    "id": 2,
-    "name": "SPCA of Texas",
-    "address": "2400 Lone Star Dr, Dallas, TX 75212",
-    "phone": "214-651-9611",
-    "hours": "Monday - Friday: 11am - 7pm,
-              Saturday - Sunday: 10am - 5pm",
-    "website": "https://www.spca.org"
-  }
+  ...
 ]
 ```
 
@@ -381,7 +375,7 @@ Verify and clean address data from the API response before geocoding.
 If a shelter address fails to geocode, log the error and exclude it
 from distance calculations.
 - **CORS errors when calling Geocoding API**\
-[CORS, Cross-Origin Resource Sharing, errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors)
+[Cross-Origin Resource Sharing errors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors)
 occur when the browser blocks requests to external APIs.
 Ensure that the API key has the correct origins configured,
 and that requests originate from allowed domains.
@@ -427,9 +421,9 @@ Long-running operations should communicate progress to the adopter.
 [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
 or [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
 to display shelters on an interactive map.
-- Check out [Mark a Pet as Adopted](../api-fundamentals/mark-pet-adopted.md) to understand
-adoption workflow management from the shelter perspective.
-- Explore [Track Adoption Status](../api-fundamentals/track-adoption-status.md) to observe pet
-availability changes in real time.
-- Visit the [Contribution Guide](../../overview/contribution-guide.md) to suggest
-improvements or report issues.
+- Check out [Mark a Pet as Adopted](../api-fundamentals/mark-pet-adopted.md)
+to understand adoption workflow management from the shelter perspective.
+- Explore [Track Adoption `status`](../api-fundamentals/track-adoption-status.md)
+to observe pet availability changes in real time.
+- Visit the [Contribution Guide](../../overview/contribution-guide.md)
+to report issues or suggest improvements.

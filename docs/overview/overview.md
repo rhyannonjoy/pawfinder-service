@@ -15,9 +15,10 @@ across the Dallas-Fort Worth area. Real-time data from hundreds of shelters
 makes it easier for people to find their perfect companion and for shelters
 to reach qualified adopters. This API enables developers to:
 
-- Search available pets by species, breed, age, location and temperament
+- Search available pets by `species`, `breed`, `age_months`, `shelter_id`
+and `temperament`
 - Access detailed shelter profiles and contact information
-- Track adoption status updates in real time
+- Track adoption `status` updates in real time
 - Build custom adoption workflows and notification systems
 
 ### Developer journey
@@ -85,7 +86,7 @@ graph LR
 #### Pets
 
 Each pet in the PawFinder system has a unique identifier and includes standardized
-information such as species, breed, age, size, temperament traits, medical history,
+information such as `species`, `breed`, `age_months`, `size`, `temperament`, medical history,
 and current location. Pets transition through adoption statuses tracked by the API.
 
 #### Shelters
@@ -94,9 +95,9 @@ Organizations register as shelters to list pets for adoption. Each shelter maint
 a profile with contact information, operating hours, and adoption details. Shelters
 can update pet listings and adoption statuses through the API.
 
-#### Adoption status
+#### Adoption `status`
 
-Pets progress through defined status states:
+Pets progress through defined `status` states:
 
 - `available`: ready for adoption inquiries
 - `pending`: adoption applications under review
@@ -104,12 +105,13 @@ Pets progress through defined status states:
 
 #### Search filters
 
-PawFinder API supports multi-criteria searches including:
+Filter pet profiles using any combination of these parameters:
 
-- **Species and breed**: cats and dogs only
-- **Characteristics**: age range, gender, size, medical information
-- **Behavioral Traits**: activity level, "good with kids," "good with other pets"
-- **Shelter-specific**: filter by specific shelter
+- **Species**: `cat` or `dog`
+- **Physical traits**: `breed`, `age_months`, `gender`, `size`
+- **Behavior**: `temperament` - activity level, "good with kids"
+- **Location**: `shelter_id`
+- **Availability**: `status`
 
 ### Development use cases
 
@@ -123,7 +125,7 @@ become available.
 #### For shelters
 
 - Integrate PawFinder search into existing shelter websites to increase visibility.
-- Automate adoption status updates across many listing platforms.
+- Automate adoption `status` updates across many listing platforms.
 - Generate analytics reports on inquiry rates and adoption trends.
 
 #### For communities

@@ -14,8 +14,9 @@ features in an adoption platform.
 
 ### Pet search workflow
 
-The sequence diagram below shows how a search request might flow through a production system with a more robust architecture and
-cache optimization for frequently searched queries:
+The sequence diagram below shows how a search request might flow through
+a production system with a more robust architecture and cache optimization
+for frequently searched queries:
 
 ```mermaid
 sequenceDiagram
@@ -64,14 +65,14 @@ This operation doesn't require path parameters.
 This operation accepts the following optional query parameters
 to filter results:
 
-| Parameter | Type | Description |
+| Parameter | Type | Values |
 |-----------|------|-------------|
-| `species` | string | Filter pets by species, `cat`|
-| `status` | string | Filter pets by adoption status, `available`|
-| `breed` | string | Filter pets by breed |
-| `size` | string | Filter pets by size category, `small`|
-| `gender` | string | Filter pets by gender |
-| `shelter_id` | integer | Filter pets by shelter ID |
+| `species` | string | `cat`, `dog` |
+| `status` | string | `available`, `pending`, `adopted` |
+| `breed` | string | `Maine Coon`, `Golden Retriever` |
+| `size` | string | `small`, `medium`, `large` |
+| `gender` | string | `male`, `female` |
+| `shelter_id` | integer | `123`, `456` |
 
 ### Request headers
 
@@ -91,15 +92,16 @@ This operation doesn't require a request body.
 
 ```bash
 # Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET {base_url}/pets?species=cat&status=available
 ```
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
-| `200` | Match found | `[{ "name": "Luna", "species": "cat",...}]` |
-| `200` | No matches | `[]` |
+| `200` | Successful with matches | `[{ "name": "Luna", "species": "cat",...}]` |
+| `200` | Successful without matches | `[]` |
 | `400` | Malformed query parameters | `{ "error": "Bad Request", "message": "Invalid query parameter format", ...}` |
 
 **Successful responses includes a list of pets with the following**:
@@ -113,10 +115,10 @@ curl -X GET {base_url}/pets?species=cat&status=available
 - `temperament`: Pet's personality traits and behavioral characteristics
 - `medical`: Pet's medical information
 - `description`: Pet's personality, needs, background
-- `shelter_id`: ID of pet's current shelter
-- `status`: Pet's adoption status
-- `intake_date`: When the pet entered the shelter
-- `id`: Pet's unique record ID
+- `shelter_id`: Unique identifier of pet's current shelter
+- `status`: Pet's current adoption stage
+- `intake_date`: Pet's shelter entry date
+- `id`: Pet's unique identifer
 
 ### Related topics
 

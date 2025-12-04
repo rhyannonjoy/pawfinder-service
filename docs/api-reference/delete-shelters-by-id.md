@@ -51,11 +51,11 @@ curl -X DELETE {base_url}/shelters/5 \
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
-| `200` | Success | `{ "message": "Shelter with ID 5 successfully deleted.", ... }` |
+| `200` | Success | `{ "message": "Shelter with 'id' 5 successfully deleted.", ... }` |
 | `204` | `NO CONTENT` | No response body |
-| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with ID 5 not found.", ... }` |
+| `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with 'id' 5 not found.", ... }` |
 
 ### Related topics
 

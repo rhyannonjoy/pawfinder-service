@@ -36,7 +36,7 @@ Make sure all software requirements installed correctly.
 For example, ensure [Node.js](https://nodejs.org/en/download)
 and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 are up to date. Run `npm install` in the fork directory,
-then attempt the build again. If using
+then attempt the build again. If directly calling
 [`json-server`](https://www.npmjs.com/package/json-server),
 ensure the version is at least 0.17.4.
 

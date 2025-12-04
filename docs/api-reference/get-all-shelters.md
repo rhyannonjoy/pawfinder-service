@@ -38,15 +38,16 @@ This operation doesn't require a request body.
 
 ```bash
 # Recommended base_url = http://localhost:3000
+# -X GET is optional, as GET is the default operation
 curl -X GET {base_url}/shelters
 ```
 
 ### Example responses
 
-| Status | Scenario | Response |
+| Code | Scenario | Response |
 |---|---|---|
 | `200` | Success | `[{ "name": "Dallas Animal Services", "address": ...}, ...]` |
-| `429` | Exceed rate limit | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
+| `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
 
 **Successful responses includes a list of shelters with the following**:
 
@@ -56,8 +57,8 @@ curl -X GET {base_url}/shelters
 - `email`: Shelter's email address
 - `hours`: Shelter's hours of operation
 - `available_pet_count`: Amount of shelter's available pets
-- `adoption_fee_range`: Shelter's fee range in United States Dollar
-- `id`: Shelter's unique record ID
+- `adoption_fee_range`: Shelter's fee range in United States Dollars
+- `id`: Shelter's unique identifier
 
 ### Related topics
 
