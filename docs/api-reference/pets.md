@@ -8,10 +8,12 @@ permalink: /docs/api-reference/pets-resource/
 
 ## `/pets` resource
 
-This reference contains information about pet profiles stored
-in the PawFinder system. Shelters must register in the service
-before listing a new pet. Visit the
-[shelters resource](shelters.md).
+This resource represents pet profiles in the PawFinder system
+across all adoption stages. Use this endpoint to manage pet
+inventory, power search and filtering features, and track pets
+from intake through adoption. Shelters must register before
+adding new pet profiles, visit the [/shelters resource](shelters.md)
+for details.
 
 Base endpoint:
 
@@ -48,7 +50,27 @@ graph TD
     style H fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
 ```
 
-### Example pet profile
+### Pet profile object fields
+
+| Property name | Type | Description | Value Format |
+| ------------- | ----------- | ----------- |----------- |
+| `name` | string | Pet's name | Any text |
+| `species` | string | Pet's animal type | `cat`, `dog` |
+| `breed` | string | Pet's breed or breed mix | Any text |
+| `age_months` | integer | Pet's age in months | Numeric value |
+| `gender` | string | Pet's gender | `male`, `female` |
+| `size` | string | Pet's size category | `small`, `medium`, `large` |
+| `temperament` | string | Pet's personality traits, behavioral characteristics | Any text |
+| `medical` | object | Pet's medical information | See nested fields below |
+| `medical.spayed_neutered` | boolean | Pet's spay/neuter state | `true` or `false` |
+| `medical.vaccinations` | array | List of pet's current vaccinations | Any text |
+| `description` | string | Pet's personality, needs, background | Any text |
+| `shelter_id` | integer | Unique identifier of pet's current shelter| Numeric value |
+| `status` | string | Pet's current adoption stage | `available`, `pending`, or `adopted`|
+| `intake_date` | string | Pet's shelter entry date | ISO 8601 Format, "YYYY-MM-DD" |
+| `id` | integer | Pet's unique identifier | Auto-generated, read-only |
+
+### Example pet profile object
 
 ```json
 {
@@ -72,28 +94,11 @@ graph TD
 }
 ```
 
-| Property name | Type | Description | Value Format |
-| ------------- | ----------- | ----------- |----------- |
-| `name` | string | Pet's name | Any text |
-| `species` | string | Pet's animal type | `cat`, `dog` |
-| `breed` | string | Pet's breed or breed mix | Any text |
-| `age_months` | integer | Pet's age in months | Numeric value |
-| `gender` | string | Pet's gender | `male`, `female` |
-| `size` | string | Pet's size category | `small`, `medium`, `large` |
-| `temperament` | string | Pet's personality traits, behavioral characteristics | Any text |
-| `medical` | object | Pet's medical information | See nested fields below |
-| `medical.spayed_neutered` | boolean | Pet's spay/neuter state | `true` or `false` |
-| `medical.vaccinations` | array | List of pet's current vaccinations | Any text |
-| `description` | string | Pet's personality, needs, background | Any text |
-| `shelter_id` | integer | Unique identifier of pet's current shelter| Numeric value |
-| `status` | string | Pet's current adoption stage | `available`, `pending`, or `adopted`|
-| `intake_date` | string | Pet's shelter entry date | ISO 8601 Format, "YYYY-MM-DD" |
-| `id` | integer | Pet's unique identifier | Auto-generated, read-only |
-
 ### Operations
 
 - [Get all pet profiles](get-all-pets.md)
 - [Get a pet profile by `id`](get-pets-by-id.md)
+- [Get pet profiles from a specific shelter](get-pets-from-shelter.md)
 - [Get pet profiles using filters](get-pets-with-filters.md)
 - [Create a new pet profile](post-pets.md)
 - [Delete a pet profile](delete-pets-by-id.md)

@@ -65,8 +65,8 @@ json-server -w pawfinder-db-source.json
 ### Step 2: Call the service
 
 ```bash
-# Recommended base_url = http://localhost:3000
 # -X GET is optional, as GET is the default operation
+# Recommended base_url = http://localhost:3000
 curl -X GET "{base_url}/pets"
 ```
 

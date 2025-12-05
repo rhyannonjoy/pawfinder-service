@@ -9,10 +9,11 @@ permalink: /docs/api-reference/patch-pets-by-id/
 ## Partially update a pet profile
 
 This operation updates specific fields of an existing pet
-record without affecting other data. Use this endpoint when
-shelter staff need to edit details without replacing the
-entire pet profile, such as changing a pet's `status`
-to mark them as `adopted`.
+record without affecting other data. Use this operation to
+change adoption `status` as pets move through the intake
+process, add new medical information like recent vaccinations,
+or update individual details without sending the
+complete pet profile.
 
 ### PUT vs PATCH
 
@@ -106,6 +107,7 @@ Omitted fields remain unchanged.
 ### cURL request
 
 ```bash
+# Update values in the pet profile with `id`= 4
 # Recommended base_url = http://localhost:3000
 curl -X PATCH {base_url}/pets/4 \
   -H "Content-Type: application/json" \
@@ -118,12 +120,38 @@ curl -X PATCH {base_url}/pets/4 \
   }'
 ```
 
-### Example responses
+### Success response `200`
+
+Returns the entire pet profile object:
+
+```json
+{
+  "name": "Bella",
+  "species": "dog",
+  "breed": "Golden Retriever",
+  "age_months": 36,
+  "gender": "female",
+  "size": "large",
+  "temperament": "friendly, energetic",
+  "medical": {
+    "spayed_neutered": true,
+    "vaccinations": ["rabies", "dhpp", "leptospirosis"]
+  },
+  "description": "Bella is a friendly dog who loves to play fetch.",
+  "shelter_id": 2,
+  "status": "adopted",
+  "intake_date": "2024-08-15",
+  "id": 4
+}
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `200` | `id` match | `{ "name": "Bella", "species": "dog",...}` |
 | `400` | Invalid `id` | `{ "error": "Bad Request", "message": "Invalid pet 'id'. Must be a positive integer." ...}` |
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
 | `404` | No matching `id` | `{ "error": "Not Found", "message": "Pet with 'id' 4 not found.", ...}` |
 
 ### Related topics

@@ -9,6 +9,8 @@ permalink: /docs/api-reference/get-all-shelters/
 ## Get all shelter profiles
 
 This operation retrieves all shelter profiles in the PawFinder system.
+Use this operation to populate adoption listings, enable browse
+and discovery features, or sync shelter data with external platforms.
 
 ### Endpoint structure
 
@@ -37,28 +39,51 @@ This operation doesn't require a request body.
 ### cURL request
 
 ```bash
-# Recommended base_url = http://localhost:3000
 # -X GET is optional, as GET is the default operation
+# Recommended base_url = http://localhost:3000
 curl -X GET {base_url}/shelters
 ```
 
-### Example responses
+### Response fields
+
+Each shelter profile object contains the following properties:
+
+| Property | Type | Description | Value Format |
+|---|---|---|---|
+| `name` | string | Shelter's name | Any text |
+| `address` | string | Shelter's location information | Any text |
+| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
+| `email` | string | Shelter's email address | Any text |
+| `hours` | string | Shelter's hours of operation | Any text |
+| `available_pet_count` | integer | Shelter's available pets | Numeric value |
+| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
+| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
+
+### Success response `200`
+
+Returns an array of shelter profile objects:
+
+```json
+[
+  {
+    "name": "Dallas Animal Services",
+    "address": "1818 N Westmoreland Rd, Dallas, TX 75212",
+    "phone": "+1-214-671-0249",
+    "email": "info@dallasanimalservices.org",
+    "hours": "Mon-Sat 11:00-18:00",
+    "available_pet_count": 22,
+    "adoption_fee_range": "75-200",
+    "id": 1
+  },
+]
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `200` | Success | `[{ "name": "Dallas Animal Services", "address": ...}, ...]` |
+| `404` | Incorrect endpoint | `{ "error": "Not Found", "message": "The requested endpoint does not exist.", ... }`|
 | `429` | Rate limit exceeded | `{ "error": "Too Many Requests", "message": "Rate limit exceeded. Try again in 60 seconds.", ... }`|
-
-**Successful responses includes a list of shelters with the following**:
-
-- `name`: Shelter's name
-- `address`: Shelter's location information
-- `phone`: Shelter's phone number
-- `email`: Shelter's email address
-- `hours`: Shelter's hours of operation
-- `available_pet_count`: Amount of shelter's available pets
-- `adoption_fee_range`: Shelter's fee range in United States Dollars
-- `id`: Shelter's unique identifier
 
 ### Related topics
 

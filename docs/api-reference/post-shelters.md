@@ -9,6 +9,9 @@ permalink: /docs/api-reference/post-shelters/
 ## Add a new shelter profile
 
 This operation creates a new shelter profile in the PawFinder system.
+Use this operation to onboard new animal shelters and rescue groups,
+register more facility locations for existing organizations, or
+add foster networks that manage pet adoption listings.
 
 ### Endpoint structure
 
@@ -63,13 +66,31 @@ curl -X POST {base_url}/shelters \
 } 
 ```
 
-### Example responses
+### Success response `201 Created`
+
+Returns the created shelter profile with the assigned `id`:
+
+```json
+{ 
+  "name": "Plano Animal Services", 
+  "address": "4028 W Plano Pkwy, Plano, TX 75093", 
+  "phone": "+1-972-769-4360", 
+  "email": "contact@planoanimalservices.org",       
+  "hours": "Mon-Fri 10:00-17:00, Sat 10:00-16:00", 
+  "available_pet_count": 12, 
+  "adoption_fee_range": "80-150",
+  "id": 12
+} 
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `201` | Created | `{ "name": "Plano Animal Services", "address": ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
 | `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }`|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
 
 ### Related topics
 

@@ -65,7 +65,7 @@ through the adoption process:
 ### cURL request examples
 
 ```bash
-# Check if a specific pet is still available
+# Retrieve the pet profile with `id`= 1
 # -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets/1" \
   -H "Content-Type: application/json"
@@ -99,7 +99,8 @@ meaning she is ready for adoption inquiries.
 ---
 
 ```bash
-# Check the `status` of a pet with `pending` adoption inquiries
+# Retrieve the pet profile with `id`= 4
+# -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets/4" \
   -H "Content-Type: application/json"
 ```
@@ -132,7 +133,8 @@ adoption form is under review. Check back later for updates.
 ---
 
 ```bash
-# Check a pet's profile to understand their medical history
+# Retrieve the pet profile with `id`= 3
+# -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets/3" \
   -H "Content-Type: application/json"
 ```

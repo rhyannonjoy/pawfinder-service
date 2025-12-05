@@ -9,6 +9,9 @@ permalink: /docs/api-reference/post-pets/
 ## Add a new pet profile
 
 This operation creates a new pet profile in the PawFinder system.
+Use this operation to add newly intake animals to shelter inventory,
+list pets for adoption after medical clearance and evaluation, or
+register animals transferred from other facilities.
 
 ### Endpoint structure
 
@@ -75,17 +78,44 @@ curl -X POST {base_url}/pets \
                         who loves exploring.", 
          "shelter_id": 1, 
          "status": "available", 
-         "intake_date": "2025-11-12" 
+         "intake_date": "2025-12-04" 
 } 
 ```
 
-### Example responses
+### Success response `201 Created`
+
+Returns the created pet profile with the assigned `id`:
+
+```json
+{ 
+  "name": "Charlie", 
+  "species": "dog", 
+  "breed": "Beagle", 
+  "age_months": 24, 
+  "gender": "male", 
+  "size": "medium", 
+  "temperament": "curious, friendly", 
+  "medical": { 
+    "spayed_neutered": true, 
+    "vaccinations": ["rabies", "dhpp"] 
+  }, 
+  "description": "Charlie is a friendly beagle
+                 who loves exploring.", 
+  "shelter_id": 1, 
+  "status": "available", 
+  "intake_date": "2025-11-12",
+  "id": 42
+} 
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `201` | Created | `{ "name": "Charlie", "species": "dog", ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
 | `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'species'. Must be one of 'cat', 'dog'.", ... }`|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
 
 ### Related topics
 
