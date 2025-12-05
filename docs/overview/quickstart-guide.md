@@ -64,18 +64,20 @@ json-server -w pawfinder-db-source.json
 
 ### Step 2: Call the service
 
+#### Use cURL
+
 ```bash
 # -X GET is optional, as GET is the default operation
 # Recommended base_url = http://localhost:3000
 curl -X GET "{base_url}/pets"
 ```
 
-### Use Postman desktop app
+#### Use Postman desktop app
 
 1. Open the Postman desktop app
-2. Create a new request
-3. Set the method to `GET`
-4. Enter the URL: `{base_url}/pets`
+2. Select the `+` button to create a new request
+3. Select `GET` from HTTP method drop-down list
+4. Add the URL: `{base_url}/pets`
 5. Click **Send**
 
 ### Step 3: Review the response

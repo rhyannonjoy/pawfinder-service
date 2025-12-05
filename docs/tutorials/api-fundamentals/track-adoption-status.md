@@ -62,7 +62,23 @@ through the adoption process:
 | `pending` | Adoption form under review |
 | `adopted` | Successfully placed with a family |
 
-### cURL request examples
+### Start the service
+
+```bash
+# Run from the pawfinder-service root directory
+npm start
+```
+
+Review [Find the Perfect Pet](find-perfect-pet.md)
+for an alternative startup method.
+
+### Call the service
+
+Use cURL commands or the Postman desktop app to make requests.
+For detailed Postman setup steps, visit the
+[Installation Guide](../../overview/installation-guide.md).
+
+#### Use cURL
 
 ```bash
 # Retrieve the pet profile with `id`= 1
@@ -70,6 +86,10 @@ through the adoption process:
 curl -X GET "{base_url}/pets/1" \
   -H "Content-Type: application/json"
 ```
+
+#### Use Postman desktop app
+
+Set up a `GET` request to `{base_url}/pets/1`
 
 **Response** `200 OK` - Luna's `status` is `available`,
 meaning she is ready for adoption inquiries.

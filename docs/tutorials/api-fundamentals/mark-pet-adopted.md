@@ -116,13 +116,29 @@ an adoption form or the applicant withdraws.
 - Once a pet reaches `adopted`, they typically remain in that state.
 Don't perform reversals unless correcting data entry errors.
 
-### cURL request examples
+### Start the service
+
+```bash
+# Run from the pawfinder-service root directory
+npm start
+```
+
+Review [Find the Perfect Pet](find-perfect-pet.md)
+for an alternative startup method.
+
+### Call the service
+
+Use cURL commands or the Postman desktop app to make requests.
+For detailed Postman setup steps, visit the
+[Installation Guide](../../overview/installation-guide.md).
 
 **Example 1**: mark a pet as `adopted`
 
 An adopter completes paperwork for Luna, pet profile `id` = 1,
 at Dallas Animal Services. Update Luna's `status` to reflect
 the finalized adoption.
+
+#### Use cURL
 
 ```bash
 curl -X PATCH "{base_url}/pets/1" \
@@ -131,6 +147,16 @@ curl -X PATCH "{base_url}/pets/1" \
   -d '{
     "status": "adopted"
   }'
+```
+
+#### Use Postman desktop app
+
+Set up a `PATCH` request to `{base_url}/pets/1` with the request body:
+
+```json
+{
+  "status": "adopted"
+}
 ```
 
 **Response** `200 OK` - the response confirms that Luna's status

@@ -81,19 +81,44 @@ REST conventions.
 | `_sort` | string | Field to sort by | `name`, `age`, `intake_date` |
 | `_order` | string | Sort direction | default `desc` |
 
-### cURL request examples
+### Start the service
 
-Below are common search scenarios. The first two show complete responses.
-See the "Best practices" section below for handling larger result
-sets with pagination.
+```bash
+# Option 1: use npm (recommended)
+# Run from the pawfinder-service root directory
+npm start
+```
 
-**Example 1**: find all available dogs
+```bash
+# Option 2: call json-server directly
+# Run from the pawfinder-service api directory
+cd api
+json-server -w pawfinder-db-source.json
+```
+
+### Call the service
+
+Use cURL commands or the Postman desktop app to make requests.
+For detailed Postman setup steps, visit the
+[Installation Guide](../../overview/installation-guide.md).
+
+The examples below show common search scenarios. The first two
+include complete responses. See the "Best practices" section
+below for handling larger result sets with pagination.
+
+**Example 1**: fetch the profiles of all available dogs
+
+#### Use cURL
 
 ```bash
 # -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets?species=dog&status=available" \
   -H "Content-Type: application/json"
 ```
+
+#### Use Postman desktop app
+
+Set up a `GET` request to `{base_url}/pets?species=dog&status=available`
 
 **Response** `200 OK`
 
@@ -126,7 +151,8 @@ curl -X GET "{base_url}/pets?species=dog&status=available" \
 ]
 ```
 
-**Example 2**: find all available cats at Dallas Animal Services
+**Example 2**: access the profiles of all available cats
+at Dallas Animal Services
 
 ```bash
 # -X GET is optional, as GET is the default operation
