@@ -10,7 +10,10 @@
       "temperament": "playful, affectionate",
       "medical": {
         "spayed_neutered": true,
-        "vaccinations": ["fvrcp", "rabies"]
+        "vaccinations": [
+          "fvrcp",
+          "rabies"
+        ]
       },
       "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
       "shelter_id": 1,
@@ -28,7 +31,11 @@
       "temperament": "energetic, loyal",
       "medical": {
         "spayed_neutered": true,
-        "vaccinations": ["rabies", "dhpp", "leptospirosis"]
+        "vaccinations": [
+          "rabies",
+          "dhpp",
+          "leptospirosis"
+        ]
       },
       "description": "Max is an active dog who needs regular exercise and responds well to commands.",
       "shelter_id": 2,
@@ -46,7 +53,11 @@
       "temperament": "vocal, intelligent",
       "medical": {
         "spayed_neutered": true,
-        "vaccinations": ["fvrcp", "rabies", "felv"]
+        "vaccinations": [
+          "fvrcp",
+          "rabies",
+          "felv"
+        ]
       },
       "description": "Whiskers is a talkative senior Siamese who enjoys gentle attention.",
       "shelter_id": 3,
@@ -64,7 +75,10 @@
       "temperament": "friendly, energetic",
       "medical": {
         "spayed_neutered": false,
-        "vaccinations": ["rabies", "dhpp"]
+        "vaccinations": [
+          "rabies",
+          "dhpp"
+        ]
       },
       "description": "Bella is a young lab who loves to play fetch and swim.",
       "shelter_id": 4,
@@ -82,13 +96,37 @@
       "temperament": "gentle, calm",
       "medical": {
         "spayed_neutered": true,
-        "vaccinations": ["fvrcp", "rabies"]
+        "vaccinations": [
+          "fvrcp",
+          "rabies"
+        ]
       },
       "description": "Oliver is a gentle giant who loves to be brushed and cuddled.",
       "shelter_id": 1,
       "status": "available",
       "intake_date": "2025-08-15",
       "id": 5
+    },
+    {
+      "name": "Charlotte",
+      "species": "dog",
+      "breed": "Beagle",
+      "age_months": 24,
+      "gender": "male",
+      "size": "medium",
+      "temperament": "curious, friendly",
+      "medical": {
+        "spayed_neutered": true,
+        "vaccinations": [
+          "rabies",
+          "dhpp"
+        ]
+      },
+      "description": "Charlotte is a friendly beagle who loves exploring.",
+      "shelter_id": 1,
+      "status": "available",
+      "intake_date": "2025-11-12",
+      "id": 8328
     }
   ],
   "shelters": [

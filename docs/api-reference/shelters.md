@@ -8,10 +8,13 @@ permalink: /docs/api-reference/shelters-resource/
 
 ## `/shelters` resource
 
-This reference provides information about animal shelters
-and rescue organizations in the PawFinder network. Shelters
-must register in the service before listing pets for adoption.
-Visit the [pets resource](pets.md).
+This resource represents animal shelters and rescue organizations
+in the PawFinder network. Use this endpoint to manage shelter
+profiles, display shelter contact information and operating hours,
+and track facility details like location and pet availability
+numbers. Shelters must register before adding pet profiles,
+visit the [/pets resource](pets.md) for pet profile
+management details.
 
 Base endpoint:
 
@@ -46,7 +49,20 @@ graph TD
     style G fill:#cc848a,stroke:#333,stroke-width:2px,color:#000
 ```
 
-### Example shelter profile
+### Shelter profile object fields
+
+| Property | Type | Description | Value Format |
+|---|---|---|---|
+| `name` | string | Shelter's name | Any text |
+| `address` | string | Shelter's location information | Any text |
+| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
+| `email` | string | Shelter's email address | Any text |
+| `hours` | string | Shelter's hours of operation | Any text |
+| `available_pet_count` | integer | Shelter's available pets | Numeric value |
+| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
+| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
+
+### Example shelter profile object
 
 ```json
 {
@@ -60,17 +76,6 @@ graph TD
   "id": 1
 }
 ```
-
-| Property | Type | Description | Value Format |
-|---|---|---|---|
-| `name` | string | Shelter's name | Any text |
-| `address` | string | Shelter's location information | Any text |
-| `phone` | string | Shelter's phone number | E.164 format: "+1-XXX-XXX-XXXX" |
-| `email` | string | Shelter's email address | Any text |
-| `hours` | string | Shelter's hours of operation | Any text |
-| `available_pet_count` | integer | Shelter's available pets | Numeric value |
-| `adoption_fee_range` | string | Shelter's fee range | United States Dollars |
-| `id` | integer | Shelter's unique identifier | Auto-generated, read-only |
 
 ### Operations
 

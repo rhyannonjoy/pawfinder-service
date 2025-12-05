@@ -129,6 +129,7 @@ curl -X GET "{base_url}/pets?species=dog&status=available" \
 **Example 2**: find all available cats at Dallas Animal Services
 
 ```bash
+# -X GET is optional, as GET is the default operation
 curl -X GET "{base_url}/pets?species=cat&shelter_id=1&status=available" \
   -H "Content-Type: application/json"
 ```
@@ -181,20 +182,20 @@ curl -X GET "{base_url}/pets?species=cat&shelter_id=1&status=available" \
 **More Examples**:
 
 ```bash
-# Find all Maine Coons (exact breed match required)
+# Retrieve all the profiles of Maine Coon cats (exact match required)
 curl -X GET "{base_url}/pets?species=cat&breed=Maine%20Coon" \
   -H "Content-Type: application/json"
 ```
 
 ```bash
 # Work with large sets of pet data
-# Get the first 2 results sorted by `name` in ascending order
+# Fetch the first 2 results sorted by `name` in ascending order
 curl -X GET "{base_url}/pets?_limit=2&_start=0&_sort=name&_order=asc" \
   -H "Content-Type: application/json"
 ```
 
 ```bash
-# Find dogs sorted by how recently they arrived at the shelter
+# Find dog profiles sorted by how recently they arrived at the shelter
 curl -X GET "{base_url}/pets?species=dog&shelter_id=2&_sort=intake_date&_order=desc" \
   -H "Content-Type: application/json"
 ```

@@ -8,8 +8,11 @@ permalink: /docs/api-reference/put-pets-by-id/
 
 ## Replace a pet profile
 
-This operation edits all fields of an existing pet record
-in the PawFinder System.
+This operation replaces all fields of an existing pet record with
+new data. Use this operation to correct major data entry errors
+across many fields, update complete pet information after
+comprehensive medical evaluations, or standardize pet profiles
+when migrating from legacy systems.
 
 ### PUT vs PATCH
 
@@ -63,6 +66,7 @@ All fields required except `id`, which is auto-generated.
 ### cURL request
 
 ```bash
+# Replace all data for the pet profile with `id`= 4
 # Recommended base_url = http://localhost:3000
 curl -X PUT {base_url}/pets/4 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
@@ -87,13 +91,40 @@ curl -X PUT {base_url}/pets/4 \
 } 
 ```
 
-### Example responses
+### Success response `200`
+
+Returns the created pet profile complete with the `id`:
+
+```json
+{ 
+  "name": "Bella", 
+  "species": "dog", 
+  "breed": "Labrador Retriever", 
+  "age_months": 12, 
+  "gender": "female", 
+  "size": "large", 
+  "temperament": "friendly, energetic", 
+  "medical": { 
+    "spayed_neutered": true, 
+    "vaccinations": ["rabies", "dhpp", "leptospirosis"] 
+  }, 
+  "description": "Bella is a young lab who loves
+                to play fetch and swim.", 
+  "shelter_id": 4, 
+  "status": "adopted", 
+  "intake_date": "2025-10-01",
+  "id": 4 
+} 
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `200` | Success | `{ "name": "Bella", "species": "dog", ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
 | `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'species'. Must be one of: 'cat', 'dog'.", ... }`|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
 | `404` | Invalid `id` | `{ "error": "Not Found", "message": "Pet with 'id' 4 not found.", ... }`|
 
 ### Related topics

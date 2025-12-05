@@ -8,8 +8,11 @@ permalink: /docs/api-reference/put-shelters-by-id/
 
 ## Replace a shelter profile
 
-This operation edits all fields of an existing shelter
-record in the PawFinder System.
+This operation replaces all fields of an existing shelter
+record with new data. Use this operation to correct major
+data entry errors across many fields, update complete
+shelter information after moving facilities, or standardize
+shelter profiles when migrating from legacy systems.
 
 ### PUT vs PATCH
 
@@ -56,6 +59,7 @@ All fields required except for `id`, which is auto-generated.
 ### cURL request
 
 ```bash
+# Replace all data for the shelter profile with `id`= 1
 # Recommended base_url = http://localhost:3000
 curl -X PUT {base_url}/shelters/1 \
   -H "Authorization: Bearer pawfinder-secret-2025" \
@@ -71,13 +75,31 @@ curl -X PUT {base_url}/shelters/1 \
 }   
 ```
 
-### Example responses
+### Success response `200`
+
+Returns the created shelter profile complete with the `id`:
+
+```json
+{ 
+  "name": "Dallas Animal Services", 
+  "address": "1818 N Westmoreland Rd, Dallas, TX 75212", 
+  "phone": "+1-214-671-0249", 
+  "email": "info@dallasanimalservices.org", 
+  "hours": "Mon-Sat 11:00-19:00", 
+  "available_pet_count": 25, 
+  "adoption_fee_range": "75-200",
+  "id": 1 
+}   
+```
+
+### Error responses
 
 | Code | Scenario | Response |
 |---|---|---|
-| `200` | Success | `{ "name": "Dallas Animal Services", "address": ...}` |
 | `400` | Missing values | `{ "error": "Bad Request", "message": "Missing required field: name", ... }`|
 | `400` | Invalid values | `{ "error": "Bad Request", "message": "Invalid value for 'adoption_fee_range'. Must be in USD.", ... }`|
+| `401` | Missing API token | `{ "error": "Unauthorized", "message": "Authentication token is required for this operation.", ... }` |
+| `403` | Invalid API token | `{ "error": "Forbidden", "message": "Invalid or expired authentication token.", ...}` |
 | `404` | Invalid `id` | `{ "error": "Not Found", "message": "Shelter with 'id' 1 not found.", ... }`|
 
 ### Related topics

@@ -112,8 +112,8 @@ PawFinder shelter profiles include address information.
 Make a `GET` request to retrieve all shelters:
 
 ```bash
-# Recommended base_url = http://localhost:3000
 # -X GET is optional, as GET is the default operation
+# Recommended base_url = http://localhost:3000
 curl -X GET "{base_url}/shelters" \
   -H "Content-Type: application/json"
 ```
