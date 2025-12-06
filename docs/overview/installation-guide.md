@@ -68,7 +68,7 @@ graph LR
 5. Once forked, clone the repository locally using either
 GitHub Desktop or the command line.
 
-**Clone using GitHub Desktop:**
+**Clone with GitHub Desktop:**
 
 1. Open GitHub Desktop
 2. Click **File** > **Clone Repository**
@@ -77,7 +77,7 @@ GitHub Desktop or the command line.
 5. Choose a local path for the project
 6. Click **Clone**
 
-**Clone using the command line:**
+**Clone on the command line:**
 
 ```bash
 git clone https://github.com/USERNAME/pawfinder-service.git
@@ -98,7 +98,7 @@ npm install
 
 #### Step 1: Create and checkout a test branch
 
-**Using GitHub Desktop:**
+**Use GitHub Desktop:**
 
 1. Open GitHub Desktop
 2. Click the **Current Repository** dropdown in the top-left corner
@@ -112,7 +112,7 @@ npm install
 GitHub Desktop automatically switches to the new `tutorial-test` branch.
 The **Current Branch** dropdown should display `tutorial-test`.
 
-**Using the command line:**
+**Use the command line:**
 
 ```bash
 cd pawfinder-service
@@ -136,19 +136,19 @@ json-server -w pawfinder-db-source.json
 
 #### Step 3: Test the service
 
-**Using cURL**
+**Use cURL**
 
 ```bash
 # -X GET is optional, as GET is the default operation
 curl -X GET http://localhost:3000/shelters
 ```
 
-**Using Postman desktop app**
+**Use Postman desktop app**
 
 1. Open the Postman desktop app
-2. Create a new request
-3. Set the method to `GET`
-4. Enter the URL: `http://localhost:3000/shelters`
+2. Select the `+` button to create a new request
+3. Select `GET` from the HTTP method drop-down list
+4. Add the URL: `http://localhost:3000/shelters`
 5. Click **Send**
 6. Review the response
 

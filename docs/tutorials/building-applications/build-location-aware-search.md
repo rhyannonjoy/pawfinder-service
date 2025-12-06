@@ -108,17 +108,38 @@ Location-aware search follows this workflow:
 
 ### Step 1: Retrieve shelter data from PawFinder
 
-PawFinder shelter profiles include address information.
-Make a `GET` request to retrieve all shelters:
+#### Start the service
 
 ```bash
+# Run from the pawfinder-service root directory
+npm start
+```
+
+Review [Find the Perfect Pet](../api-fundamentals/find-perfect-pet.md)
+for an alternative startup method.
+
+#### Call the service
+
+Use cURL commands or the Postman desktop app to make requests.
+For detailed Postman setup steps, visit the
+[Installation Guide](../../overview/installation-guide.md).
+
+**Use cURL**
+
+```bash
+# Retrieve all shelter profiles
 # -X GET is optional, as GET is the default operation
 # Recommended base_url = http://localhost:3000
 curl -X GET "{base_url}/shelters" \
   -H "Content-Type: application/json"
 ```
 
-A successful response includes shelter objects with location data:
+**Use Postman desktop app**
+
+Set up a `GET` request to `{base_url}/shelters`
+
+**Response** `200 OK` - returns an array of shelter profile
+objects with location data:
 
 ```json
 [
