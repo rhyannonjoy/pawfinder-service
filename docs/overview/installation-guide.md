@@ -148,7 +148,7 @@ curl -X GET http://localhost:3000/shelters
 1. Open the Postman desktop app
 2. Select the `+` button to create a new request
 3. Select `GET` from the HTTP method drop-down list
-4. Enter the URL: `http://localhost:3000/shelters`
+4. Add the URL: `http://localhost:3000/shelters`
 5. Click **Send**
 6. Review the response
 
