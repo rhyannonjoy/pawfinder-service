@@ -107,8 +107,7 @@ meaning she is ready for adoption inquiries.
     "spayed_neutered": true,
     "vaccinations": ["fvrcp", "rabies"]
   },
-  "description": "Luna is a playful tabby who loves interactive 
-                 toys and sunny windows.",
+  "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
   "shelter_id": 1,
   "status": "available",
   "intake_date": "2025-09-01",
@@ -141,8 +140,7 @@ adoption form is under review. Check back later for updates.
     "spayed_neutered": false,
     "vaccinations": ["rabies", "dhpp"]
   },
-  "description": "Bella is a young lab who loves to play fetch 
-                 and swim.",
+  "description": "Bella is a young lab who loves to play fetch and swim.",
   "shelter_id": 4,
   "status": "pending",
   "intake_date": "2025-10-01",
@@ -176,8 +174,7 @@ to adoption.
     "spayed_neutered": true,
     "vaccinations": ["fvrcp", "rabies", "felv"]
   },
-  "description": "Whiskers is a talkative senior Siamese who 
-                 enjoys gentle attention.",
+  "description": "Whiskers is a talkative senior Siamese who enjoys gentle attention.",
   "shelter_id": 3,
   "status": "available",
   "intake_date": "2025-06-10",
