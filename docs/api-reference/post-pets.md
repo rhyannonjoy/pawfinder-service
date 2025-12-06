@@ -74,8 +74,7 @@ curl -X POST {base_url}/pets \
             "spayed_neutered": true, 
             "vaccinations": ["rabies", "dhpp"] 
           }, 
-         "description": "Charlie is a friendly beagle
-                        who loves exploring.", 
+         "description": "Charlie is a friendly beagle who loves exploring.", 
          "shelter_id": 1, 
          "status": "available", 
          "intake_date": "2025-12-04" 
@@ -99,8 +98,7 @@ Returns the created pet profile with the assigned `id`:
     "spayed_neutered": true, 
     "vaccinations": ["rabies", "dhpp"] 
   }, 
-  "description": "Charlie is a friendly beagle
-                 who loves exploring.", 
+  "description": "Charlie is a friendly beagle who loves exploring.", 
   "shelter_id": 1, 
   "status": "available", 
   "intake_date": "2025-11-12",

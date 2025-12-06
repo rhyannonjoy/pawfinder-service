@@ -175,8 +175,7 @@ changed from `available` to `adopted`.
     "spayed_neutered": true,
     "vaccinations": ["fvrcp", "rabies"]
   },
-  "description": "Luna is a playful tabby who loves interactive 
-                 toys and sunny windows.",
+  "description": "Luna is a playful tabby who loves interactive toys and sunny windows.",
   "shelter_id": 1,
   "status": "adopted",
   "intake_date": "2025-09-01",

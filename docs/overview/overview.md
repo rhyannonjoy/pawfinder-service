@@ -117,8 +117,8 @@ Filter pet profiles using any combination of these parameters:
 
 #### For adopters
 
-- Build mobile apps that send push notifications when pets matching user preferences
-become available.
+- Build mobile apps that send push notifications when pets matching user
+preferences become available.
 - Create location-aware web apps that display nearby adoptable pets.
 - Develop pet comparison tools that help users understand different characteristics.
 
